@@ -15,8 +15,6 @@ Public Class formMain
         testVigenere()
         'testStraddlingCheckerboard()
 
-        'lblCiphertext.Text = encodeCaesar("ramachadran kaniyur", 1)
-
         tmrHover.Interval = HOVER_EFFECT_INTERVAL
 
         positionElements()
@@ -45,7 +43,7 @@ Public Class formMain
 
         ' btnStraddlingCheckerboard
         btnStraddlingCheckerboard.placeRight(lblCodesAndCiphers, (Me.Width - lblCodesAndCiphers.Width - btnCaesar.Width) / 3)
-        btnStraddlingCheckerboard.placeUnder(btnVigenere, BUTTON_MARGIN)
+        btnStraddlingCheckerboard.placeBelow(btnVigenere, BUTTON_MARGIN)
 
     End Sub
 
@@ -91,5 +89,23 @@ Public Class formMain
         If currentHoverCharacter >= beforeHoverText.Length Then
             currentHoverCharacter = 0
         End If
+    End Sub
+
+    Private Sub btnCaesar_Click(sender As Object, e As EventArgs) Handles btnCaesar.Click
+        formCaesar.Show()
+        Threading.Thread.Sleep(150)
+        Me.Hide()
+    End Sub
+
+    Private Sub btnVigenere_Click(sender As Object, e As EventArgs) Handles btnVigenere.Click
+        formVigenere.Show()
+        Threading.Thread.Sleep(150)
+        Me.Hide()
+    End Sub
+
+    Private Sub btnStraddlingCheckerboard_Click(sender As Object, e As EventArgs) Handles btnStraddlingCheckerboard.Click
+        formStraddlingCheckerboard.Show()
+        Threading.Thread.Sleep(150)
+        Me.Hide()
     End Sub
 End Class

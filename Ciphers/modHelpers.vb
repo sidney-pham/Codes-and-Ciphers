@@ -94,7 +94,7 @@ Public Module modHelpers
     End Sub
 
     <Extension()>
-    Sub placeUnder(control As Object, relativeControl As Object, pixels As Integer)
+    Sub placeBelow(control As Object, relativeControl As Object, pixels As Integer)
         control.Top = relativeControl.Top + relativeControl.Height + pixels
     End Sub
 
@@ -103,19 +103,34 @@ Public Module modHelpers
         control.Left = relativeControl.Left + relativeControl.Width + pixels
     End Sub
 
+    <Extension()>
+    Sub placeLeft(control As Object, relativeControl As Object, pixels As Integer)
+        control.Left = relativeControl.Left - relativeControl.Width - pixels
+    End Sub
+
     ' BORDER DRAWING
+
     <Extension()>
     Sub drawBorder(control As Control, color As Color)
         Dim g As Graphics = control.FindForm().CreateGraphics()
         Dim pen As New Pen(color, 4)
 
         'make sure control argument is a textbox
-        If TypeOf (control) Is TextBox Then
-            g.DrawRectangle(pen, New Rectangle(control.Location, control.Size))
-        End If
+        'If TypeOf (control) Is TextBox Then
+        g.DrawRectangle(pen, New Rectangle(control.Location, control.Size))
+        'End If
 
         pen.Dispose()
         g.Dispose()
+    End Sub
+
+    ' This is used inside the onPaint event. Not really reusable idk why.
+    <Extension()>
+    Sub drawBottomBorder(control As Control, g As Graphics, color As Color)
+        Dim pen As New Pen(color, 4)
+        g.DrawLine(pen, New Point(control.Left, control.Top + control.Height), New Point(control.Left + control.Width, control.Top + control.Height))
+
+        pen.Dispose()
     End Sub
 
     ' CHANGING A CHARACTER IN A STRNIG

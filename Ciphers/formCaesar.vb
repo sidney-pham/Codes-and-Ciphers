@@ -1,7 +1,15 @@
 ﻿Public Class formCaesar
+    ' SHOULD REALLY BE A CONSTANT, BUT VB SAYS THIS ISN'T A "CONSTANT VALUE"
+    Private TEXTBOX_FOCUS_BORDER_COLOR As Color = Color.DeepSkyBlue
+    Private TEXTBOX_UNFOCUS_BORDER_COLOR As Color = Color.WhiteSmoke
+
     Private selectedMenuButton As Control
+    Private currentTextbox As Control
+
+    Private textboxModifying As Boolean = False
 
     Private Sub formCaesar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        currentTextbox = txtPlaintext
         positionElements()
     End Sub
 
@@ -9,6 +17,8 @@
         Const MENU_PADDING = 10
         Const MENU_CONTENT_MARGIN = 5
         Const DEMO_TEXTBOX_MARGIN = 80
+        Const TEXTBOX_WIDTH = 0.8
+        Const TEXTBOX_HEIGHT = 0.3
 
         ' lblCaesarCipher
         lblCaesarCipher.horizontallyCentre()
@@ -60,16 +70,26 @@
         pnlDemo.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
 
         ' txtPlaintext
-        txtPlaintext.Width = pnlDemo.Width * 0.4
-        txtPlaintext.Height = pnlDemo.Height * 0.8
-        txtPlaintext.Left = pnlDemo.Width / 2 - DEMO_TEXTBOX_MARGIN / 2 - txtPlaintext.Width
-        txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height / 2
+        txtPlaintext.Width = pnlDemo.Width * TEXTBOX_WIDTH
+        txtPlaintext.Height = pnlDemo.Height * TEXTBOX_HEIGHT
+        'txtPlaintext.Left = pnlDemo.Width / 2 - DEMO_TEXTBOX_MARGIN / 2 - txtPlaintext.Width
+        'txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height / 2
+        txtPlaintext.Left = pnlDemo.Width / 2 - txtPlaintext.Width / 2
+        txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height - DEMO_TEXTBOX_MARGIN / 2 + 100
 
         ' txtCiphertext
-        txtCiphertext.Width = pnlDemo.Width * 0.4
-        txtCiphertext.Height = pnlDemo.Height * 0.8
-        txtCiphertext.placeRight(txtPlaintext, DEMO_TEXTBOX_MARGIN)
-        txtCiphertext.Top = pnlDemo.Height / 2 - txtPlaintext.Height / 2
+        txtCiphertext.Width = pnlDemo.Width * TEXTBOX_WIDTH
+        txtCiphertext.Height = pnlDemo.Height * TEXTBOX_HEIGHT
+        txtCiphertext.Left = pnlDemo.Width / 2 - txtCiphertext.Width / 2
+        txtCiphertext.placeBelow(txtPlaintext, DEMO_TEXTBOX_MARGIN)
+
+        ' lblPlaintext
+        lblPlaintext.Left = txtPlaintext.Left
+        lblPlaintext.placeAbove(txtPlaintext, 10)
+
+        ' lblCiphertext
+        lblCiphertext.Left = txtCiphertext.Left
+        lblCiphertext.placeAbove(txtCiphertext, 10)
 
         ' ------------------------------------------------------------------------
         ' pnlCracking
@@ -105,6 +125,8 @@
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        btnAbout.PerformClick()
+
         formMain.Show()
         Threading.Thread.Sleep(150)
         Me.Hide()
@@ -151,7 +173,19 @@
     End Sub
 
     Private Sub txtPlaintext_TextChanged(sender As Object, e As EventArgs) Handles txtPlaintext.TextChanged
-        txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, 4)
+        If Not textboxModifying Then
+            textboxModifying = True
+            txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, 4)
+            textboxModifying = False
+        End If
+    End Sub
+
+    Private Sub txtCiphertext_TextChanged(sender As Object, e As EventArgs) Handles txtCiphertext.TextChanged
+        If Not textboxModifying Then
+            textboxModifying = True
+            txtPlaintext.Text = encodeCaesar(txtCiphertext.Text, -4)
+            textboxModifying = False
+        End If
     End Sub
 
     Private Sub txtPlaintext_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPlaintext.KeyDown
@@ -167,4 +201,22 @@
             e.SuppressKeyPress = True
         End If
     End Sub
+
+    Private Sub pnlDemo_Paint(sender As Object, e As PaintEventArgs) Handles pnlDemo.Paint
+        txtPlaintext.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
+        txtCiphertext.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
+        currentTextbox.drawBorderInPanel(e.Graphics, TEXTBOX_FOCUS_BORDER_COLOR)
+    End Sub
+
+    Private Sub txtPlaintext_GotFocus(sender As Object, e As EventArgs) Handles txtPlaintext.GotFocus
+        currentTextbox = txtPlaintext
+        pnlDemo.Refresh()
+    End Sub
+
+    Private Sub txtCiphertext_GotFocus(sender As Object, e As EventArgs) Handles txtCiphertext.GotFocus
+        currentTextbox = txtCiphertext
+        pnlDemo.Refresh()
+    End Sub
+
+
 End Class

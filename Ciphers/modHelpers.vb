@@ -48,7 +48,10 @@ Public Module modHelpers
 
     ' HELPER FUNCTIONS:
     Function shiftLetter(letter As Char, rot As Integer) As Char
-        rot = rot Mod 26
+        'rot = rot Mod LENGTH_OF_ALPHABET
+        ' WHY DO ALL LANGUAGES HAVE THE WEIRDEST BEHAVIOUR FOR NEGATIVE NUMBERS WITH MOD
+        ' this formula is taken from http://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain because i'm too dumb to think.
+        rot = (rot Mod LENGTH_OF_ALPHABET + LENGTH_OF_ALPHABET) Mod LENGTH_OF_ALPHABET
 
         Dim newLetter As Char = ALPHABET((ALPHABET.IndexOf(letter) + rot) Mod LENGTH_OF_ALPHABET)
 
@@ -62,7 +65,7 @@ Public Module modHelpers
         Debug.Assert(encodeCaesar("abc", 1) = "BCD")
         Debug.Assert(encodeCaesar("abc", 2) = "CDE")
         Debug.Assert(encodeCaesar("abc", 25) = "ZAB")
-        Debug.Assert(encodeCaesar("abc", 26) = "ABC")
+        Debug.Assert(encodeCaesar("abc", LENGTH_OF_ALPHABET) = "ABC")
         Debug.Assert(encodeCaesar("abc", 27) = "BCD")
         Debug.Print("All tests Passed!!!!!")
     End Sub
@@ -129,6 +132,16 @@ Public Module modHelpers
     Sub drawBottomBorder(control As Control, g As Graphics, color As Color)
         Dim pen As New Pen(color, 4)
         g.DrawLine(pen, New Point(control.Left, control.Top + control.Height), New Point(control.Left + control.Width, control.Top + control.Height))
+
+        pen.Dispose()
+    End Sub
+
+    ' Better border drawing
+    <Extension()>
+    Sub drawBorderInPanel(control As Control, g As Graphics, color As Color)
+        Dim pen As New Pen(color, 4)
+
+        g.DrawRectangle(pen, New Rectangle(control.Location, control.Size))
 
         pen.Dispose()
     End Sub

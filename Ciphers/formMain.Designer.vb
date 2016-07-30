@@ -35,7 +35,7 @@ Partial Class formMain
         '
         Me.lblHowTheyWork.AutoSize = True
         Me.lblHowTheyWork.Font = New System.Drawing.Font("ISOCPEUR", 39.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHowTheyWork.ForeColor = System.Drawing.Color.Silver
+        Me.lblHowTheyWork.ForeColor = System.Drawing.Color.Gainsboro
         Me.lblHowTheyWork.Location = New System.Drawing.Point(133, 223)
         Me.lblHowTheyWork.Name = "lblHowTheyWork"
         Me.lblHowTheyWork.Size = New System.Drawing.Size(412, 66)

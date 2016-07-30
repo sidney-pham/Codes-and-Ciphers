@@ -11,8 +11,8 @@ Public Class formMain
     Private currentHoverCharacterCount As Integer   ' Current letter being iterated through in the position.
 
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        testCaesar()
-        testVigenere()
+        'testCaesar()
+        'testVigenere()
         'testStraddlingCheckerboard()
 
         tmrHover.Interval = HOVER_EFFECT_INTERVAL

@@ -4,9 +4,11 @@
     Private TEXTBOX_UNFOCUS_BORDER_COLOR As Color = Color.WhiteSmoke
 
     Private selectedMenuButton As Control
-    Private currentTextbox As Control
+    Private currentTextbox As TextBox
 
     Private textboxModifying As Boolean = False
+
+    Private rot As Integer = 0
 
     Private Sub formCaesar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         currentTextbox = txtPlaintext
@@ -19,6 +21,7 @@
         Const DEMO_TEXTBOX_MARGIN = 80
         Const TEXTBOX_WIDTH = 0.8
         Const TEXTBOX_HEIGHT = 0.3
+        Const ALPHABET_MARGIN = 10
 
         ' lblCaesarCipher
         lblCaesarCipher.horizontallyCentre()
@@ -55,6 +58,7 @@
 
         ' lblInfo
         lblCaesarInfo1.Left = 0
+        lblAlphabet.Top = 0
         lblCaesarInfo1.MaximumSize = New Size(pnlAbout.Width, 0)
 
         ' picCaesarDiagram
@@ -69,13 +73,33 @@
         pnlDemo.horizontallyCentre()
         pnlDemo.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
 
+        lblAlphabet.Text = generateAlphabet(1)
+        lblAlphabetShift.Text = encodeCaesar(lblAlphabet.Text, rot)
+
+        ' lblAlphabet
+        lblAlphabet.Left = pnlDemo.Width / 2 - lblAlphabet.Width / 2
+        lblAlphabet.Top = 30
+
+        ' lblAlphabetShift
+        lblAlphabetShift.Left = lblAlphabet.Left
+        lblAlphabetShift.placeBelow(lblAlphabetShift, ALPHABET_MARGIN)
+
+        ' btnLeft
+        'btnLeft.placeLeft(lblAlphabet, 10)
+        btnLeft.Left = lblAlphabet.Left - btnLeft.Width - 10
+        btnLeft.Top = lblAlphabet.Top + (lblAlphabet.Height + ALPHABET_MARGIN + lblAlphabetShift.Height) / 2 - btnLeft.Height / 2
+
+        ' btnRight
+        btnRight.placeRight(lblAlphabet, 10)
+        btnRight.Top = btnLeft.Top
+
         ' txtPlaintext
         txtPlaintext.Width = pnlDemo.Width * TEXTBOX_WIDTH
         txtPlaintext.Height = pnlDemo.Height * TEXTBOX_HEIGHT
         'txtPlaintext.Left = pnlDemo.Width / 2 - DEMO_TEXTBOX_MARGIN / 2 - txtPlaintext.Width
         'txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height / 2
         txtPlaintext.Left = pnlDemo.Width / 2 - txtPlaintext.Width / 2
-        txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height - DEMO_TEXTBOX_MARGIN / 2 + 100
+        txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height - DEMO_TEXTBOX_MARGIN / 2 + 60
 
         ' txtCiphertext
         txtCiphertext.Width = pnlDemo.Width * TEXTBOX_WIDTH
@@ -150,6 +174,7 @@
         pnlAbout.Hide()
         pnlCracking.Hide()
         pnlPrintout.Hide()
+        currentTextbox.Focus()
     End Sub
 
     Private Sub btnCracking_Click(sender As Object, e As EventArgs) Handles btnCracking.Click
@@ -175,7 +200,7 @@
     Private Sub txtPlaintext_TextChanged(sender As Object, e As EventArgs) Handles txtPlaintext.TextChanged
         If Not textboxModifying Then
             textboxModifying = True
-            txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, 4)
+            txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, rot)
             textboxModifying = False
         End If
     End Sub
@@ -183,7 +208,7 @@
     Private Sub txtCiphertext_TextChanged(sender As Object, e As EventArgs) Handles txtCiphertext.TextChanged
         If Not textboxModifying Then
             textboxModifying = True
-            txtPlaintext.Text = encodeCaesar(txtCiphertext.Text, -4)
+            txtPlaintext.Text = encodeCaesar(txtCiphertext.Text, -rot)
             textboxModifying = False
         End If
     End Sub
@@ -218,5 +243,36 @@
         pnlDemo.Refresh()
     End Sub
 
+    Private Function generateAlphabet(spaces As Integer) As String
+        Dim spacesString As String = "".PadRight(spaces, " ") ' GENUINELY WHAT THE FUCK IS THIS. WHY DOES STRING MULTIPLICATION NOT EXIST IN VB. THIS IS AIDS. From: https://www.rosettacode.org/wiki/Repeat_a_string#Visual_Basic_.NET
 
+        Return String.Join(spacesString, ALPHABET.Select(Function(c) c.ToString()).ToArray()) ' THIS IS LITERALLY THE MOST FUCKING RETARDED FUNCTION IN VB. WHY THE FUCK CAN IT NOT TAKE A CHAR ARRAY BUT ONLY STRING ARRAYS. WHAT THE FUCK IS THE FUCKING DIFFERENCE. FUCK VB.
+    End Function
+
+    Private Sub btnLeft_Click(sender As Object, e As EventArgs) Handles btnLeft.Click
+        rot -= 1
+        lblAlphabetShift.Text = encodeCaesar(lblAlphabet.Text, rot)
+        textboxModifying = True
+        txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, rot)
+        textboxModifying = False
+        currentTextbox.Focus()
+    End Sub
+
+    Private Sub btnRight_Click(sender As Object, e As EventArgs) Handles btnRight.Click
+        rot += 1
+        lblAlphabetShift.Text = encodeCaesar(lblAlphabet.Text, rot)
+        textboxModifying = True
+        txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, rot)
+        textboxModifying = False
+        currentTextbox.Focus()
+    End Sub
+
+    ' BECAUSE VB.NET IS FUCKING RETARDED AND DECIDED TO SELECT ALL TEXT INSIDE THIS PARTICULAR TEXTBOX
+    ' WHEN .Focus() IS CALLED ON IT FOR ABSOLUTELY NO REASON AT ALL.
+    ' The exact same thing was called on the other textbox, but it didn't happen.
+    ' RETARDED...
+    Private Sub txtCiphertext_Enter(sender As Object, e As EventArgs) Handles txtCiphertext.Enter
+        Dim position As Integer = txtCiphertext.Text.Length
+        txtCiphertext.Select(position, position)
+    End Sub
 End Class

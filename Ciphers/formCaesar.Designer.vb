@@ -43,6 +43,8 @@ Partial Class formCaesar
         Me.lblCiphertext = New System.Windows.Forms.Label()
         Me.lblAlphabet = New System.Windows.Forms.Label()
         Me.lblAlphabetShift = New System.Windows.Forms.Label()
+        Me.btnLeft = New System.Windows.Forms.Button()
+        Me.btnRight = New System.Windows.Forms.Button()
         Me.pnlAbout.SuspendLayout()
         CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDemo.SuspendLayout()
@@ -174,6 +176,8 @@ Partial Class formCaesar
         'pnlDemo
         '
         Me.pnlDemo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlDemo.Controls.Add(Me.btnRight)
+        Me.pnlDemo.Controls.Add(Me.btnLeft)
         Me.pnlDemo.Controls.Add(Me.lblAlphabetShift)
         Me.pnlDemo.Controls.Add(Me.lblAlphabet)
         Me.pnlDemo.Controls.Add(Me.lblCiphertext)
@@ -193,6 +197,7 @@ Partial Class formCaesar
         Me.txtCiphertext.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCiphertext.ForeColor = System.Drawing.Color.Silver
         Me.txtCiphertext.Location = New System.Drawing.Point(472, 108)
+        Me.txtCiphertext.MaxLength = 150
         Me.txtCiphertext.Multiline = True
         Me.txtCiphertext.Name = "txtCiphertext"
         Me.txtCiphertext.Size = New System.Drawing.Size(389, 275)
@@ -206,6 +211,7 @@ Partial Class formCaesar
         Me.txtPlaintext.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPlaintext.ForeColor = System.Drawing.Color.Black
         Me.txtPlaintext.Location = New System.Drawing.Point(65, 108)
+        Me.txtPlaintext.MaxLength = 150
         Me.txtPlaintext.Multiline = True
         Me.txtPlaintext.Name = "txtPlaintext"
         Me.txtPlaintext.Size = New System.Drawing.Size(389, 275)
@@ -277,7 +283,7 @@ Partial Class formCaesar
         '
         Me.lblAlphabet.AutoSize = True
         Me.lblAlphabet.Font = New System.Drawing.Font("Lucida Sans Typewriter", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAlphabet.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.lblAlphabet.ForeColor = System.Drawing.Color.Gainsboro
         Me.lblAlphabet.Location = New System.Drawing.Point(134, 0)
         Me.lblAlphabet.Name = "lblAlphabet"
         Me.lblAlphabet.Size = New System.Drawing.Size(430, 31)
@@ -288,12 +294,40 @@ Partial Class formCaesar
         '
         Me.lblAlphabetShift.AutoSize = True
         Me.lblAlphabetShift.Font = New System.Drawing.Font("Lucida Sans Typewriter", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAlphabetShift.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.lblAlphabetShift.Location = New System.Drawing.Point(134, 25)
+        Me.lblAlphabetShift.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblAlphabetShift.Location = New System.Drawing.Point(134, 22)
         Me.lblAlphabetShift.Name = "lblAlphabetShift"
         Me.lblAlphabetShift.Size = New System.Drawing.Size(430, 31)
         Me.lblAlphabetShift.TabIndex = 21
         Me.lblAlphabetShift.Text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        '
+        'btnLeft
+        '
+        Me.btnLeft.BackColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.btnLeft.FlatAppearance.BorderSize = 0
+        Me.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLeft.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLeft.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(6, Byte), Integer))
+        Me.btnLeft.Location = New System.Drawing.Point(78, 3)
+        Me.btnLeft.Name = "btnLeft"
+        Me.btnLeft.Size = New System.Drawing.Size(50, 50)
+        Me.btnLeft.TabIndex = 22
+        Me.btnLeft.Text = "<"
+        Me.btnLeft.UseVisualStyleBackColor = False
+        '
+        'btnRight
+        '
+        Me.btnRight.BackColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.btnRight.FlatAppearance.BorderSize = 0
+        Me.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRight.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRight.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnRight.Location = New System.Drawing.Point(570, 3)
+        Me.btnRight.Name = "btnRight"
+        Me.btnRight.Size = New System.Drawing.Size(50, 50)
+        Me.btnRight.TabIndex = 23
+        Me.btnRight.Text = ">"
+        Me.btnRight.UseVisualStyleBackColor = False
         '
         'formCaesar
         '
@@ -349,4 +383,6 @@ Partial Class formCaesar
     Friend WithEvents lblPlaintext As Label
     Friend WithEvents lblAlphabetShift As Label
     Friend WithEvents lblAlphabet As Label
+    Friend WithEvents btnRight As Button
+    Friend WithEvents btnLeft As Button
 End Class

@@ -161,6 +161,19 @@
         pnlPrintout.horizontallyCentre()
         pnlPrintout.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
 
+        ' picCaesarPrintout
+        picCaesarPrintout.Left = pnlPrintout.Width / 4 - picCaesarPrintout.Width / 2
+        picCaesarPrintout.Top = 100
+
+        ' btnPrint
+        btnPrint.Left = pnlPrintout.Width / 4 - btnPrint.Width / 2
+        btnPrint.placeBelow(picCaesarPrintout, 50)
+
+        ' lblPrintoutExplanation
+        lblPrintoutExplanation.MaximumSize = New Size(pnlPrintout.Width / 2, 0)
+        lblPrintoutExplanation.Left = picCaesarPrintout.Left + picCaesarPrintout.Width + (pnlPrintout.Width - picCaesarPrintout.Left - picCaesarPrintout.Width - lblPrintoutExplanation.Width) / 2
+        lblPrintoutExplanation.Top = 100
+
         btnAbout.PerformClick()
     End Sub
 
@@ -338,5 +351,4 @@
         printPictureBox(picCaesarPrintout, picHidden)
         e.Graphics.DrawImage(picHidden.Image, 0, 0)
     End Sub
-
 End Class

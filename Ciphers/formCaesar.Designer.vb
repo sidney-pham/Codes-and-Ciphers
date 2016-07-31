@@ -49,18 +49,19 @@ Partial Class formCaesar
         Me.lblTryItOut = New System.Windows.Forms.Label()
         Me.lblCaesarCracking = New System.Windows.Forms.Label()
         Me.pnlPrintout = New System.Windows.Forms.Panel()
+        Me.picHidden = New System.Windows.Forms.PictureBox()
         Me.picCaesarPrintout = New System.Windows.Forms.PictureBox()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
-        Me.picHidden = New System.Windows.Forms.PictureBox()
+        Me.lblPrintoutExplanation = New System.Windows.Forms.Label()
         Me.pnlAbout.SuspendLayout()
         CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDemo.SuspendLayout()
         Me.pnlDecryption.SuspendLayout()
         Me.pnlPrintout.SuspendLayout()
-        CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picHidden, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblCaesarCipher
@@ -392,7 +393,7 @@ Partial Class formCaesar
         '
         'pnlPrintout
         '
-        Me.pnlPrintout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlPrintout.Controls.Add(Me.lblPrintoutExplanation)
         Me.pnlPrintout.Controls.Add(Me.picHidden)
         Me.pnlPrintout.Controls.Add(Me.picCaesarPrintout)
         Me.pnlPrintout.Controls.Add(Me.btnPrint)
@@ -400,6 +401,15 @@ Partial Class formCaesar
         Me.pnlPrintout.Name = "pnlPrintout"
         Me.pnlPrintout.Size = New System.Drawing.Size(745, 436)
         Me.pnlPrintout.TabIndex = 17
+        '
+        'picHidden
+        '
+        Me.picHidden.Location = New System.Drawing.Point(232, 52)
+        Me.picHidden.Name = "picHidden"
+        Me.picHidden.Size = New System.Drawing.Size(100, 50)
+        Me.picHidden.TabIndex = 29
+        Me.picHidden.TabStop = False
+        Me.picHidden.Visible = False
         '
         'picCaesarPrintout
         '
@@ -418,12 +428,12 @@ Partial Class formCaesar
         Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPrint.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrint.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(6, Byte), Integer))
-        Me.btnPrint.Location = New System.Drawing.Point(-11, 108)
+        Me.btnPrint.Location = New System.Drawing.Point(87, 108)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(269, 58)
+        Me.btnPrint.Size = New System.Drawing.Size(171, 58)
         Me.btnPrint.TabIndex = 27
         Me.btnPrint.TabStop = False
-        Me.btnPrint.Text = "PRINT SHIT!"
+        Me.btnPrint.Text = "PRINT!"
         Me.btnPrint.UseVisualStyleBackColor = False
         '
         'PrintDocument1
@@ -434,14 +444,16 @@ Partial Class formCaesar
         Me.PrintDialog1.Document = Me.PrintDocument1
         Me.PrintDialog1.UseEXDialog = True
         '
-        'picHidden
+        'lblPrintoutExplanation
         '
-        Me.picHidden.Location = New System.Drawing.Point(232, 52)
-        Me.picHidden.Name = "picHidden"
-        Me.picHidden.Size = New System.Drawing.Size(100, 50)
-        Me.picHidden.TabIndex = 29
-        Me.picHidden.TabStop = False
-        Me.picHidden.Visible = False
+        Me.lblPrintoutExplanation.AutoSize = True
+        Me.lblPrintoutExplanation.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrintoutExplanation.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblPrintoutExplanation.Location = New System.Drawing.Point(18, 23)
+        Me.lblPrintoutExplanation.Name = "lblPrintoutExplanation"
+        Me.lblPrintoutExplanation.Size = New System.Drawing.Size(3016, 160)
+        Me.lblPrintoutExplanation.TabIndex = 27
+        Me.lblPrintoutExplanation.Text = resources.GetString("lblPrintoutExplanation.Text")
         '
         'formCaesar
         '
@@ -471,8 +483,9 @@ Partial Class formCaesar
         Me.pnlDecryption.ResumeLayout(False)
         Me.pnlDecryption.PerformLayout()
         Me.pnlPrintout.ResumeLayout(False)
-        CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlPrintout.PerformLayout()
         CType(Me.picHidden, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -509,4 +522,5 @@ Partial Class formCaesar
     Friend WithEvents PrintDialog1 As PrintDialog
     Friend WithEvents picCaesarPrintout As PictureBox
     Friend WithEvents picHidden As PictureBox
+    Friend WithEvents lblPrintoutExplanation As Label
 End Class

@@ -59,7 +59,7 @@
 
         ' lblInfo
         lblCaesarInfo1.Left = 0
-        lblAlphabet.Top = 0
+        lblCaesarInfo1.Top = 0
         lblCaesarInfo1.MaximumSize = New Size(pnlAbout.Width, 0)
 
         ' picCaesarDiagram
@@ -129,17 +129,30 @@
         btnSwap.placeBelow(txtPlaintext, (DEMO_TEXTBOX_MARGIN) / 2 - btnSwap.Height / 2)
 
         ' ------------------------------------------------------------------------
-        ' pnlCracking
+        ' pnlDecryption
         ' ------------------------------------------------------------------------
-        pnlCracking.Width = Me.Width * 0.9
-        pnlCracking.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
-        pnlCracking.horizontallyCentre()
-        pnlCracking.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
+        pnlDecryption.Width = Me.Width * 0.9
+        pnlDecryption.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
+        pnlDecryption.horizontallyCentre()
+        pnlDecryption.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
 
-        ' textbox1
-        lblCaesarCracking.Left = pnlCracking.Width / 2 - lblCaesarCracking.Width / 2
-        lblCaesarCracking.Top = pnlCracking.Height / 2 - lblCaesarCracking.Height / 2
+        ' lblCaesarCracking
+        lblCaesarCracking.Left = 0
+        lblCaesarCracking.Top = 0
+        lblCaesarCracking.MaximumSize = New Size(pnlDecryption.Width, 0)
 
+        ' lblTryItOut
+        lblTryItOut.Left = pnlDecryption.Width / 2 - lblTryItOut.Width / 2
+        lblTryItOut.placeBelow(lblCaesarCracking, 50)
+
+        ' lblTryExplanation
+        lblTryExplanation.Left = 0
+        lblTryExplanation.placeBelow(lblTryItOut, 20)
+        lblTryExplanation.MaximumSize = New Size(pnlDecryption.Width, 0)
+
+        ' btnDecyptionExample
+        btnDecryptionExample.Left = pnlDecryption.Width / 2 - btnDecryptionExample.Width / 2
+        btnDecryptionExample.placeBelow(lblTryExplanation, 30)
         ' ------------------------------------------------------------------------
         ' pnlPrintout
         ' ------------------------------------------------------------------------
@@ -175,7 +188,7 @@
 
         pnlAbout.Show()
         pnlDemo.Hide()
-        pnlCracking.Hide()
+        pnlDecryption.Hide()
         pnlPrintout.Hide()
     End Sub
 
@@ -185,7 +198,7 @@
 
         pnlDemo.Show()
         pnlAbout.Hide()
-        pnlCracking.Hide()
+        pnlDecryption.Hide()
         pnlPrintout.Hide()
         currentTextbox.Focus()
     End Sub
@@ -194,7 +207,7 @@
         selectedMenuButton = btnCracking
         Me.Refresh()
 
-        pnlCracking.Show()
+        pnlDecryption.Show()
         pnlAbout.Hide()
         pnlDemo.Hide()
         pnlPrintout.Hide()
@@ -207,7 +220,7 @@
         pnlPrintout.Show()
         pnlAbout.Hide()
         pnlDemo.Hide()
-        pnlCracking.Hide()
+        pnlDecryption.Hide()
     End Sub
 
     Private Sub txtPlaintext_TextChanged(sender As Object, e As EventArgs) Handles txtPlaintext.TextChanged
@@ -307,5 +320,15 @@
     Private Sub txtPlaintext_Enter(sender As Object, e As EventArgs) Handles txtPlaintext.Enter
         Dim position As Integer = txtPlaintext.Text.Length
         txtPlaintext.Select(position, position)
+    End Sub
+
+    Private Sub btnDecryptionExample_Click(sender As Object, e As EventArgs) Handles btnDecryptionExample.Click
+        btnDemo.PerformClick()
+        rot = 13
+        txtPlaintext.Text = "The quick brown fox jumps over the lazy dog."
+        lblAlphabetShift.Text = encodeCaesar(lblAlphabet.Text, rot)
+
+        ' Update shift
+        lblShift.Text = "SHIFT: " & (rot Mod LENGTH_OF_ALPHABET + LENGTH_OF_ALPHABET) Mod LENGTH_OF_ALPHABET
     End Sub
 End Class

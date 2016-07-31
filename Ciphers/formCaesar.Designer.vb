@@ -22,7 +22,6 @@ Partial Class formCaesar
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formCaesar))
         Me.lblCaesarCipher = New System.Windows.Forms.Label()
         Me.btnBack = New System.Windows.Forms.Button()
@@ -44,15 +43,17 @@ Partial Class formCaesar
         Me.lblPlaintext = New System.Windows.Forms.Label()
         Me.txtCiphertext = New System.Windows.Forms.TextBox()
         Me.txtPlaintext = New System.Windows.Forms.TextBox()
-        Me.pnlCracking = New System.Windows.Forms.Panel()
+        Me.pnlDecryption = New System.Windows.Forms.Panel()
+        Me.btnDecryptionExample = New System.Windows.Forms.Button()
+        Me.lblTryExplanation = New System.Windows.Forms.Label()
+        Me.lblTryItOut = New System.Windows.Forms.Label()
         Me.lblCaesarCracking = New System.Windows.Forms.Label()
         Me.pnlPrintout = New System.Windows.Forms.Panel()
         Me.lblPrintout = New System.Windows.Forms.Label()
-        Me.btnTimer = New System.Windows.Forms.Timer(Me.components)
         Me.pnlAbout.SuspendLayout()
         CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDemo.SuspendLayout()
-        Me.pnlCracking.SuspendLayout()
+        Me.pnlDecryption.SuspendLayout()
         Me.pnlPrintout.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -123,12 +124,12 @@ Partial Class formCaesar
         Me.btnCracking.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCracking.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCracking.ForeColor = System.Drawing.Color.Black
-        Me.btnCracking.Location = New System.Drawing.Point(528, 89)
+        Me.btnCracking.Location = New System.Drawing.Point(519, 89)
         Me.btnCracking.Name = "btnCracking"
-        Me.btnCracking.Size = New System.Drawing.Size(160, 68)
+        Me.btnCracking.Size = New System.Drawing.Size(169, 68)
         Me.btnCracking.TabIndex = 11
         Me.btnCracking.TabStop = False
-        Me.btnCracking.Text = "CRACKING"
+        Me.btnCracking.Text = "DECRYPTION"
         Me.btnCracking.UseVisualStyleBackColor = False
         '
         'lblCaesarInfo1
@@ -136,9 +137,9 @@ Partial Class formCaesar
         Me.lblCaesarInfo1.AutoSize = True
         Me.lblCaesarInfo1.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCaesarInfo1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblCaesarInfo1.Location = New System.Drawing.Point(16, 26)
+        Me.lblCaesarInfo1.Location = New System.Drawing.Point(15, 17)
         Me.lblCaesarInfo1.Name = "lblCaesarInfo1"
-        Me.lblCaesarInfo1.Size = New System.Drawing.Size(3269, 160)
+        Me.lblCaesarInfo1.Size = New System.Drawing.Size(3395, 160)
         Me.lblCaesarInfo1.TabIndex = 0
         Me.lblCaesarInfo1.Text = resources.GetString("lblCaesarInfo1.Text")
         '
@@ -146,7 +147,7 @@ Partial Class formCaesar
         '
         Me.pnlAbout.Controls.Add(Me.picCaesarDiagram)
         Me.pnlAbout.Controls.Add(Me.lblCaesarInfo1)
-        Me.pnlAbout.Location = New System.Drawing.Point(26, 148)
+        Me.pnlAbout.Location = New System.Drawing.Point(12, 163)
         Me.pnlAbout.Name = "pnlAbout"
         Me.pnlAbout.Size = New System.Drawing.Size(745, 436)
         Me.pnlAbout.TabIndex = 13
@@ -189,14 +190,14 @@ Partial Class formCaesar
         Me.pnlDemo.Controls.Add(Me.lblPlaintext)
         Me.pnlDemo.Controls.Add(Me.txtCiphertext)
         Me.pnlDemo.Controls.Add(Me.txtPlaintext)
-        Me.pnlDemo.Location = New System.Drawing.Point(12, 78)
+        Me.pnlDemo.Location = New System.Drawing.Point(64, 53)
         Me.pnlDemo.Name = "pnlDemo"
-        Me.pnlDemo.Size = New System.Drawing.Size(798, 492)
+        Me.pnlDemo.Size = New System.Drawing.Size(798, 481)
         Me.pnlDemo.TabIndex = 15
         '
         'btnSwap
         '
-        Me.btnSwap.BackColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.btnSwap.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSwap.FlatAppearance.BorderSize = 0
         Me.btnSwap.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSwap.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -222,7 +223,7 @@ Partial Class formCaesar
         '
         'btnRight
         '
-        Me.btnRight.BackColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.btnRight.BackColor = System.Drawing.Color.Gainsboro
         Me.btnRight.FlatAppearance.BorderSize = 0
         Me.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRight.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -237,7 +238,7 @@ Partial Class formCaesar
         '
         'btnLeft
         '
-        Me.btnLeft.BackColor = System.Drawing.Color.FromArgb(CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(204, Byte), Integer))
+        Me.btnLeft.BackColor = System.Drawing.Color.Gainsboro
         Me.btnLeft.FlatAppearance.BorderSize = 0
         Me.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLeft.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -322,25 +323,66 @@ Partial Class formCaesar
         Me.txtPlaintext.Size = New System.Drawing.Size(389, 275)
         Me.txtPlaintext.TabIndex = 0
         '
-        'pnlCracking
+        'pnlDecryption
         '
-        Me.pnlCracking.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlCracking.Controls.Add(Me.lblCaesarCracking)
-        Me.pnlCracking.Location = New System.Drawing.Point(808, 51)
-        Me.pnlCracking.Name = "pnlCracking"
-        Me.pnlCracking.Size = New System.Drawing.Size(745, 436)
-        Me.pnlCracking.TabIndex = 16
+        Me.pnlDecryption.Controls.Add(Me.btnDecryptionExample)
+        Me.pnlDecryption.Controls.Add(Me.lblTryExplanation)
+        Me.pnlDecryption.Controls.Add(Me.lblTryItOut)
+        Me.pnlDecryption.Controls.Add(Me.lblCaesarCracking)
+        Me.pnlDecryption.Location = New System.Drawing.Point(7, 500)
+        Me.pnlDecryption.Name = "pnlDecryption"
+        Me.pnlDecryption.Size = New System.Drawing.Size(745, 436)
+        Me.pnlDecryption.TabIndex = 16
+        '
+        'btnDecryptionExample
+        '
+        Me.btnDecryptionExample.BackColor = System.Drawing.Color.Gainsboro
+        Me.btnDecryptionExample.FlatAppearance.BorderSize = 0
+        Me.btnDecryptionExample.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDecryptionExample.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDecryptionExample.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(6, Byte), Integer))
+        Me.btnDecryptionExample.Location = New System.Drawing.Point(299, 323)
+        Me.btnDecryptionExample.Name = "btnDecryptionExample"
+        Me.btnDecryptionExample.Size = New System.Drawing.Size(269, 58)
+        Me.btnDecryptionExample.TabIndex = 26
+        Me.btnDecryptionExample.TabStop = False
+        Me.btnDecryptionExample.Text = "A ROT13 EXAMPLE"
+        Me.btnDecryptionExample.UseVisualStyleBackColor = False
+        '
+        'lblTryExplanation
+        '
+        Me.lblTryExplanation.AutoSize = True
+        Me.lblTryExplanation.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTryExplanation.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblTryExplanation.Location = New System.Drawing.Point(25, 276)
+        Me.lblTryExplanation.Name = "lblTryExplanation"
+        Me.lblTryExplanation.Size = New System.Drawing.Size(2730, 32)
+        Me.lblTryExplanation.TabIndex = 19
+        Me.lblTryExplanation.Text = "Use the ""DEMO"" tool to encipher a message, and then press the ""SET PLAINTEXT TO C" &
+    "IPHERTEXT"" button. Try all the possible 26 keys on this new plaintext until you " &
+    "end up with your original plaintext!"
+        '
+        'lblTryItOut
+        '
+        Me.lblTryItOut.AutoSize = True
+        Me.lblTryItOut.Font = New System.Drawing.Font("Century Gothic", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTryItOut.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblTryItOut.Location = New System.Drawing.Point(283, 212)
+        Me.lblTryItOut.Name = "lblTryItOut"
+        Me.lblTryItOut.Size = New System.Drawing.Size(197, 44)
+        Me.lblTryItOut.TabIndex = 18
+        Me.lblTryItOut.Text = "TRY IT OUT"
         '
         'lblCaesarCracking
         '
         Me.lblCaesarCracking.AutoSize = True
-        Me.lblCaesarCracking.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCaesarCracking.ForeColor = System.Drawing.Color.White
-        Me.lblCaesarCracking.Location = New System.Drawing.Point(16, 26)
+        Me.lblCaesarCracking.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCaesarCracking.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblCaesarCracking.Location = New System.Drawing.Point(38, 27)
         Me.lblCaesarCracking.Name = "lblCaesarCracking"
-        Me.lblCaesarCracking.Size = New System.Drawing.Size(141, 33)
-        Me.lblCaesarCracking.TabIndex = 0
-        Me.lblCaesarCracking.Text = "Cracking "
+        Me.lblCaesarCracking.Size = New System.Drawing.Size(5394, 160)
+        Me.lblCaesarCracking.TabIndex = 1
+        Me.lblCaesarCracking.Text = resources.GetString("lblCaesarCracking.Text")
         '
         'pnlPrintout
         '
@@ -368,7 +410,7 @@ Partial Class formCaesar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1278, 825)
-        Me.Controls.Add(Me.pnlCracking)
+        Me.Controls.Add(Me.pnlDecryption)
         Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.btnPrintout)
@@ -387,8 +429,8 @@ Partial Class formCaesar
         CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlDemo.ResumeLayout(False)
         Me.pnlDemo.PerformLayout()
-        Me.pnlCracking.ResumeLayout(False)
-        Me.pnlCracking.PerformLayout()
+        Me.pnlDecryption.ResumeLayout(False)
+        Me.pnlDecryption.PerformLayout()
         Me.pnlPrintout.ResumeLayout(False)
         Me.pnlPrintout.PerformLayout()
         Me.ResumeLayout(False)
@@ -406,8 +448,7 @@ Partial Class formCaesar
     Friend WithEvents btnPrintout As Button
     Friend WithEvents txtPlaintext As TextBox
     Friend WithEvents pnlDemo As Panel
-    Friend WithEvents pnlCracking As Panel
-    Friend WithEvents lblCaesarCracking As Label
+    Friend WithEvents pnlDecryption As Panel
     Friend WithEvents pnlPrintout As Panel
     Friend WithEvents lblPrintout As Label
     Friend WithEvents picCaesarDiagram As PictureBox
@@ -420,5 +461,8 @@ Partial Class formCaesar
     Friend WithEvents btnLeft As Button
     Friend WithEvents lblShift As Label
     Friend WithEvents btnSwap As Button
-    Friend WithEvents btnTimer As Timer
+    Friend WithEvents lblCaesarCracking As Label
+    Friend WithEvents lblTryExplanation As Label
+    Friend WithEvents lblTryItOut As Label
+    Friend WithEvents btnDecryptionExample As Button
 End Class

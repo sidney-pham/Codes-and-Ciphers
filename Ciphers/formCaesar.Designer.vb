@@ -197,7 +197,7 @@ Partial Class formCaesar
         Me.pnlDemo.Controls.Add(Me.lblPlaintext)
         Me.pnlDemo.Controls.Add(Me.txtCiphertext)
         Me.pnlDemo.Controls.Add(Me.txtPlaintext)
-        Me.pnlDemo.Location = New System.Drawing.Point(33, 99)
+        Me.pnlDemo.Location = New System.Drawing.Point(107, 135)
         Me.pnlDemo.Name = "pnlDemo"
         Me.pnlDemo.Size = New System.Drawing.Size(798, 481)
         Me.pnlDemo.TabIndex = 15
@@ -336,7 +336,7 @@ Partial Class formCaesar
         Me.pnlDecryption.Controls.Add(Me.lblTryExplanation)
         Me.pnlDecryption.Controls.Add(Me.lblTryItOut)
         Me.pnlDecryption.Controls.Add(Me.lblCaesarCracking)
-        Me.pnlDecryption.Location = New System.Drawing.Point(15, 117)
+        Me.pnlDecryption.Location = New System.Drawing.Point(288, 70)
         Me.pnlDecryption.Name = "pnlDecryption"
         Me.pnlDecryption.Size = New System.Drawing.Size(745, 436)
         Me.pnlDecryption.TabIndex = 16
@@ -397,7 +397,7 @@ Partial Class formCaesar
         Me.pnlPrintout.Controls.Add(Me.picHidden)
         Me.pnlPrintout.Controls.Add(Me.picCaesarPrintout)
         Me.pnlPrintout.Controls.Add(Me.btnPrint)
-        Me.pnlPrintout.Location = New System.Drawing.Point(554, 635)
+        Me.pnlPrintout.Location = New System.Drawing.Point(573, 605)
         Me.pnlPrintout.Name = "pnlPrintout"
         Me.pnlPrintout.Size = New System.Drawing.Size(745, 436)
         Me.pnlPrintout.TabIndex = 17
@@ -433,7 +433,7 @@ Partial Class formCaesar
         Me.btnPrint.Size = New System.Drawing.Size(171, 58)
         Me.btnPrint.TabIndex = 27
         Me.btnPrint.TabStop = False
-        Me.btnPrint.Text = "PRINT!"
+        Me.btnPrint.Text = "PRINT 🖶"
         Me.btnPrint.UseVisualStyleBackColor = False
         '
         'PrintDocument1
@@ -449,7 +449,7 @@ Partial Class formCaesar
         Me.lblPrintoutExplanation.AutoSize = True
         Me.lblPrintoutExplanation.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPrintoutExplanation.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblPrintoutExplanation.Location = New System.Drawing.Point(18, 23)
+        Me.lblPrintoutExplanation.Location = New System.Drawing.Point(33, 14)
         Me.lblPrintoutExplanation.Name = "lblPrintoutExplanation"
         Me.lblPrintoutExplanation.Size = New System.Drawing.Size(3016, 160)
         Me.lblPrintoutExplanation.TabIndex = 27

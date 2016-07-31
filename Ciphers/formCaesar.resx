@@ -794,13 +794,6 @@ If we know that a piece of ciphertext was enciphered using the Caesar cipher, th
 
 A good example of this is the usage of the Caesar cipher with a key of 13 (specifically known as ROT13). Once we encipher plaintext with a key of 13, re-enciphering the ciphertext will result in the original plaintext!</value>
   </data>
-  <data name="lblPrintoutExplanation.Text" xml:space="preserve">
-    <value>Cut out the paper print-outs and attach the smaller wheel on top of the larger wheel using a split-pin to create a "Caesar cipher wheel". 
-
-The outside wheel is the plaintext wheel, while the inside wheel is the ciphertext wheel.
-
-To encipher a message using the wheel, starting with all letters matching up, rotate the inside wheel anti-clockwise by a chosen key. Each letter in the message is replaced with the corresponding letter on the inside wheel.</value>
-  </data>
   <data name="picCaesarPrintout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABnYAAAkjCAMAAAALF4H3AAAABGdBTUEAALGPC/xhBQAAAI1QTFRF////
@@ -5525,4 +5518,11 @@ To encipher a message using the wheel, starting with all letters matching up, ro
   <metadata name="PrintDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>157, 17</value>
   </metadata>
+  <data name="lblPrintoutExplanation.Text" xml:space="preserve">
+    <value>Cut out the paper print-outs and attach the smaller wheel on top of the larger wheel using a split-pin to create a "Caesar cipher wheel". 
+
+The outside wheel is the plaintext wheel, while the inside wheel is the ciphertext wheel.
+
+To encipher a message using the wheel, starting with all letters matching up, rotate the inside wheel anti-clockwise by a chosen key. Each letter in the message is replaced with the corresponding letter on the inside wheel.</value>
+  </data>
 </root>

@@ -2,7 +2,7 @@
 
 Public Module modHelpers
     Public Const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    Const LENGTH_OF_ALPHABET = 26
+    Public Const LENGTH_OF_ALPHABET = 26
 
     'hacky method to replace a char in a string
     <Extension()>

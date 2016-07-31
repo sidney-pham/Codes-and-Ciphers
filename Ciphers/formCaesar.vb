@@ -1,12 +1,13 @@
 ﻿Public Class formCaesar
     ' SHOULD REALLY BE A CONSTANT, BUT VB SAYS THIS ISN'T A "CONSTANT VALUE"
-    Private TEXTBOX_FOCUS_BORDER_COLOR As Color = Color.DeepSkyBlue
+    Private TEXTBOX_FOCUS_BORDER_COLOR As Color = Color.CornflowerBlue
     Private TEXTBOX_UNFOCUS_BORDER_COLOR As Color = Color.WhiteSmoke
 
     Private selectedMenuButton As Control
     Private currentTextbox As TextBox
 
     Private textboxModifying As Boolean = False
+    Private swap As Boolean = False
 
     Private rot As Integer = 0
 
@@ -85,13 +86,21 @@
         lblAlphabetShift.placeBelow(lblAlphabetShift, ALPHABET_MARGIN)
 
         ' btnLeft
+        btnLeft.Height = lblAlphabet.Height + ALPHABET_MARGIN + lblAlphabetShift.Height
+        btnLeft.Width = 0.5 * btnLeft.Height
         'btnLeft.placeLeft(lblAlphabet, 10)
         btnLeft.Left = lblAlphabet.Left - btnLeft.Width - 10
-        btnLeft.Top = lblAlphabet.Top + (lblAlphabet.Height + ALPHABET_MARGIN + lblAlphabetShift.Height) / 2 - btnLeft.Height / 2
+        btnLeft.Top = lblAlphabet.Top 'lblAlphabet.Top + (lblAlphabet.Height + ALPHABET_MARGIN + lblAlphabetShift.Height) / 2 - btnLeft.Height / 2
 
         ' btnRight
+        btnRight.Height = btnLeft.Height
+        btnRight.Width = 0.5 * btnRight.Height
         btnRight.placeRight(lblAlphabet, 10)
         btnRight.Top = btnLeft.Top
+
+        ' lblShift
+        lblShift.Left = pnlDemo.Width / 2 - lblShift.Width / 2
+        lblShift.placeBelow(lblAlphabetShift, 15)
 
         ' txtPlaintext
         txtPlaintext.Width = pnlDemo.Width * TEXTBOX_WIDTH
@@ -99,7 +108,7 @@
         'txtPlaintext.Left = pnlDemo.Width / 2 - DEMO_TEXTBOX_MARGIN / 2 - txtPlaintext.Width
         'txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height / 2
         txtPlaintext.Left = pnlDemo.Width / 2 - txtPlaintext.Width / 2
-        txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height - DEMO_TEXTBOX_MARGIN / 2 + 60
+        txtPlaintext.placeBelow(lblShift, 50) 'pnlDemo.Height / 2 - txtPlaintext.Height - DEMO_TEXTBOX_MARGIN / 2 + 60
 
         ' txtCiphertext
         txtCiphertext.Width = pnlDemo.Width * TEXTBOX_WIDTH
@@ -114,6 +123,10 @@
         ' lblCiphertext
         lblCiphertext.Left = txtCiphertext.Left
         lblCiphertext.placeAbove(txtCiphertext, 10)
+
+        ' btnSwap
+        btnSwap.Left = pnlDemo.Width / 2 - btnSwap.Width / 2
+        btnSwap.placeBelow(txtPlaintext, (DEMO_TEXTBOX_MARGIN) / 2 - btnSwap.Height / 2)
 
         ' ------------------------------------------------------------------------
         ' pnlCracking
@@ -199,18 +212,29 @@
 
     Private Sub txtPlaintext_TextChanged(sender As Object, e As EventArgs) Handles txtPlaintext.TextChanged
         If Not textboxModifying Then
-            textboxModifying = True
-            txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, rot)
-            textboxModifying = False
+            If Not swap Then
+                textboxModifying = True
+                txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, rot)
+                textboxModifying = False
+            End If
         End If
     End Sub
 
     Private Sub txtCiphertext_TextChanged(sender As Object, e As EventArgs) Handles txtCiphertext.TextChanged
         If Not textboxModifying Then
-            textboxModifying = True
-            txtPlaintext.Text = encodeCaesar(txtCiphertext.Text, -rot)
-            textboxModifying = False
+            If Not swap Then
+                textboxModifying = True
+                txtPlaintext.Text = encodeCaesar(txtCiphertext.Text, -rot)
+                textboxModifying = False
+            End If
         End If
+    End Sub
+
+    Private Sub btnSwap_Click(sender As Object, e As EventArgs) Handles btnSwap.Click
+        swap = True
+        txtPlaintext.Text = txtCiphertext.Text
+        txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, rot)
+        swap = False
     End Sub
 
     Private Sub txtPlaintext_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPlaintext.KeyDown
@@ -249,30 +273,39 @@
         Return String.Join(spacesString, ALPHABET.Select(Function(c) c.ToString()).ToArray()) ' THIS IS LITERALLY THE MOST FUCKING RETARDED FUNCTION IN VB. WHY THE FUCK CAN IT NOT TAKE A CHAR ARRAY BUT ONLY STRING ARRAYS. WHAT THE FUCK IS THE FUCKING DIFFERENCE. FUCK VB.
     End Function
 
-    Private Sub btnLeft_Click(sender As Object, e As EventArgs) Handles btnLeft.Click
+    Private Sub btnLeft_MouseDown(sender As Object, e As MouseEventArgs) Handles btnLeft.MouseDown
         rot -= 1
         lblAlphabetShift.Text = encodeCaesar(lblAlphabet.Text, rot)
         textboxModifying = True
         txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, rot)
         textboxModifying = False
         currentTextbox.Focus()
+
+        ' Update shift
+        lblShift.Text = "SHIFT: " & (rot Mod LENGTH_OF_ALPHABET + LENGTH_OF_ALPHABET) Mod LENGTH_OF_ALPHABET
     End Sub
 
-    Private Sub btnRight_Click(sender As Object, e As EventArgs) Handles btnRight.Click
+    Private Sub btnRight_MouseDown(sender As Object, e As MouseEventArgs) Handles btnRight.MouseDown
         rot += 1
         lblAlphabetShift.Text = encodeCaesar(lblAlphabet.Text, rot)
         textboxModifying = True
         txtCiphertext.Text = encodeCaesar(txtPlaintext.Text, rot)
         textboxModifying = False
         currentTextbox.Focus()
+
+        ' Update shift
+        lblShift.Text = "SHIFT: " & (rot Mod LENGTH_OF_ALPHABET + LENGTH_OF_ALPHABET) Mod LENGTH_OF_ALPHABET
     End Sub
 
     ' BECAUSE VB.NET IS FUCKING RETARDED AND DECIDED TO SELECT ALL TEXT INSIDE THIS PARTICULAR TEXTBOX
     ' WHEN .Focus() IS CALLED ON IT FOR ABSOLUTELY NO REASON AT ALL.
-    ' The exact same thing was called on the other textbox, but it didn't happen.
-    ' RETARDED...
     Private Sub txtCiphertext_Enter(sender As Object, e As EventArgs) Handles txtCiphertext.Enter
         Dim position As Integer = txtCiphertext.Text.Length
         txtCiphertext.Select(position, position)
+    End Sub
+
+    Private Sub txtPlaintext_Enter(sender As Object, e As EventArgs) Handles txtPlaintext.Enter
+        Dim position As Integer = txtPlaintext.Text.Length
+        txtPlaintext.Select(position, position)
     End Sub
 End Class

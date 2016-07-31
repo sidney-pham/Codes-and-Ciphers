@@ -154,4 +154,63 @@ Public Module modHelpers
         sb(index) = replaceWith
         Return sb.ToString()
     End Function
+
+
+    ' DISCLAIMER: IF YOU DO NOT WANT ACTUAL STDs, DON'T READ THIS. I barely understand what it does.
+    ' Printing a pictureBox (uses 2, one hidden, one not)
+    ' screw intrinsic documentation, pic1 is the visible, pic2 is the one to be printed.
+    ' MOSTLY FROM: http://www.codeproject.com/Tips/763183/Printing-Images-Quickly-and-Efficiently-to-an-A-Pa
+    Sub printPictureBox(pic1 As PictureBox, pic2 As PictureBox)
+        Try
+            pic2.Image = pic1.Image
+            If pic2.Image.Width > pic2.Image.Height Then
+                pic2.Image.RotateFlip(RotateFlipType.Rotate90FlipNone)
+            End If
+
+            Dim Height As Double = CDbl(1100)
+            Dim width As Double
+
+            Dim aspectRatio As Double
+            aspectRatio = pic2.Image.Width / pic2.Image.Height
+            width = CDbl(1100 * aspectRatio)
+            If width > 891 Then
+                pic2.Image = pic1.Image
+                pic1.Visible = False
+                If pic2.Image.Width > pic2.Image.Height Then
+                    pic2.Image.RotateFlip(RotateFlipType.Rotate90FlipNone)
+                End If
+
+                Height = CDbl(900)
+
+                aspectRatio = pic2.Image.Width / pic2.Image.Height
+                width = CDbl(900 * aspectRatio)
+                If width > 891 Then
+                    pic2.Image = pic1.Image
+                    pic1.Visible = False
+                    If pic2.Image.Width > pic2.Image.Height Then
+                        pic2.Image.RotateFlip(RotateFlipType.Rotate90FlipNone)
+                    End If
+
+                    Height = CDbl(700)
+                    width = CDbl(700 * aspectRatio)
+                Else
+                    Dim wi As Integer
+                    wi = Convert.ToInt32(width)
+                    Dim hi As Integer
+                    hi = Convert.ToInt32(Height)
+                    Dim New_Bitmap As New Bitmap(pic2.Image, wi, hi)
+                    pic2.Image = New_Bitmap
+                End If
+            Else
+                Dim wi As Integer
+                wi = Convert.ToInt32(width)
+                Dim hi As Integer
+                hi = Convert.ToInt32(Height)
+                Dim New_Bitmap As New Bitmap(pic2.Image, wi, hi)
+                pic2.Image = New_Bitmap
+            End If
+        Catch ex As Exception
+            MsgBox("bug.")
+        End Try
+    End Sub
 End Module

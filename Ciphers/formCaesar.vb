@@ -161,10 +161,6 @@
         pnlPrintout.horizontallyCentre()
         pnlPrintout.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
 
-        ' textbox1
-        lblPrintout.Left = pnlPrintout.Width / 2 - lblPrintout.Width / 2
-        lblPrintout.Top = pnlPrintout.Height / 2 - lblPrintout.Height / 2
-
         btnAbout.PerformClick()
     End Sub
 
@@ -331,4 +327,16 @@
         ' Update shift
         lblShift.Text = "SHIFT: " & (rot Mod LENGTH_OF_ALPHABET + LENGTH_OF_ALPHABET) Mod LENGTH_OF_ALPHABET
     End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        If PrintDialog1.ShowDialog() = DialogResult.OK Then
+            PrintDocument1.Print()
+        End If
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        printPictureBox(picCaesarPrintout, picHidden)
+        e.Graphics.DrawImage(picHidden.Image, 0, 0)
+    End Sub
+
 End Class

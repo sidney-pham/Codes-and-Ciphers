@@ -49,12 +49,18 @@ Partial Class formCaesar
         Me.lblTryItOut = New System.Windows.Forms.Label()
         Me.lblCaesarCracking = New System.Windows.Forms.Label()
         Me.pnlPrintout = New System.Windows.Forms.Panel()
-        Me.lblPrintout = New System.Windows.Forms.Label()
+        Me.picCaesarPrintout = New System.Windows.Forms.PictureBox()
+        Me.btnPrint = New System.Windows.Forms.Button()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.picHidden = New System.Windows.Forms.PictureBox()
         Me.pnlAbout.SuspendLayout()
         CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDemo.SuspendLayout()
         Me.pnlDecryption.SuspendLayout()
         Me.pnlPrintout.SuspendLayout()
+        CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picHidden, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'lblCaesarCipher
@@ -190,7 +196,7 @@ Partial Class formCaesar
         Me.pnlDemo.Controls.Add(Me.lblPlaintext)
         Me.pnlDemo.Controls.Add(Me.txtCiphertext)
         Me.pnlDemo.Controls.Add(Me.txtPlaintext)
-        Me.pnlDemo.Location = New System.Drawing.Point(64, 53)
+        Me.pnlDemo.Location = New System.Drawing.Point(33, 99)
         Me.pnlDemo.Name = "pnlDemo"
         Me.pnlDemo.Size = New System.Drawing.Size(798, 481)
         Me.pnlDemo.TabIndex = 15
@@ -302,7 +308,7 @@ Partial Class formCaesar
         Me.txtCiphertext.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCiphertext.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCiphertext.ForeColor = System.Drawing.Color.Gainsboro
-        Me.txtCiphertext.Location = New System.Drawing.Point(472, 108)
+        Me.txtCiphertext.Location = New System.Drawing.Point(477, 108)
         Me.txtCiphertext.MaxLength = 150
         Me.txtCiphertext.Multiline = True
         Me.txtCiphertext.Name = "txtCiphertext"
@@ -329,7 +335,7 @@ Partial Class formCaesar
         Me.pnlDecryption.Controls.Add(Me.lblTryExplanation)
         Me.pnlDecryption.Controls.Add(Me.lblTryItOut)
         Me.pnlDecryption.Controls.Add(Me.lblCaesarCracking)
-        Me.pnlDecryption.Location = New System.Drawing.Point(7, 500)
+        Me.pnlDecryption.Location = New System.Drawing.Point(15, 117)
         Me.pnlDecryption.Name = "pnlDecryption"
         Me.pnlDecryption.Size = New System.Drawing.Size(745, 436)
         Me.pnlDecryption.TabIndex = 16
@@ -387,29 +393,62 @@ Partial Class formCaesar
         'pnlPrintout
         '
         Me.pnlPrintout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pnlPrintout.Controls.Add(Me.lblPrintout)
-        Me.pnlPrintout.Location = New System.Drawing.Point(586, 621)
+        Me.pnlPrintout.Controls.Add(Me.picHidden)
+        Me.pnlPrintout.Controls.Add(Me.picCaesarPrintout)
+        Me.pnlPrintout.Controls.Add(Me.btnPrint)
+        Me.pnlPrintout.Location = New System.Drawing.Point(554, 635)
         Me.pnlPrintout.Name = "pnlPrintout"
         Me.pnlPrintout.Size = New System.Drawing.Size(745, 436)
         Me.pnlPrintout.TabIndex = 17
         '
-        'lblPrintout
+        'picCaesarPrintout
         '
-        Me.lblPrintout.AutoSize = True
-        Me.lblPrintout.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrintout.ForeColor = System.Drawing.Color.White
-        Me.lblPrintout.Location = New System.Drawing.Point(16, 26)
-        Me.lblPrintout.Name = "lblPrintout"
-        Me.lblPrintout.Size = New System.Drawing.Size(124, 33)
-        Me.lblPrintout.TabIndex = 0
-        Me.lblPrintout.Text = "Print-out"
+        Me.picCaesarPrintout.Image = CType(resources.GetObject("picCaesarPrintout.Image"), System.Drawing.Image)
+        Me.picCaesarPrintout.Location = New System.Drawing.Point(338, 14)
+        Me.picCaesarPrintout.Name = "picCaesarPrintout"
+        Me.picCaesarPrintout.Size = New System.Drawing.Size(279, 351)
+        Me.picCaesarPrintout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picCaesarPrintout.TabIndex = 28
+        Me.picCaesarPrintout.TabStop = False
+        '
+        'btnPrint
+        '
+        Me.btnPrint.BackColor = System.Drawing.Color.Gainsboro
+        Me.btnPrint.FlatAppearance.BorderSize = 0
+        Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPrint.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPrint.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(6, Byte), Integer))
+        Me.btnPrint.Location = New System.Drawing.Point(-11, 108)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(269, 58)
+        Me.btnPrint.TabIndex = 27
+        Me.btnPrint.TabStop = False
+        Me.btnPrint.Text = "PRINT SHIT!"
+        Me.btnPrint.UseVisualStyleBackColor = False
+        '
+        'PrintDocument1
+        '
+        '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.Document = Me.PrintDocument1
+        Me.PrintDialog1.UseEXDialog = True
+        '
+        'picHidden
+        '
+        Me.picHidden.Location = New System.Drawing.Point(232, 52)
+        Me.picHidden.Name = "picHidden"
+        Me.picHidden.Size = New System.Drawing.Size(100, 50)
+        Me.picHidden.TabIndex = 29
+        Me.picHidden.TabStop = False
+        Me.picHidden.Visible = False
         '
         'formCaesar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
-        Me.ClientSize = New System.Drawing.Size(1278, 825)
+        Me.ClientSize = New System.Drawing.Size(1284, 875)
         Me.Controls.Add(Me.pnlDecryption)
         Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.pnlDemo)
@@ -432,7 +471,8 @@ Partial Class formCaesar
         Me.pnlDecryption.ResumeLayout(False)
         Me.pnlDecryption.PerformLayout()
         Me.pnlPrintout.ResumeLayout(False)
-        Me.pnlPrintout.PerformLayout()
+        CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picHidden, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -450,7 +490,6 @@ Partial Class formCaesar
     Friend WithEvents pnlDemo As Panel
     Friend WithEvents pnlDecryption As Panel
     Friend WithEvents pnlPrintout As Panel
-    Friend WithEvents lblPrintout As Label
     Friend WithEvents picCaesarDiagram As PictureBox
     Friend WithEvents txtCiphertext As TextBox
     Friend WithEvents lblCiphertext As Label
@@ -465,4 +504,9 @@ Partial Class formCaesar
     Friend WithEvents lblTryExplanation As Label
     Friend WithEvents lblTryItOut As Label
     Friend WithEvents btnDecryptionExample As Button
+    Friend WithEvents btnPrint As Button
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PrintDialog1 As PrintDialog
+    Friend WithEvents picCaesarPrintout As PictureBox
+    Friend WithEvents picHidden As PictureBox
 End Class

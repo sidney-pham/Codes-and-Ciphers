@@ -103,10 +103,6 @@
         lblCiphertext.Left = txtCiphertext.Left
         lblCiphertext.placeAbove(txtCiphertext, 10)
 
-        ' btnSwap
-        btnSwap.Left = pnlDemo.Width / 2 - btnSwap.Width / 2
-        btnSwap.placeBelow(txtPlaintext, (DEMO_TEXTBOX_MARGIN) / 2 - btnSwap.Height / 2)
-
         ' ------------------------------------------------------------------------
         ' pnlDecryption
         ' ------------------------------------------------------------------------
@@ -126,9 +122,57 @@
         btnAbout.PerformClick()
     End Sub
 
+    Protected Overrides Sub OnPaint(e As PaintEventArgs)
+        MyBase.OnPaint(e)
+
+        selectedMenuButton.drawBottomBorder(e.Graphics, Color.Silver)
+    End Sub
+
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        btnAbout.PerformClick()
+
         formMain.Show()
         Threading.Thread.Sleep(150)
         Me.Hide()
+    End Sub
+
+    Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
+        selectedMenuButton = btnAbout
+        Me.Refresh()
+
+        pnlAbout.Show()
+        pnlDemo.Hide()
+        pnlDecryption.Hide()
+        pnlPrintout.Hide()
+    End Sub
+
+    Private Sub btnDemo_Click(sender As Object, e As EventArgs) Handles btnDemo.Click
+        selectedMenuButton = btnDemo
+        Me.Refresh()
+
+        pnlDemo.Show()
+        pnlAbout.Hide()
+        pnlDecryption.Hide()
+        pnlPrintout.Hide()
+    End Sub
+
+    Private Sub btnCracking_Click(sender As Object, e As EventArgs) Handles btnCracking.Click
+        selectedMenuButton = btnCracking
+        Me.Refresh()
+
+        pnlDecryption.Show()
+        pnlAbout.Hide()
+        pnlDemo.Hide()
+        pnlPrintout.Hide()
+    End Sub
+
+    Private Sub btnPrintout_Click(sender As Object, e As EventArgs) Handles btnPrintout.Click
+        selectedMenuButton = btnPrintout
+        Me.Refresh()
+
+        pnlPrintout.Show()
+        pnlAbout.Hide()
+        pnlDemo.Hide()
+        pnlDecryption.Hide()
     End Sub
 End Class

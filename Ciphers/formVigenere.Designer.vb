@@ -26,7 +26,6 @@ Partial Class formVigenere
         Me.btnBack = New System.Windows.Forms.Button()
         Me.lblVigenere = New System.Windows.Forms.Label()
         Me.pnlDemo = New System.Windows.Forms.Panel()
-        Me.btnSwap = New System.Windows.Forms.Button()
         Me.lblShift = New System.Windows.Forms.Label()
         Me.btnRight = New System.Windows.Forms.Button()
         Me.btnLeft = New System.Windows.Forms.Button()
@@ -91,7 +90,6 @@ Partial Class formVigenere
         '
         'pnlDemo
         '
-        Me.pnlDemo.Controls.Add(Me.btnSwap)
         Me.pnlDemo.Controls.Add(Me.lblShift)
         Me.pnlDemo.Controls.Add(Me.btnRight)
         Me.pnlDemo.Controls.Add(Me.btnLeft)
@@ -105,21 +103,6 @@ Partial Class formVigenere
         Me.pnlDemo.Name = "pnlDemo"
         Me.pnlDemo.Size = New System.Drawing.Size(798, 481)
         Me.pnlDemo.TabIndex = 16
-        '
-        'btnSwap
-        '
-        Me.btnSwap.BackColor = System.Drawing.Color.Gainsboro
-        Me.btnSwap.FlatAppearance.BorderSize = 0
-        Me.btnSwap.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSwap.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSwap.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(6, Byte), Integer))
-        Me.btnSwap.Location = New System.Drawing.Point(365, 224)
-        Me.btnSwap.Name = "btnSwap"
-        Me.btnSwap.Size = New System.Drawing.Size(327, 43)
-        Me.btnSwap.TabIndex = 25
-        Me.btnSwap.TabStop = False
-        Me.btnSwap.Text = "SET PLAINTEXT TO CIPHERTEXT ⇅"
-        Me.btnSwap.UseVisualStyleBackColor = False
         '
         'lblShift
         '
@@ -484,7 +467,6 @@ Partial Class formVigenere
     Friend WithEvents btnBack As Button
     Friend WithEvents lblVigenere As Label
     Friend WithEvents pnlDemo As Panel
-    Friend WithEvents btnSwap As Button
     Friend WithEvents lblShift As Label
     Friend WithEvents btnRight As Button
     Friend WithEvents btnLeft As Button

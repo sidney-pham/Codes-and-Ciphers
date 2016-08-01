@@ -26,11 +26,9 @@ Partial Class formVigenere
         Me.btnBack = New System.Windows.Forms.Button()
         Me.lblVigenere = New System.Windows.Forms.Label()
         Me.pnlDemo = New System.Windows.Forms.Panel()
-        Me.lblShift = New System.Windows.Forms.Label()
-        Me.btnRight = New System.Windows.Forms.Button()
-        Me.btnLeft = New System.Windows.Forms.Button()
-        Me.lblAlphabetShift = New System.Windows.Forms.Label()
-        Me.lblAlphabet = New System.Windows.Forms.Label()
+        Me.txtKey = New System.Windows.Forms.TextBox()
+        Me.lblKey = New System.Windows.Forms.Label()
+        Me.lblKeyLarge = New System.Windows.Forms.Label()
         Me.lblCiphertext = New System.Windows.Forms.Label()
         Me.lblPlaintext = New System.Windows.Forms.Label()
         Me.txtCiphertext = New System.Windows.Forms.TextBox()
@@ -40,25 +38,47 @@ Partial Class formVigenere
         Me.btnDemo = New System.Windows.Forms.Button()
         Me.btnAbout = New System.Windows.Forms.Button()
         Me.pnlDecryption = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnDecryptionExample = New System.Windows.Forms.Button()
         Me.lblTryExplanation = New System.Windows.Forms.Label()
         Me.lblTryItOut = New System.Windows.Forms.Label()
         Me.lblCaesarCracking = New System.Windows.Forms.Label()
-        Me.pnlAbout = New System.Windows.Forms.Panel()
-        Me.picCaesarDiagram = New System.Windows.Forms.PictureBox()
-        Me.lblCaesarInfo1 = New System.Windows.Forms.Label()
+        Me.pnlAbout1 = New System.Windows.Forms.Panel()
+        Me.lblVigenereCaption = New System.Windows.Forms.Label()
+        Me.lblAlbertiCaption = New System.Windows.Forms.Label()
+        Me.picVigenere = New System.Windows.Forms.PictureBox()
+        Me.picAlberti = New System.Windows.Forms.PictureBox()
+        Me.lblVigenereInfo1 = New System.Windows.Forms.Label()
         Me.pnlPrintout = New System.Windows.Forms.Panel()
         Me.lblPrintoutExplanation = New System.Windows.Forms.Label()
         Me.picHidden = New System.Windows.Forms.PictureBox()
         Me.picCaesarPrintout = New System.Windows.Forms.PictureBox()
         Me.btnPrint = New System.Windows.Forms.Button()
+        Me.pnlAbout2 = New System.Windows.Forms.Panel()
+        Me.lblVigenereSquareCaption = New System.Windows.Forms.Label()
+        Me.picVigenereSquare = New System.Windows.Forms.PictureBox()
+        Me.lblVigenereInfo3 = New System.Windows.Forms.Label()
+        Me.lblVigenereInfo2 = New System.Windows.Forms.Label()
+        Me.btnNextPage = New System.Windows.Forms.Button()
+        Me.btnPreviousPage = New System.Windows.Forms.Button()
+        Me.lblPlaintextAddition = New System.Windows.Forms.Label()
+        Me.lblKeyAddition = New System.Windows.Forms.Label()
+        Me.lblPlaintextAdditionSubscript = New System.Windows.Forms.Label()
+        Me.lblKeyAdditionSubscript = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblResultAdditionSubscript = New System.Windows.Forms.Label()
+        Me.lblResultAddition = New System.Windows.Forms.Label()
         Me.pnlDemo.SuspendLayout()
         Me.pnlDecryption.SuspendLayout()
-        Me.pnlAbout.SuspendLayout()
-        CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlAbout1.SuspendLayout()
+        CType(Me.picVigenere, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picAlberti, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlPrintout.SuspendLayout()
         CType(Me.picHidden, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlAbout2.SuspendLayout()
+        CType(Me.picVigenereSquare, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBack
@@ -90,89 +110,68 @@ Partial Class formVigenere
         '
         'pnlDemo
         '
-        Me.pnlDemo.Controls.Add(Me.lblShift)
-        Me.pnlDemo.Controls.Add(Me.btnRight)
-        Me.pnlDemo.Controls.Add(Me.btnLeft)
-        Me.pnlDemo.Controls.Add(Me.lblAlphabetShift)
-        Me.pnlDemo.Controls.Add(Me.lblAlphabet)
+        Me.pnlDemo.Controls.Add(Me.lblResultAdditionSubscript)
+        Me.pnlDemo.Controls.Add(Me.lblResultAddition)
+        Me.pnlDemo.Controls.Add(Me.Label3)
+        Me.pnlDemo.Controls.Add(Me.Label2)
+        Me.pnlDemo.Controls.Add(Me.lblKeyAdditionSubscript)
+        Me.pnlDemo.Controls.Add(Me.lblPlaintextAdditionSubscript)
+        Me.pnlDemo.Controls.Add(Me.lblKeyAddition)
+        Me.pnlDemo.Controls.Add(Me.lblPlaintextAddition)
+        Me.pnlDemo.Controls.Add(Me.txtKey)
+        Me.pnlDemo.Controls.Add(Me.lblKey)
+        Me.pnlDemo.Controls.Add(Me.lblKeyLarge)
         Me.pnlDemo.Controls.Add(Me.lblCiphertext)
         Me.pnlDemo.Controls.Add(Me.lblPlaintext)
         Me.pnlDemo.Controls.Add(Me.txtCiphertext)
         Me.pnlDemo.Controls.Add(Me.txtPlaintext)
-        Me.pnlDemo.Location = New System.Drawing.Point(233, 142)
+        Me.pnlDemo.Location = New System.Drawing.Point(53, 96)
         Me.pnlDemo.Name = "pnlDemo"
-        Me.pnlDemo.Size = New System.Drawing.Size(798, 481)
+        Me.pnlDemo.Size = New System.Drawing.Size(835, 518)
         Me.pnlDemo.TabIndex = 16
         '
-        'lblShift
+        'txtKey
         '
-        Me.lblShift.AutoSize = True
-        Me.lblShift.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblShift.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblShift.Location = New System.Drawing.Point(285, 53)
-        Me.lblShift.Name = "lblShift"
-        Me.lblShift.Size = New System.Drawing.Size(116, 36)
-        Me.lblShift.TabIndex = 24
-        Me.lblShift.Text = "SHIFT: 0"
+        Me.txtKey.BackColor = System.Drawing.Color.LightGray
+        Me.txtKey.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtKey.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtKey.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtKey.ForeColor = System.Drawing.Color.Black
+        Me.txtKey.Location = New System.Drawing.Point(169, 15)
+        Me.txtKey.MaxLength = 150
+        Me.txtKey.Multiline = True
+        Me.txtKey.Name = "txtKey"
+        Me.txtKey.Size = New System.Drawing.Size(430, 57)
+        Me.txtKey.TabIndex = 25
         '
-        'btnRight
+        'lblKey
         '
-        Me.btnRight.BackColor = System.Drawing.Color.Gainsboro
-        Me.btnRight.FlatAppearance.BorderSize = 0
-        Me.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRight.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRight.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.btnRight.Location = New System.Drawing.Point(570, 3)
-        Me.btnRight.Name = "btnRight"
-        Me.btnRight.Size = New System.Drawing.Size(50, 50)
-        Me.btnRight.TabIndex = 23
-        Me.btnRight.TabStop = False
-        Me.btnRight.Text = ">"
-        Me.btnRight.UseVisualStyleBackColor = False
+        Me.lblKey.AutoSize = True
+        Me.lblKey.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblKey.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblKey.Location = New System.Drawing.Point(47, 28)
+        Me.lblKey.Name = "lblKey"
+        Me.lblKey.Size = New System.Drawing.Size(74, 36)
+        Me.lblKey.TabIndex = 24
+        Me.lblKey.Text = "KEY:"
         '
-        'btnLeft
+        'lblKeyLarge
         '
-        Me.btnLeft.BackColor = System.Drawing.Color.Gainsboro
-        Me.btnLeft.FlatAppearance.BorderSize = 0
-        Me.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLeft.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLeft.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(6, Byte), Integer))
-        Me.btnLeft.Location = New System.Drawing.Point(78, 3)
-        Me.btnLeft.Name = "btnLeft"
-        Me.btnLeft.Size = New System.Drawing.Size(50, 50)
-        Me.btnLeft.TabIndex = 22
-        Me.btnLeft.TabStop = False
-        Me.btnLeft.Text = "<"
-        Me.btnLeft.UseVisualStyleBackColor = False
-        '
-        'lblAlphabetShift
-        '
-        Me.lblAlphabetShift.AutoSize = True
-        Me.lblAlphabetShift.Font = New System.Drawing.Font("Lucida Sans Typewriter", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAlphabetShift.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblAlphabetShift.Location = New System.Drawing.Point(134, 22)
-        Me.lblAlphabetShift.Name = "lblAlphabetShift"
-        Me.lblAlphabetShift.Size = New System.Drawing.Size(430, 31)
-        Me.lblAlphabetShift.TabIndex = 21
-        Me.lblAlphabetShift.Text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        '
-        'lblAlphabet
-        '
-        Me.lblAlphabet.AutoSize = True
-        Me.lblAlphabet.Font = New System.Drawing.Font("Lucida Sans Typewriter", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAlphabet.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblAlphabet.Location = New System.Drawing.Point(134, 0)
-        Me.lblAlphabet.Name = "lblAlphabet"
-        Me.lblAlphabet.Size = New System.Drawing.Size(430, 31)
-        Me.lblAlphabet.TabIndex = 20
-        Me.lblAlphabet.Text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        Me.lblKeyLarge.AutoSize = True
+        Me.lblKeyLarge.Font = New System.Drawing.Font("Lucida Sans Typewriter", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblKeyLarge.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblKeyLarge.Location = New System.Drawing.Point(243, 84)
+        Me.lblKeyLarge.Name = "lblKeyLarge"
+        Me.lblKeyLarge.Size = New System.Drawing.Size(158, 31)
+        Me.lblKeyLarge.TabIndex = 20
+        Me.lblKeyLarge.Text = "C O U N T"
         '
         'lblCiphertext
         '
         Me.lblCiphertext.AutoSize = True
         Me.lblCiphertext.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCiphertext.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblCiphertext.Location = New System.Drawing.Point(482, 67)
+        Me.lblCiphertext.Location = New System.Drawing.Point(453, 187)
         Me.lblCiphertext.Name = "lblCiphertext"
         Me.lblCiphertext.Size = New System.Drawing.Size(126, 25)
         Me.lblCiphertext.TabIndex = 19
@@ -183,7 +182,7 @@ Partial Class formVigenere
         Me.lblPlaintext.AutoSize = True
         Me.lblPlaintext.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPlaintext.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblPlaintext.Location = New System.Drawing.Point(61, 67)
+        Me.lblPlaintext.Location = New System.Drawing.Point(30, 184)
         Me.lblPlaintext.Name = "lblPlaintext"
         Me.lblPlaintext.Size = New System.Drawing.Size(114, 25)
         Me.lblPlaintext.TabIndex = 18
@@ -196,7 +195,7 @@ Partial Class formVigenere
         Me.txtCiphertext.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCiphertext.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCiphertext.ForeColor = System.Drawing.Color.Gainsboro
-        Me.txtCiphertext.Location = New System.Drawing.Point(477, 108)
+        Me.txtCiphertext.Location = New System.Drawing.Point(437, 221)
         Me.txtCiphertext.MaxLength = 150
         Me.txtCiphertext.Multiline = True
         Me.txtCiphertext.Name = "txtCiphertext"
@@ -210,7 +209,7 @@ Partial Class formVigenere
         Me.txtPlaintext.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtPlaintext.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPlaintext.ForeColor = System.Drawing.Color.Black
-        Me.txtPlaintext.Location = New System.Drawing.Point(65, 108)
+        Me.txtPlaintext.Location = New System.Drawing.Point(35, 221)
         Me.txtPlaintext.MaxLength = 150
         Me.txtPlaintext.Multiline = True
         Me.txtPlaintext.Name = "txtPlaintext"
@@ -225,9 +224,9 @@ Partial Class formVigenere
         Me.btnPrintout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPrintout.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnPrintout.ForeColor = System.Drawing.Color.Black
-        Me.btnPrintout.Location = New System.Drawing.Point(648, 22)
+        Me.btnPrintout.Location = New System.Drawing.Point(642, 22)
         Me.btnPrintout.Name = "btnPrintout"
-        Me.btnPrintout.Size = New System.Drawing.Size(160, 68)
+        Me.btnPrintout.Size = New System.Drawing.Size(166, 68)
         Me.btnPrintout.TabIndex = 20
         Me.btnPrintout.TabStop = False
         Me.btnPrintout.Text = "PRINT-OUT"
@@ -283,14 +282,26 @@ Partial Class formVigenere
         '
         'pnlDecryption
         '
+        Me.pnlDecryption.Controls.Add(Me.Label1)
         Me.pnlDecryption.Controls.Add(Me.btnDecryptionExample)
         Me.pnlDecryption.Controls.Add(Me.lblTryExplanation)
         Me.pnlDecryption.Controls.Add(Me.lblTryItOut)
         Me.pnlDecryption.Controls.Add(Me.lblCaesarCracking)
-        Me.pnlDecryption.Location = New System.Drawing.Point(314, 114)
+        Me.pnlDecryption.Location = New System.Drawing.Point(320, 49)
         Me.pnlDecryption.Name = "pnlDecryption"
         Me.pnlDecryption.Size = New System.Drawing.Size(745, 436)
         Me.pnlDecryption.TabIndex = 21
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.Label1.Location = New System.Drawing.Point(-1071, 202)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(2887, 32)
+        Me.Label1.TabIndex = 27
+        Me.Label1.Text = resources.GetString("Label1.Text")
         '
         'btnDecryptionExample
         '
@@ -342,35 +353,70 @@ Partial Class formVigenere
         Me.lblCaesarCracking.TabIndex = 1
         Me.lblCaesarCracking.Text = resources.GetString("lblCaesarCracking.Text")
         '
-        'pnlAbout
+        'pnlAbout1
         '
-        Me.pnlAbout.Controls.Add(Me.picCaesarDiagram)
-        Me.pnlAbout.Controls.Add(Me.lblCaesarInfo1)
-        Me.pnlAbout.Location = New System.Drawing.Point(17, 175)
-        Me.pnlAbout.Name = "pnlAbout"
-        Me.pnlAbout.Size = New System.Drawing.Size(745, 436)
-        Me.pnlAbout.TabIndex = 22
+        Me.pnlAbout1.Controls.Add(Me.lblVigenereCaption)
+        Me.pnlAbout1.Controls.Add(Me.lblAlbertiCaption)
+        Me.pnlAbout1.Controls.Add(Me.picVigenere)
+        Me.pnlAbout1.Controls.Add(Me.picAlberti)
+        Me.pnlAbout1.Controls.Add(Me.lblVigenereInfo1)
+        Me.pnlAbout1.Location = New System.Drawing.Point(33, 111)
+        Me.pnlAbout1.Name = "pnlAbout1"
+        Me.pnlAbout1.Size = New System.Drawing.Size(745, 436)
+        Me.pnlAbout1.TabIndex = 22
         '
-        'picCaesarDiagram
+        'lblVigenereCaption
         '
-        Me.picCaesarDiagram.Image = CType(resources.GetObject("picCaesarDiagram.Image"), System.Drawing.Image)
-        Me.picCaesarDiagram.Location = New System.Drawing.Point(-60, 194)
-        Me.picCaesarDiagram.Name = "picCaesarDiagram"
-        Me.picCaesarDiagram.Size = New System.Drawing.Size(800, 352)
-        Me.picCaesarDiagram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.picCaesarDiagram.TabIndex = 1
-        Me.picCaesarDiagram.TabStop = False
+        Me.lblVigenereCaption.AutoSize = True
+        Me.lblVigenereCaption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVigenereCaption.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblVigenereCaption.Location = New System.Drawing.Point(433, 405)
+        Me.lblVigenereCaption.Name = "lblVigenereCaption"
+        Me.lblVigenereCaption.Size = New System.Drawing.Size(178, 22)
+        Me.lblVigenereCaption.TabIndex = 4
+        Me.lblVigenereCaption.Text = "Blaise de Vigenère"
         '
-        'lblCaesarInfo1
+        'lblAlbertiCaption
         '
-        Me.lblCaesarInfo1.AutoSize = True
-        Me.lblCaesarInfo1.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCaesarInfo1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblCaesarInfo1.Location = New System.Drawing.Point(15, 17)
-        Me.lblCaesarInfo1.Name = "lblCaesarInfo1"
-        Me.lblCaesarInfo1.Size = New System.Drawing.Size(3395, 160)
-        Me.lblCaesarInfo1.TabIndex = 0
-        Me.lblCaesarInfo1.Text = resources.GetString("lblCaesarInfo1.Text")
+        Me.lblAlbertiCaption.AutoSize = True
+        Me.lblAlbertiCaption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblAlbertiCaption.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblAlbertiCaption.Location = New System.Drawing.Point(121, 387)
+        Me.lblAlbertiCaption.Name = "lblAlbertiCaption"
+        Me.lblAlbertiCaption.Size = New System.Drawing.Size(203, 22)
+        Me.lblAlbertiCaption.TabIndex = 3
+        Me.lblAlbertiCaption.Text = "Leon Battista Alberti"
+        '
+        'picVigenere
+        '
+        Me.picVigenere.Image = CType(resources.GetObject("picVigenere.Image"), System.Drawing.Image)
+        Me.picVigenere.Location = New System.Drawing.Point(437, 194)
+        Me.picVigenere.Name = "picVigenere"
+        Me.picVigenere.Size = New System.Drawing.Size(207, 215)
+        Me.picVigenere.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picVigenere.TabIndex = 2
+        Me.picVigenere.TabStop = False
+        '
+        'picAlberti
+        '
+        Me.picAlberti.Image = CType(resources.GetObject("picAlberti.Image"), System.Drawing.Image)
+        Me.picAlberti.Location = New System.Drawing.Point(82, 17)
+        Me.picAlberti.Name = "picAlberti"
+        Me.picAlberti.Size = New System.Drawing.Size(300, 397)
+        Me.picAlberti.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picAlberti.TabIndex = 1
+        Me.picAlberti.TabStop = False
+        '
+        'lblVigenereInfo1
+        '
+        Me.lblVigenereInfo1.AutoSize = True
+        Me.lblVigenereInfo1.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVigenereInfo1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblVigenereInfo1.Location = New System.Drawing.Point(15, 17)
+        Me.lblVigenereInfo1.Name = "lblVigenereInfo1"
+        Me.lblVigenereInfo1.Size = New System.Drawing.Size(5422, 160)
+        Me.lblVigenereInfo1.TabIndex = 0
+        Me.lblVigenereInfo1.Text = resources.GetString("lblVigenereInfo1.Text")
         '
         'pnlPrintout
         '
@@ -428,22 +474,198 @@ Partial Class formVigenere
         Me.btnPrint.Text = "PRINT 🖶"
         Me.btnPrint.UseVisualStyleBackColor = False
         '
+        'pnlAbout2
+        '
+        Me.pnlAbout2.Controls.Add(Me.lblVigenereSquareCaption)
+        Me.pnlAbout2.Controls.Add(Me.picVigenereSquare)
+        Me.pnlAbout2.Controls.Add(Me.lblVigenereInfo3)
+        Me.pnlAbout2.Controls.Add(Me.lblVigenereInfo2)
+        Me.pnlAbout2.Location = New System.Drawing.Point(137, 80)
+        Me.pnlAbout2.Name = "pnlAbout2"
+        Me.pnlAbout2.Size = New System.Drawing.Size(745, 436)
+        Me.pnlAbout2.TabIndex = 24
+        '
+        'lblVigenereSquareCaption
+        '
+        Me.lblVigenereSquareCaption.AutoSize = True
+        Me.lblVigenereSquareCaption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVigenereSquareCaption.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblVigenereSquareCaption.Location = New System.Drawing.Point(355, 177)
+        Me.lblVigenereSquareCaption.Name = "lblVigenereSquareCaption"
+        Me.lblVigenereSquareCaption.Size = New System.Drawing.Size(160, 22)
+        Me.lblVigenereSquareCaption.TabIndex = 6
+        Me.lblVigenereSquareCaption.Text = "Vigenère Square"
+        '
+        'picVigenereSquare
+        '
+        Me.picVigenereSquare.Image = CType(resources.GetObject("picVigenereSquare.Image"), System.Drawing.Image)
+        Me.picVigenereSquare.Location = New System.Drawing.Point(290, 83)
+        Me.picVigenereSquare.Name = "picVigenereSquare"
+        Me.picVigenereSquare.Size = New System.Drawing.Size(300, 397)
+        Me.picVigenereSquare.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picVigenereSquare.TabIndex = 5
+        Me.picVigenereSquare.TabStop = False
+        '
+        'lblVigenereInfo3
+        '
+        Me.lblVigenereInfo3.AutoSize = True
+        Me.lblVigenereInfo3.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVigenereInfo3.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblVigenereInfo3.Location = New System.Drawing.Point(15, 187)
+        Me.lblVigenereInfo3.Name = "lblVigenereInfo3"
+        Me.lblVigenereInfo3.Size = New System.Drawing.Size(3376, 96)
+        Me.lblVigenereInfo3.TabIndex = 1
+        Me.lblVigenereInfo3.Text = resources.GetString("lblVigenereInfo3.Text")
+        '
+        'lblVigenereInfo2
+        '
+        Me.lblVigenereInfo2.AutoSize = True
+        Me.lblVigenereInfo2.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVigenereInfo2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblVigenereInfo2.Location = New System.Drawing.Point(15, 17)
+        Me.lblVigenereInfo2.Name = "lblVigenereInfo2"
+        Me.lblVigenereInfo2.Size = New System.Drawing.Size(1974, 32)
+        Me.lblVigenereInfo2.TabIndex = 0
+        Me.lblVigenereInfo2.Text = "The Vigenère cipher is generally used with a Vigenère square. This is a square th" &
+    "at shows the corresponding alphabet for every letter in the key."
+        '
+        'btnNextPage
+        '
+        Me.btnNextPage.BackColor = System.Drawing.Color.FromArgb(CType(CType(129, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(163, Byte), Integer))
+        Me.btnNextPage.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnNextPage.FlatAppearance.BorderSize = 0
+        Me.btnNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNextPage.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNextPage.ForeColor = System.Drawing.Color.Gainsboro
+        Me.btnNextPage.Location = New System.Drawing.Point(787, -11)
+        Me.btnNextPage.Name = "btnNextPage"
+        Me.btnNextPage.Size = New System.Drawing.Size(95, 101)
+        Me.btnNextPage.TabIndex = 25
+        Me.btnNextPage.Text = ">"
+        Me.btnNextPage.UseVisualStyleBackColor = False
+        '
+        'btnPreviousPage
+        '
+        Me.btnPreviousPage.BackColor = System.Drawing.Color.FromArgb(CType(CType(129, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(163, Byte), Integer))
+        Me.btnPreviousPage.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnPreviousPage.FlatAppearance.BorderSize = 0
+        Me.btnPreviousPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPreviousPage.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPreviousPage.ForeColor = System.Drawing.Color.Gainsboro
+        Me.btnPreviousPage.Location = New System.Drawing.Point(12, 4)
+        Me.btnPreviousPage.Name = "btnPreviousPage"
+        Me.btnPreviousPage.Size = New System.Drawing.Size(95, 101)
+        Me.btnPreviousPage.TabIndex = 26
+        Me.btnPreviousPage.Text = "<"
+        Me.btnPreviousPage.UseVisualStyleBackColor = False
+        '
+        'lblPlaintextAddition
+        '
+        Me.lblPlaintextAddition.AutoSize = True
+        Me.lblPlaintextAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPlaintextAddition.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblPlaintextAddition.Location = New System.Drawing.Point(198, 125)
+        Me.lblPlaintextAddition.Name = "lblPlaintextAddition"
+        Me.lblPlaintextAddition.Size = New System.Drawing.Size(32, 36)
+        Me.lblPlaintextAddition.TabIndex = 26
+        Me.lblPlaintextAddition.Text = "B"
+        '
+        'lblKeyAddition
+        '
+        Me.lblKeyAddition.AutoSize = True
+        Me.lblKeyAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblKeyAddition.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblKeyAddition.Location = New System.Drawing.Point(292, 125)
+        Me.lblKeyAddition.Name = "lblKeyAddition"
+        Me.lblKeyAddition.Size = New System.Drawing.Size(32, 36)
+        Me.lblKeyAddition.TabIndex = 27
+        Me.lblKeyAddition.Text = "B"
+        '
+        'lblPlaintextAdditionSubscript
+        '
+        Me.lblPlaintextAdditionSubscript.AutoSize = True
+        Me.lblPlaintextAdditionSubscript.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPlaintextAdditionSubscript.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblPlaintextAdditionSubscript.Location = New System.Drawing.Point(229, 155)
+        Me.lblPlaintextAdditionSubscript.Name = "lblPlaintextAdditionSubscript"
+        Me.lblPlaintextAdditionSubscript.Size = New System.Drawing.Size(21, 23)
+        Me.lblPlaintextAdditionSubscript.TabIndex = 28
+        Me.lblPlaintextAdditionSubscript.Text = "B"
+        '
+        'lblKeyAdditionSubscript
+        '
+        Me.lblKeyAdditionSubscript.AutoSize = True
+        Me.lblKeyAdditionSubscript.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblKeyAdditionSubscript.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblKeyAdditionSubscript.Location = New System.Drawing.Point(320, 155)
+        Me.lblKeyAdditionSubscript.Name = "lblKeyAdditionSubscript"
+        Me.lblKeyAdditionSubscript.Size = New System.Drawing.Size(21, 23)
+        Me.lblKeyAdditionSubscript.TabIndex = 29
+        Me.lblKeyAdditionSubscript.Text = "B"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label2.Location = New System.Drawing.Point(254, 125)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(32, 36)
+        Me.Label2.TabIndex = 30
+        Me.Label2.Text = "+"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
+        Me.Label3.Location = New System.Drawing.Point(347, 125)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(32, 36)
+        Me.Label3.TabIndex = 31
+        Me.Label3.Text = "="
+        '
+        'lblResultAdditionSubscript
+        '
+        Me.lblResultAdditionSubscript.AutoSize = True
+        Me.lblResultAdditionSubscript.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResultAdditionSubscript.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblResultAdditionSubscript.Location = New System.Drawing.Point(420, 165)
+        Me.lblResultAdditionSubscript.Name = "lblResultAdditionSubscript"
+        Me.lblResultAdditionSubscript.Size = New System.Drawing.Size(21, 23)
+        Me.lblResultAdditionSubscript.TabIndex = 33
+        Me.lblResultAdditionSubscript.Text = "B"
+        '
+        'lblResultAddition
+        '
+        Me.lblResultAddition.AutoSize = True
+        Me.lblResultAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResultAddition.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblResultAddition.Location = New System.Drawing.Point(392, 129)
+        Me.lblResultAddition.Name = "lblResultAddition"
+        Me.lblResultAddition.Size = New System.Drawing.Size(32, 36)
+        Me.lblResultAddition.TabIndex = 32
+        Me.lblResultAddition.Text = "B"
+        '
         'formVigenere
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1106, 656)
-        Me.Controls.Add(Me.pnlDemo)
-        Me.Controls.Add(Me.pnlPrintout)
-        Me.Controls.Add(Me.pnlAbout)
-        Me.Controls.Add(Me.pnlDecryption)
+        Me.Controls.Add(Me.btnNextPage)
+        Me.Controls.Add(Me.btnPreviousPage)
         Me.Controls.Add(Me.btnPrintout)
         Me.Controls.Add(Me.btnCracking)
         Me.Controls.Add(Me.btnDemo)
         Me.Controls.Add(Me.btnAbout)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblVigenere)
+        Me.Controls.Add(Me.pnlDemo)
+        Me.Controls.Add(Me.pnlDecryption)
+        Me.Controls.Add(Me.pnlPrintout)
+        Me.Controls.Add(Me.pnlAbout2)
+        Me.Controls.Add(Me.pnlAbout1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formVigenere"
         Me.Text = "formVigenere"
@@ -452,13 +674,17 @@ Partial Class formVigenere
         Me.pnlDemo.PerformLayout()
         Me.pnlDecryption.ResumeLayout(False)
         Me.pnlDecryption.PerformLayout()
-        Me.pnlAbout.ResumeLayout(False)
-        Me.pnlAbout.PerformLayout()
-        CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlAbout1.ResumeLayout(False)
+        Me.pnlAbout1.PerformLayout()
+        CType(Me.picVigenere, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picAlberti, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlPrintout.ResumeLayout(False)
         Me.pnlPrintout.PerformLayout()
         CType(Me.picHidden, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlAbout2.ResumeLayout(False)
+        Me.pnlAbout2.PerformLayout()
+        CType(Me.picVigenereSquare, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -467,11 +693,8 @@ Partial Class formVigenere
     Friend WithEvents btnBack As Button
     Friend WithEvents lblVigenere As Label
     Friend WithEvents pnlDemo As Panel
-    Friend WithEvents lblShift As Label
-    Friend WithEvents btnRight As Button
-    Friend WithEvents btnLeft As Button
-    Friend WithEvents lblAlphabetShift As Label
-    Friend WithEvents lblAlphabet As Label
+    Friend WithEvents lblKey As Label
+    Friend WithEvents lblKeyLarge As Label
     Friend WithEvents lblCiphertext As Label
     Friend WithEvents lblPlaintext As Label
     Friend WithEvents txtCiphertext As TextBox
@@ -485,12 +708,32 @@ Partial Class formVigenere
     Friend WithEvents lblTryExplanation As Label
     Friend WithEvents lblTryItOut As Label
     Friend WithEvents lblCaesarCracking As Label
-    Friend WithEvents pnlAbout As Panel
-    Friend WithEvents picCaesarDiagram As PictureBox
-    Friend WithEvents lblCaesarInfo1 As Label
+    Friend WithEvents pnlAbout1 As Panel
+    Friend WithEvents picAlberti As PictureBox
+    Friend WithEvents lblVigenereInfo1 As Label
     Friend WithEvents pnlPrintout As Panel
     Friend WithEvents lblPrintoutExplanation As Label
     Friend WithEvents picHidden As PictureBox
     Friend WithEvents picCaesarPrintout As PictureBox
     Friend WithEvents btnPrint As Button
+    Friend WithEvents picVigenere As PictureBox
+    Friend WithEvents lblVigenereCaption As Label
+    Friend WithEvents lblAlbertiCaption As Label
+    Friend WithEvents pnlAbout2 As Panel
+    Friend WithEvents lblVigenereInfo2 As Label
+    Friend WithEvents btnNextPage As Button
+    Friend WithEvents btnPreviousPage As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents picVigenereSquare As PictureBox
+    Friend WithEvents lblVigenereInfo3 As Label
+    Friend WithEvents lblVigenereSquareCaption As Label
+    Friend WithEvents txtKey As TextBox
+    Friend WithEvents lblResultAdditionSubscript As Label
+    Friend WithEvents lblResultAddition As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents lblKeyAdditionSubscript As Label
+    Friend WithEvents lblPlaintextAdditionSubscript As Label
+    Friend WithEvents lblKeyAddition As Label
+    Friend WithEvents lblPlaintextAddition As Label
 End Class

@@ -49,12 +49,13 @@ Partial Class formCaesar
         Me.lblTryItOut = New System.Windows.Forms.Label()
         Me.lblCaesarCracking = New System.Windows.Forms.Label()
         Me.pnlPrintout = New System.Windows.Forms.Panel()
+        Me.lblPrintoutExplanation = New System.Windows.Forms.Label()
         Me.picHidden = New System.Windows.Forms.PictureBox()
         Me.picCaesarPrintout = New System.Windows.Forms.PictureBox()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
-        Me.lblPrintoutExplanation = New System.Windows.Forms.Label()
+        Me.lblCaesarDiagramCaption = New System.Windows.Forms.Label()
         Me.pnlAbout.SuspendLayout()
         CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDemo.SuspendLayout()
@@ -152,6 +153,7 @@ Partial Class formCaesar
         '
         'pnlAbout
         '
+        Me.pnlAbout.Controls.Add(Me.lblCaesarDiagramCaption)
         Me.pnlAbout.Controls.Add(Me.picCaesarDiagram)
         Me.pnlAbout.Controls.Add(Me.lblCaesarInfo1)
         Me.pnlAbout.Location = New System.Drawing.Point(12, 163)
@@ -402,6 +404,17 @@ Partial Class formCaesar
         Me.pnlPrintout.Size = New System.Drawing.Size(745, 436)
         Me.pnlPrintout.TabIndex = 17
         '
+        'lblPrintoutExplanation
+        '
+        Me.lblPrintoutExplanation.AutoSize = True
+        Me.lblPrintoutExplanation.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPrintoutExplanation.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblPrintoutExplanation.Location = New System.Drawing.Point(33, 14)
+        Me.lblPrintoutExplanation.Name = "lblPrintoutExplanation"
+        Me.lblPrintoutExplanation.Size = New System.Drawing.Size(3016, 160)
+        Me.lblPrintoutExplanation.TabIndex = 27
+        Me.lblPrintoutExplanation.Text = resources.GetString("lblPrintoutExplanation.Text")
+        '
         'picHidden
         '
         Me.picHidden.Location = New System.Drawing.Point(232, 52)
@@ -444,16 +457,16 @@ Partial Class formCaesar
         Me.PrintDialog1.Document = Me.PrintDocument1
         Me.PrintDialog1.UseEXDialog = True
         '
-        'lblPrintoutExplanation
+        'lblCaesarDiagramCaption
         '
-        Me.lblPrintoutExplanation.AutoSize = True
-        Me.lblPrintoutExplanation.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPrintoutExplanation.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblPrintoutExplanation.Location = New System.Drawing.Point(33, 14)
-        Me.lblPrintoutExplanation.Name = "lblPrintoutExplanation"
-        Me.lblPrintoutExplanation.Size = New System.Drawing.Size(3016, 160)
-        Me.lblPrintoutExplanation.TabIndex = 27
-        Me.lblPrintoutExplanation.Text = resources.GetString("lblPrintoutExplanation.Text")
+        Me.lblCaesarDiagramCaption.AutoSize = True
+        Me.lblCaesarDiagramCaption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCaesarDiagramCaption.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblCaesarDiagramCaption.Location = New System.Drawing.Point(211, 177)
+        Me.lblCaesarDiagramCaption.Name = "lblCaesarDiagramCaption"
+        Me.lblCaesarDiagramCaption.Size = New System.Drawing.Size(223, 22)
+        Me.lblCaesarDiagramCaption.TabIndex = 2
+        Me.lblCaesarDiagramCaption.Text = "Caesar shift with key 3"
         '
         'formCaesar
         '
@@ -461,11 +474,11 @@ Partial Class formCaesar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1284, 875)
+        Me.Controls.Add(Me.pnlAbout)
         Me.Controls.Add(Me.pnlDecryption)
         Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.btnPrintout)
-        Me.Controls.Add(Me.pnlAbout)
         Me.Controls.Add(Me.btnCracking)
         Me.Controls.Add(Me.btnDemo)
         Me.Controls.Add(Me.btnAbout)
@@ -523,4 +536,5 @@ Partial Class formCaesar
     Friend WithEvents picCaesarPrintout As PictureBox
     Friend WithEvents picHidden As PictureBox
     Friend WithEvents lblPrintoutExplanation As Label
+    Friend WithEvents lblCaesarDiagramCaption As Label
 End Class

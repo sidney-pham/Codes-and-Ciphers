@@ -66,6 +66,10 @@
         picCaesarDiagram.Left = pnlAbout.Width / 2 - picCaesarDiagram.Width / 2
         picCaesarDiagram.placeBelow(lblCaesarInfo1, 25)
 
+        ' lblCaesarDiagramCaption
+        lblCaesarDiagramCaption.Left = pnlAbout.Width / 2 - lblCaesarDiagramCaption.Width / 2
+        lblCaesarDiagramCaption.placeBelow(picCaesarDiagram, 10)
+
         ' ------------------------------------------------------------------------
         ' pnlDemo
         ' ------------------------------------------------------------------------

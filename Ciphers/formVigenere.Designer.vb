@@ -26,6 +26,14 @@ Partial Class formVigenere
         Me.btnBack = New System.Windows.Forms.Button()
         Me.lblVigenere = New System.Windows.Forms.Label()
         Me.pnlDemo = New System.Windows.Forms.Panel()
+        Me.lblResultAdditionSubscript = New System.Windows.Forms.Label()
+        Me.lblResultAddition = New System.Windows.Forms.Label()
+        Me.lblEqualsAddition = New System.Windows.Forms.Label()
+        Me.lblPlusAddition = New System.Windows.Forms.Label()
+        Me.lblKeyAdditionSubscript = New System.Windows.Forms.Label()
+        Me.lblPlaintextAdditionSubscript = New System.Windows.Forms.Label()
+        Me.lblKeyAddition = New System.Windows.Forms.Label()
+        Me.lblPlaintextAddition = New System.Windows.Forms.Label()
         Me.txtKey = New System.Windows.Forms.TextBox()
         Me.lblKey = New System.Windows.Forms.Label()
         Me.lblKeyLarge = New System.Windows.Forms.Label()
@@ -61,14 +69,6 @@ Partial Class formVigenere
         Me.lblVigenereInfo2 = New System.Windows.Forms.Label()
         Me.btnNextPage = New System.Windows.Forms.Button()
         Me.btnPreviousPage = New System.Windows.Forms.Button()
-        Me.lblPlaintextAddition = New System.Windows.Forms.Label()
-        Me.lblKeyAddition = New System.Windows.Forms.Label()
-        Me.lblPlaintextAdditionSubscript = New System.Windows.Forms.Label()
-        Me.lblKeyAdditionSubscript = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.lblResultAdditionSubscript = New System.Windows.Forms.Label()
-        Me.lblResultAddition = New System.Windows.Forms.Label()
         Me.pnlDemo.SuspendLayout()
         Me.pnlDecryption.SuspendLayout()
         Me.pnlAbout1.SuspendLayout()
@@ -112,8 +112,8 @@ Partial Class formVigenere
         '
         Me.pnlDemo.Controls.Add(Me.lblResultAdditionSubscript)
         Me.pnlDemo.Controls.Add(Me.lblResultAddition)
-        Me.pnlDemo.Controls.Add(Me.Label3)
-        Me.pnlDemo.Controls.Add(Me.Label2)
+        Me.pnlDemo.Controls.Add(Me.lblEqualsAddition)
+        Me.pnlDemo.Controls.Add(Me.lblPlusAddition)
         Me.pnlDemo.Controls.Add(Me.lblKeyAdditionSubscript)
         Me.pnlDemo.Controls.Add(Me.lblPlaintextAdditionSubscript)
         Me.pnlDemo.Controls.Add(Me.lblKeyAddition)
@@ -130,6 +130,94 @@ Partial Class formVigenere
         Me.pnlDemo.Size = New System.Drawing.Size(835, 518)
         Me.pnlDemo.TabIndex = 16
         '
+        'lblResultAdditionSubscript
+        '
+        Me.lblResultAdditionSubscript.AutoSize = True
+        Me.lblResultAdditionSubscript.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResultAdditionSubscript.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblResultAdditionSubscript.Location = New System.Drawing.Point(420, 165)
+        Me.lblResultAdditionSubscript.Name = "lblResultAdditionSubscript"
+        Me.lblResultAdditionSubscript.Size = New System.Drawing.Size(21, 23)
+        Me.lblResultAdditionSubscript.TabIndex = 33
+        Me.lblResultAdditionSubscript.Text = "B"
+        '
+        'lblResultAddition
+        '
+        Me.lblResultAddition.AutoSize = True
+        Me.lblResultAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblResultAddition.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblResultAddition.Location = New System.Drawing.Point(392, 129)
+        Me.lblResultAddition.Name = "lblResultAddition"
+        Me.lblResultAddition.Size = New System.Drawing.Size(32, 36)
+        Me.lblResultAddition.TabIndex = 32
+        Me.lblResultAddition.Text = "B"
+        '
+        'lblEqualsAddition
+        '
+        Me.lblEqualsAddition.AutoSize = True
+        Me.lblEqualsAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEqualsAddition.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblEqualsAddition.Location = New System.Drawing.Point(347, 125)
+        Me.lblEqualsAddition.Name = "lblEqualsAddition"
+        Me.lblEqualsAddition.Size = New System.Drawing.Size(32, 36)
+        Me.lblEqualsAddition.TabIndex = 31
+        Me.lblEqualsAddition.Text = "="
+        '
+        'lblPlusAddition
+        '
+        Me.lblPlusAddition.AutoSize = True
+        Me.lblPlusAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPlusAddition.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblPlusAddition.Location = New System.Drawing.Point(254, 125)
+        Me.lblPlusAddition.Name = "lblPlusAddition"
+        Me.lblPlusAddition.Size = New System.Drawing.Size(32, 36)
+        Me.lblPlusAddition.TabIndex = 30
+        Me.lblPlusAddition.Text = "+"
+        '
+        'lblKeyAdditionSubscript
+        '
+        Me.lblKeyAdditionSubscript.AutoSize = True
+        Me.lblKeyAdditionSubscript.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblKeyAdditionSubscript.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblKeyAdditionSubscript.Location = New System.Drawing.Point(320, 155)
+        Me.lblKeyAdditionSubscript.Name = "lblKeyAdditionSubscript"
+        Me.lblKeyAdditionSubscript.Size = New System.Drawing.Size(21, 23)
+        Me.lblKeyAdditionSubscript.TabIndex = 29
+        Me.lblKeyAdditionSubscript.Text = "B"
+        '
+        'lblPlaintextAdditionSubscript
+        '
+        Me.lblPlaintextAdditionSubscript.AutoSize = True
+        Me.lblPlaintextAdditionSubscript.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPlaintextAdditionSubscript.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblPlaintextAdditionSubscript.Location = New System.Drawing.Point(229, 155)
+        Me.lblPlaintextAdditionSubscript.Name = "lblPlaintextAdditionSubscript"
+        Me.lblPlaintextAdditionSubscript.Size = New System.Drawing.Size(21, 23)
+        Me.lblPlaintextAdditionSubscript.TabIndex = 28
+        Me.lblPlaintextAdditionSubscript.Text = "B"
+        '
+        'lblKeyAddition
+        '
+        Me.lblKeyAddition.AutoSize = True
+        Me.lblKeyAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblKeyAddition.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblKeyAddition.Location = New System.Drawing.Point(292, 125)
+        Me.lblKeyAddition.Name = "lblKeyAddition"
+        Me.lblKeyAddition.Size = New System.Drawing.Size(32, 36)
+        Me.lblKeyAddition.TabIndex = 27
+        Me.lblKeyAddition.Text = "B"
+        '
+        'lblPlaintextAddition
+        '
+        Me.lblPlaintextAddition.AutoSize = True
+        Me.lblPlaintextAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPlaintextAddition.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblPlaintextAddition.Location = New System.Drawing.Point(198, 125)
+        Me.lblPlaintextAddition.Name = "lblPlaintextAddition"
+        Me.lblPlaintextAddition.Size = New System.Drawing.Size(32, 36)
+        Me.lblPlaintextAddition.TabIndex = 26
+        Me.lblPlaintextAddition.Text = "B"
+        '
         'txtKey
         '
         Me.txtKey.BackColor = System.Drawing.Color.LightGray
@@ -138,11 +226,11 @@ Partial Class formVigenere
         Me.txtKey.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtKey.ForeColor = System.Drawing.Color.Black
         Me.txtKey.Location = New System.Drawing.Point(169, 15)
-        Me.txtKey.MaxLength = 150
-        Me.txtKey.Multiline = True
+        Me.txtKey.MaxLength = 20
         Me.txtKey.Name = "txtKey"
-        Me.txtKey.Size = New System.Drawing.Size(430, 57)
+        Me.txtKey.Size = New System.Drawing.Size(430, 44)
         Me.txtKey.TabIndex = 25
+        Me.txtKey.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblKey
         '
@@ -158,11 +246,11 @@ Partial Class formVigenere
         'lblKeyLarge
         '
         Me.lblKeyLarge.AutoSize = True
-        Me.lblKeyLarge.Font = New System.Drawing.Font("Lucida Sans Typewriter", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblKeyLarge.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblKeyLarge.Font = New System.Drawing.Font("Lucida Sans Typewriter", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblKeyLarge.ForeColor = System.Drawing.Color.Goldenrod
         Me.lblKeyLarge.Location = New System.Drawing.Point(243, 84)
         Me.lblKeyLarge.Name = "lblKeyLarge"
-        Me.lblKeyLarge.Size = New System.Drawing.Size(158, 31)
+        Me.lblKeyLarge.Size = New System.Drawing.Size(285, 55)
         Me.lblKeyLarge.TabIndex = 20
         Me.lblKeyLarge.Text = "C O U N T"
         '
@@ -199,8 +287,10 @@ Partial Class formVigenere
         Me.txtCiphertext.MaxLength = 150
         Me.txtCiphertext.Multiline = True
         Me.txtCiphertext.Name = "txtCiphertext"
+        Me.txtCiphertext.ReadOnly = True
         Me.txtCiphertext.Size = New System.Drawing.Size(389, 275)
         Me.txtCiphertext.TabIndex = 1
+        Me.txtCiphertext.TabStop = False
         '
         'txtPlaintext
         '
@@ -210,7 +300,7 @@ Partial Class formVigenere
         Me.txtPlaintext.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPlaintext.ForeColor = System.Drawing.Color.Black
         Me.txtPlaintext.Location = New System.Drawing.Point(35, 221)
-        Me.txtPlaintext.MaxLength = 150
+        Me.txtPlaintext.MaxLength = 100
         Me.txtPlaintext.Multiline = True
         Me.txtPlaintext.Name = "txtPlaintext"
         Me.txtPlaintext.Size = New System.Drawing.Size(389, 275)
@@ -559,94 +649,6 @@ Partial Class formVigenere
         Me.btnPreviousPage.Text = "<"
         Me.btnPreviousPage.UseVisualStyleBackColor = False
         '
-        'lblPlaintextAddition
-        '
-        Me.lblPlaintextAddition.AutoSize = True
-        Me.lblPlaintextAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPlaintextAddition.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblPlaintextAddition.Location = New System.Drawing.Point(198, 125)
-        Me.lblPlaintextAddition.Name = "lblPlaintextAddition"
-        Me.lblPlaintextAddition.Size = New System.Drawing.Size(32, 36)
-        Me.lblPlaintextAddition.TabIndex = 26
-        Me.lblPlaintextAddition.Text = "B"
-        '
-        'lblKeyAddition
-        '
-        Me.lblKeyAddition.AutoSize = True
-        Me.lblKeyAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblKeyAddition.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblKeyAddition.Location = New System.Drawing.Point(292, 125)
-        Me.lblKeyAddition.Name = "lblKeyAddition"
-        Me.lblKeyAddition.Size = New System.Drawing.Size(32, 36)
-        Me.lblKeyAddition.TabIndex = 27
-        Me.lblKeyAddition.Text = "B"
-        '
-        'lblPlaintextAdditionSubscript
-        '
-        Me.lblPlaintextAdditionSubscript.AutoSize = True
-        Me.lblPlaintextAdditionSubscript.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPlaintextAdditionSubscript.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblPlaintextAdditionSubscript.Location = New System.Drawing.Point(229, 155)
-        Me.lblPlaintextAdditionSubscript.Name = "lblPlaintextAdditionSubscript"
-        Me.lblPlaintextAdditionSubscript.Size = New System.Drawing.Size(21, 23)
-        Me.lblPlaintextAdditionSubscript.TabIndex = 28
-        Me.lblPlaintextAdditionSubscript.Text = "B"
-        '
-        'lblKeyAdditionSubscript
-        '
-        Me.lblKeyAdditionSubscript.AutoSize = True
-        Me.lblKeyAdditionSubscript.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblKeyAdditionSubscript.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblKeyAdditionSubscript.Location = New System.Drawing.Point(320, 155)
-        Me.lblKeyAdditionSubscript.Name = "lblKeyAdditionSubscript"
-        Me.lblKeyAdditionSubscript.Size = New System.Drawing.Size(21, 23)
-        Me.lblKeyAdditionSubscript.TabIndex = 29
-        Me.lblKeyAdditionSubscript.Text = "B"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label2.Location = New System.Drawing.Point(254, 125)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(32, 36)
-        Me.Label2.TabIndex = 30
-        Me.Label2.Text = "+"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.Gainsboro
-        Me.Label3.Location = New System.Drawing.Point(347, 125)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(32, 36)
-        Me.Label3.TabIndex = 31
-        Me.Label3.Text = "="
-        '
-        'lblResultAdditionSubscript
-        '
-        Me.lblResultAdditionSubscript.AutoSize = True
-        Me.lblResultAdditionSubscript.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResultAdditionSubscript.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblResultAdditionSubscript.Location = New System.Drawing.Point(420, 165)
-        Me.lblResultAdditionSubscript.Name = "lblResultAdditionSubscript"
-        Me.lblResultAdditionSubscript.Size = New System.Drawing.Size(21, 23)
-        Me.lblResultAdditionSubscript.TabIndex = 33
-        Me.lblResultAdditionSubscript.Text = "B"
-        '
-        'lblResultAddition
-        '
-        Me.lblResultAddition.AutoSize = True
-        Me.lblResultAddition.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResultAddition.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblResultAddition.Location = New System.Drawing.Point(392, 129)
-        Me.lblResultAddition.Name = "lblResultAddition"
-        Me.lblResultAddition.Size = New System.Drawing.Size(32, 36)
-        Me.lblResultAddition.TabIndex = 32
-        Me.lblResultAddition.Text = "B"
-        '
         'formVigenere
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -730,8 +732,8 @@ Partial Class formVigenere
     Friend WithEvents txtKey As TextBox
     Friend WithEvents lblResultAdditionSubscript As Label
     Friend WithEvents lblResultAddition As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents lblEqualsAddition As Label
+    Friend WithEvents lblPlusAddition As Label
     Friend WithEvents lblKeyAdditionSubscript As Label
     Friend WithEvents lblPlaintextAdditionSubscript As Label
     Friend WithEvents lblKeyAddition As Label

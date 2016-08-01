@@ -30,6 +30,7 @@ Partial Class formCaesar
         Me.btnCracking = New System.Windows.Forms.Button()
         Me.lblCaesarInfo1 = New System.Windows.Forms.Label()
         Me.pnlAbout = New System.Windows.Forms.Panel()
+        Me.lblCaesarDiagramCaption = New System.Windows.Forms.Label()
         Me.picCaesarDiagram = New System.Windows.Forms.PictureBox()
         Me.btnPrintout = New System.Windows.Forms.Button()
         Me.pnlDemo = New System.Windows.Forms.Panel()
@@ -55,7 +56,6 @@ Partial Class formCaesar
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
-        Me.lblCaesarDiagramCaption = New System.Windows.Forms.Label()
         Me.pnlAbout.SuspendLayout()
         CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDemo.SuspendLayout()
@@ -160,6 +160,17 @@ Partial Class formCaesar
         Me.pnlAbout.Name = "pnlAbout"
         Me.pnlAbout.Size = New System.Drawing.Size(745, 436)
         Me.pnlAbout.TabIndex = 13
+        '
+        'lblCaesarDiagramCaption
+        '
+        Me.lblCaesarDiagramCaption.AutoSize = True
+        Me.lblCaesarDiagramCaption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCaesarDiagramCaption.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblCaesarDiagramCaption.Location = New System.Drawing.Point(211, 177)
+        Me.lblCaesarDiagramCaption.Name = "lblCaesarDiagramCaption"
+        Me.lblCaesarDiagramCaption.Size = New System.Drawing.Size(223, 22)
+        Me.lblCaesarDiagramCaption.TabIndex = 2
+        Me.lblCaesarDiagramCaption.Text = "Caesar shift with key 3"
         '
         'picCaesarDiagram
         '
@@ -457,25 +468,14 @@ Partial Class formCaesar
         Me.PrintDialog1.Document = Me.PrintDocument1
         Me.PrintDialog1.UseEXDialog = True
         '
-        'lblCaesarDiagramCaption
-        '
-        Me.lblCaesarDiagramCaption.AutoSize = True
-        Me.lblCaesarDiagramCaption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCaesarDiagramCaption.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblCaesarDiagramCaption.Location = New System.Drawing.Point(211, 177)
-        Me.lblCaesarDiagramCaption.Name = "lblCaesarDiagramCaption"
-        Me.lblCaesarDiagramCaption.Size = New System.Drawing.Size(223, 22)
-        Me.lblCaesarDiagramCaption.TabIndex = 2
-        Me.lblCaesarDiagramCaption.Text = "Caesar shift with key 3"
-        '
         'formCaesar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1284, 875)
-        Me.Controls.Add(Me.pnlAbout)
         Me.Controls.Add(Me.pnlDecryption)
+        Me.Controls.Add(Me.pnlAbout)
         Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.btnPrintout)

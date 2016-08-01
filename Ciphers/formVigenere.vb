@@ -27,8 +27,11 @@ Public Class formVigenere
         ' Putting this here so it runs early on so blinking is mitigated.
         pnlAbout2.Hide()
         pnlDemo.Hide()
-        pnlDecryption.Hide()
+        pnlDecryption1.Hide()
+        pnlDecryption2.Hide()
         pnlPrintout.Hide()
+        btnPreviousPageDecryption.Hide()
+        btnNextPageDecryption.Hide()
 
         ' lblVigenere
         lblVigenere.horizontallyCentre()
@@ -88,18 +91,18 @@ Public Class formVigenere
         lblVigenereCaption.placeBelow(picVigenere, 10)
 
         ' btnNextPage
-        btnNextPage.Show()
-        btnNextPage.Height = 0.15 * Me.Width
-        btnNextPage.Width = 0.05 * Me.Width
-        btnNextPage.Left = Me.Width - btnNextPage.Width
-        btnNextPage.verticallyCentre()
+        btnNextPageAbout.Show()
+        btnNextPageAbout.Height = 0.15 * Me.Width
+        btnNextPageAbout.Width = 0.05 * Me.Width
+        btnNextPageAbout.Left = Me.Width - btnNextPageAbout.Width
+        btnNextPageAbout.verticallyCentre()
 
         ' btnPreviousPage
-        btnPreviousPage.Hide()
-        btnPreviousPage.Height = 0.15 * Me.Width
-        btnPreviousPage.Width = 0.05 * Me.Width
-        btnPreviousPage.Left = 0
-        btnPreviousPage.verticallyCentre()
+        btnPreviousPageAbout.Hide()
+        btnPreviousPageAbout.Height = 0.15 * Me.Width
+        btnPreviousPageAbout.Width = 0.05 * Me.Width
+        btnPreviousPageAbout.Left = 0
+        btnPreviousPageAbout.verticallyCentre()
 
         ' ------------------------------------------------------------------------
         ' pnlAbout2
@@ -198,12 +201,48 @@ Public Class formVigenere
         lblCiphertext.placeAbove(txtCiphertext, 10)
 
         ' ------------------------------------------------------------------------
-        ' pnlDecryption
+        ' pnlDecryption1
         ' ------------------------------------------------------------------------
-        pnlDecryption.Width = Me.Width * 0.9
-        pnlDecryption.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
-        pnlDecryption.horizontallyCentre()
-        pnlDecryption.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
+        pnlDecryption1.Width = Me.Width * 0.9
+        pnlDecryption1.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
+        pnlDecryption1.horizontallyCentre()
+        pnlDecryption1.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
+
+        ' lblVigenereDecryption
+        lblVigenereDecryption.Left = 0
+        lblVigenereDecryption.Top = 0
+        lblVigenereDecryption.MaximumSize = New Size(pnlDecryption1.Width, 0)
+
+        ' btnNextPageDecryption
+        btnNextPageDecryption.Hide()
+        btnNextPageDecryption.Height = 0.15 * Me.Width
+        btnNextPageDecryption.Width = 0.05 * Me.Width
+        btnNextPageDecryption.Left = Me.Width - btnNextPageAbout.Width
+        btnNextPageDecryption.verticallyCentre()
+
+        ' btnPreviousPage
+        btnPreviousPageDecryption.Hide()
+        btnPreviousPageDecryption.Height = 0.15 * Me.Width
+        btnPreviousPageDecryption.Width = 0.05 * Me.Width
+        btnPreviousPageDecryption.Left = 0
+        btnPreviousPageDecryption.verticallyCentre()
+
+        ' ------------------------------------------------------------------------
+        ' pnlDecryption2
+        ' ------------------------------------------------------------------------
+        pnlDecryption2.Width = Me.Width * 0.9
+        pnlDecryption2.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
+        pnlDecryption2.horizontallyCentre()
+        pnlDecryption2.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
+
+        lblVideo.Left = pnlDecryption2.Width / 2 - lblVideo.Width / 2
+        lblVideo.Top = 20
+
+        AxWindowsMediaPlayer1.Height = 0.8 * pnlDecryption2.Height
+        AxWindowsMediaPlayer1.Width = 1.6 * AxWindowsMediaPlayer1.Height
+        AxWindowsMediaPlayer1.Left = pnlDecryption2.Width / 2 - AxWindowsMediaPlayer1.Width / 2
+        AxWindowsMediaPlayer1.placeBelow(lblVideo, 20)
+
 
         ' ------------------------------------------------------------------------
         ' pnlPrintout
@@ -212,6 +251,19 @@ Public Class formVigenere
         pnlPrintout.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
         pnlPrintout.horizontallyCentre()
         pnlPrintout.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
+
+        ' picVigenerePrintout
+        picVigenerePrintout.Left = pnlPrintout.Width / 4 - picVigenerePrintout.Width / 2
+        picVigenerePrintout.Top = 100
+
+        ' btnPrint
+        btnPrint.Left = pnlPrintout.Width / 4 - btnPrint.Width / 2
+        btnPrint.placeBelow(picVigenerePrintout, 50)
+
+        ' lblPrintoutExplanation
+        lblPrintoutExplanation.MaximumSize = New Size(pnlPrintout.Width / 2, 0)
+        lblPrintoutExplanation.Left = picVigenerePrintout.Left + picVigenerePrintout.Width + (pnlPrintout.Width - picVigenerePrintout.Left - picVigenerePrintout.Width - lblPrintoutExplanation.Width) / 2
+        lblPrintoutExplanation.Top = 100
 
         btnAbout.PerformClick()
     End Sub
@@ -235,10 +287,12 @@ Public Class formVigenere
         Me.Refresh()
 
         pnlAbout1.Show()
-        btnNextPage.Show()
+        btnNextPageAbout.Show()
         pnlDemo.Hide()
-        pnlDecryption.Hide()
+        pnlDecryption1.Hide()
         pnlPrintout.Hide()
+        btnNextPageDecryption.Hide()
+        btnPreviousPageDecryption.Hide()
     End Sub
 
     Private Sub btnDemo_Click(sender As Object, e As EventArgs) Handles btnDemo.Click
@@ -248,10 +302,12 @@ Public Class formVigenere
         pnlDemo.Show()
         pnlAbout1.Hide()
         pnlAbout2.Hide()
-        btnNextPage.Hide()
-        btnPreviousPage.Hide()
-        pnlDecryption.Hide()
+        btnNextPageAbout.Hide()
+        btnPreviousPageAbout.Hide()
+        pnlDecryption1.Hide()
         pnlPrintout.Hide()
+        btnNextPageDecryption.Hide()
+        btnPreviousPageDecryption.Hide()
 
         currentTextbox.Focus()
     End Sub
@@ -260,11 +316,13 @@ Public Class formVigenere
         selectedMenuButton = btnCracking
         Me.Refresh()
 
-        pnlDecryption.Show()
+        pnlDecryption1.Show()
+        btnPreviousPageDecryption.Hide()
+        btnNextPageDecryption.Show()
         pnlAbout1.Hide()
         pnlAbout2.Hide()
-        btnNextPage.Hide()
-        btnPreviousPage.Hide()
+        btnNextPageAbout.Hide()
+        btnPreviousPageAbout.Hide()
         pnlDemo.Hide()
         pnlPrintout.Hide()
     End Sub
@@ -276,24 +334,40 @@ Public Class formVigenere
         pnlPrintout.Show()
         pnlAbout1.Hide()
         pnlAbout2.Hide()
-        btnNextPage.Hide()
-        btnPreviousPage.Hide()
+        btnNextPageAbout.Hide()
+        btnPreviousPageAbout.Hide()
         pnlDemo.Hide()
-        pnlDecryption.Hide()
+        pnlDecryption1.Hide()
+        btnNextPageDecryption.Hide()
+        btnPreviousPageDecryption.Hide()
     End Sub
 
-    Private Sub btnNextPage_Click(sender As Object, e As EventArgs) Handles btnNextPage.Click
-        btnNextPage.Hide()
+    Private Sub btnNextPage_Click(sender As Object, e As EventArgs) Handles btnNextPageAbout.Click
+        btnNextPageAbout.Hide()
         pnlAbout2.Show()
         pnlAbout1.Hide()
-        btnPreviousPage.Show()
+        btnPreviousPageAbout.Show()
     End Sub
 
-    Private Sub btnPreviousPage_Click(sender As Object, e As EventArgs) Handles btnPreviousPage.Click
-        btnPreviousPage.Hide()
+    Private Sub btnPreviousPage_Click(sender As Object, e As EventArgs) Handles btnPreviousPageAbout.Click
+        btnPreviousPageAbout.Hide()
         pnlAbout1.Show()
         pnlAbout2.Hide()
-        btnNextPage.Show()
+        btnNextPageAbout.Show()
+    End Sub
+
+    Private Sub btnPreviousPageDecryption_Click(sender As Object, e As EventArgs) Handles btnPreviousPageDecryption.Click
+        btnPreviousPageDecryption.Hide()
+        pnlDecryption1.Show()
+        pnlDecryption2.Hide()
+        btnNextPageDecryption.Show()
+    End Sub
+
+    Private Sub btnNextPageDecryption_Click(sender As Object, e As EventArgs) Handles btnNextPageDecryption.Click
+        btnNextPageDecryption.Hide()
+        pnlDecryption2.Show()
+        pnlDecryption1.Hide()
+        btnPreviousPageDecryption.Show()
     End Sub
 
     Private Sub pnlDemo_Paint(sender As Object, e As PaintEventArgs) Handles pnlDemo.Paint
@@ -394,5 +468,14 @@ Public Class formVigenere
         lblKeyLarge.Left = pnlDemo.Width / 2 - lblKeyLarge.Width / 2
     End Sub
 
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        If PrintDialog1.ShowDialog() = DialogResult.OK Then
+            PrintDocument1.Print()
+        End If
+    End Sub
 
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        printPictureBox(picVigenerePrintout, picHidden)
+        e.Graphics.DrawImage(picHidden.Image, 0, 0)
+    End Sub
 End Class

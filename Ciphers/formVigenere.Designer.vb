@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class formVigenere
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class formVigenere
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(formVigenere))
         Me.btnBack = New System.Windows.Forms.Button()
@@ -45,12 +45,8 @@ Partial Class formVigenere
         Me.btnCracking = New System.Windows.Forms.Button()
         Me.btnDemo = New System.Windows.Forms.Button()
         Me.btnAbout = New System.Windows.Forms.Button()
-        Me.pnlDecryption = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnDecryptionExample = New System.Windows.Forms.Button()
-        Me.lblTryExplanation = New System.Windows.Forms.Label()
-        Me.lblTryItOut = New System.Windows.Forms.Label()
-        Me.lblCaesarCracking = New System.Windows.Forms.Label()
+        Me.pnlDecryption1 = New System.Windows.Forms.Panel()
+        Me.lblVigenereDecryption = New System.Windows.Forms.Label()
         Me.pnlAbout1 = New System.Windows.Forms.Panel()
         Me.lblVigenereCaption = New System.Windows.Forms.Label()
         Me.lblAlbertiCaption = New System.Windows.Forms.Label()
@@ -60,25 +56,34 @@ Partial Class formVigenere
         Me.pnlPrintout = New System.Windows.Forms.Panel()
         Me.lblPrintoutExplanation = New System.Windows.Forms.Label()
         Me.picHidden = New System.Windows.Forms.PictureBox()
-        Me.picCaesarPrintout = New System.Windows.Forms.PictureBox()
+        Me.picVigenerePrintout = New System.Windows.Forms.PictureBox()
         Me.btnPrint = New System.Windows.Forms.Button()
         Me.pnlAbout2 = New System.Windows.Forms.Panel()
         Me.lblVigenereSquareCaption = New System.Windows.Forms.Label()
         Me.picVigenereSquare = New System.Windows.Forms.PictureBox()
         Me.lblVigenereInfo3 = New System.Windows.Forms.Label()
         Me.lblVigenereInfo2 = New System.Windows.Forms.Label()
-        Me.btnNextPage = New System.Windows.Forms.Button()
-        Me.btnPreviousPage = New System.Windows.Forms.Button()
+        Me.btnNextPageAbout = New System.Windows.Forms.Button()
+        Me.btnPreviousPageAbout = New System.Windows.Forms.Button()
+        Me.btnPreviousPageDecryption = New System.Windows.Forms.Button()
+        Me.btnNextPageDecryption = New System.Windows.Forms.Button()
+        Me.pnlDecryption2 = New System.Windows.Forms.Panel()
+        Me.lblVideo = New System.Windows.Forms.Label()
+        Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.pnlDemo.SuspendLayout()
-        Me.pnlDecryption.SuspendLayout()
+        Me.pnlDecryption1.SuspendLayout()
         Me.pnlAbout1.SuspendLayout()
         CType(Me.picVigenere, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picAlberti, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlPrintout.SuspendLayout()
         CType(Me.picHidden, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picVigenerePrintout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAbout2.SuspendLayout()
         CType(Me.picVigenereSquare, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pnlDecryption2.SuspendLayout()
+        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBack
@@ -370,78 +375,24 @@ Partial Class formVigenere
         Me.btnAbout.Text = "ABOUT"
         Me.btnAbout.UseVisualStyleBackColor = False
         '
-        'pnlDecryption
+        'pnlDecryption1
         '
-        Me.pnlDecryption.Controls.Add(Me.Label1)
-        Me.pnlDecryption.Controls.Add(Me.btnDecryptionExample)
-        Me.pnlDecryption.Controls.Add(Me.lblTryExplanation)
-        Me.pnlDecryption.Controls.Add(Me.lblTryItOut)
-        Me.pnlDecryption.Controls.Add(Me.lblCaesarCracking)
-        Me.pnlDecryption.Location = New System.Drawing.Point(320, 49)
-        Me.pnlDecryption.Name = "pnlDecryption"
-        Me.pnlDecryption.Size = New System.Drawing.Size(745, 436)
-        Me.pnlDecryption.TabIndex = 21
+        Me.pnlDecryption1.Controls.Add(Me.lblVigenereDecryption)
+        Me.pnlDecryption1.Location = New System.Drawing.Point(180, 43)
+        Me.pnlDecryption1.Name = "pnlDecryption1"
+        Me.pnlDecryption1.Size = New System.Drawing.Size(745, 436)
+        Me.pnlDecryption1.TabIndex = 21
         '
-        'Label1
+        'lblVigenereDecryption
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.Label1.Location = New System.Drawing.Point(-1071, 202)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(2887, 32)
-        Me.Label1.TabIndex = 27
-        Me.Label1.Text = resources.GetString("Label1.Text")
-        '
-        'btnDecryptionExample
-        '
-        Me.btnDecryptionExample.BackColor = System.Drawing.Color.Gainsboro
-        Me.btnDecryptionExample.FlatAppearance.BorderSize = 0
-        Me.btnDecryptionExample.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDecryptionExample.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDecryptionExample.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(6, Byte), Integer))
-        Me.btnDecryptionExample.Location = New System.Drawing.Point(299, 323)
-        Me.btnDecryptionExample.Name = "btnDecryptionExample"
-        Me.btnDecryptionExample.Size = New System.Drawing.Size(269, 58)
-        Me.btnDecryptionExample.TabIndex = 26
-        Me.btnDecryptionExample.TabStop = False
-        Me.btnDecryptionExample.Text = "A ROT13 EXAMPLE"
-        Me.btnDecryptionExample.UseVisualStyleBackColor = False
-        '
-        'lblTryExplanation
-        '
-        Me.lblTryExplanation.AutoSize = True
-        Me.lblTryExplanation.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTryExplanation.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblTryExplanation.Location = New System.Drawing.Point(25, 276)
-        Me.lblTryExplanation.Name = "lblTryExplanation"
-        Me.lblTryExplanation.Size = New System.Drawing.Size(2730, 32)
-        Me.lblTryExplanation.TabIndex = 19
-        Me.lblTryExplanation.Text = "Use the ""DEMO"" tool to encipher a message, and then press the ""SET PLAINTEXT TO C" &
-    "IPHERTEXT"" button. Try all the possible 26 keys on this new plaintext until you " &
-    "end up with your original plaintext!"
-        '
-        'lblTryItOut
-        '
-        Me.lblTryItOut.AutoSize = True
-        Me.lblTryItOut.Font = New System.Drawing.Font("Century Gothic", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTryItOut.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblTryItOut.Location = New System.Drawing.Point(283, 212)
-        Me.lblTryItOut.Name = "lblTryItOut"
-        Me.lblTryItOut.Size = New System.Drawing.Size(197, 44)
-        Me.lblTryItOut.TabIndex = 18
-        Me.lblTryItOut.Text = "TRY IT OUT"
-        '
-        'lblCaesarCracking
-        '
-        Me.lblCaesarCracking.AutoSize = True
-        Me.lblCaesarCracking.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCaesarCracking.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblCaesarCracking.Location = New System.Drawing.Point(38, 27)
-        Me.lblCaesarCracking.Name = "lblCaesarCracking"
-        Me.lblCaesarCracking.Size = New System.Drawing.Size(5394, 160)
-        Me.lblCaesarCracking.TabIndex = 1
-        Me.lblCaesarCracking.Text = resources.GetString("lblCaesarCracking.Text")
+        Me.lblVigenereDecryption.AutoSize = True
+        Me.lblVigenereDecryption.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVigenereDecryption.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblVigenereDecryption.Location = New System.Drawing.Point(38, 27)
+        Me.lblVigenereDecryption.Name = "lblVigenereDecryption"
+        Me.lblVigenereDecryption.Size = New System.Drawing.Size(7662, 160)
+        Me.lblVigenereDecryption.TabIndex = 1
+        Me.lblVigenereDecryption.Text = resources.GetString("lblVigenereDecryption.Text")
         '
         'pnlAbout1
         '
@@ -512,9 +463,9 @@ Partial Class formVigenere
         '
         Me.pnlPrintout.Controls.Add(Me.lblPrintoutExplanation)
         Me.pnlPrintout.Controls.Add(Me.picHidden)
-        Me.pnlPrintout.Controls.Add(Me.picCaesarPrintout)
+        Me.pnlPrintout.Controls.Add(Me.picVigenerePrintout)
         Me.pnlPrintout.Controls.Add(Me.btnPrint)
-        Me.pnlPrintout.Location = New System.Drawing.Point(593, 83)
+        Me.pnlPrintout.Location = New System.Drawing.Point(306, 12)
         Me.pnlPrintout.Name = "pnlPrintout"
         Me.pnlPrintout.Size = New System.Drawing.Size(745, 436)
         Me.pnlPrintout.TabIndex = 23
@@ -526,9 +477,10 @@ Partial Class formVigenere
         Me.lblPrintoutExplanation.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.lblPrintoutExplanation.Location = New System.Drawing.Point(33, 14)
         Me.lblPrintoutExplanation.Name = "lblPrintoutExplanation"
-        Me.lblPrintoutExplanation.Size = New System.Drawing.Size(3016, 160)
+        Me.lblPrintoutExplanation.Size = New System.Drawing.Size(1174, 32)
         Me.lblPrintoutExplanation.TabIndex = 27
-        Me.lblPrintoutExplanation.Text = resources.GetString("lblPrintoutExplanation.Text")
+        Me.lblPrintoutExplanation.Text = "Use the Vigenère square to encrypt your own messages using a polyalphabetic ciphe" &
+    "r!" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'picHidden
         '
@@ -539,15 +491,15 @@ Partial Class formVigenere
         Me.picHidden.TabStop = False
         Me.picHidden.Visible = False
         '
-        'picCaesarPrintout
+        'picVigenerePrintout
         '
-        Me.picCaesarPrintout.Image = CType(resources.GetObject("picCaesarPrintout.Image"), System.Drawing.Image)
-        Me.picCaesarPrintout.Location = New System.Drawing.Point(338, 14)
-        Me.picCaesarPrintout.Name = "picCaesarPrintout"
-        Me.picCaesarPrintout.Size = New System.Drawing.Size(279, 351)
-        Me.picCaesarPrintout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picCaesarPrintout.TabIndex = 28
-        Me.picCaesarPrintout.TabStop = False
+        Me.picVigenerePrintout.Image = CType(resources.GetObject("picVigenerePrintout.Image"), System.Drawing.Image)
+        Me.picVigenerePrintout.Location = New System.Drawing.Point(338, 14)
+        Me.picVigenerePrintout.Name = "picVigenerePrintout"
+        Me.picVigenerePrintout.Size = New System.Drawing.Size(279, 351)
+        Me.picVigenerePrintout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picVigenerePrintout.TabIndex = 28
+        Me.picVigenerePrintout.TabStop = False
         '
         'btnPrint
         '
@@ -619,35 +571,102 @@ Partial Class formVigenere
         Me.lblVigenereInfo2.Text = "The Vigenère cipher is generally used with a Vigenère square. This is a square th" &
     "at shows the corresponding alphabet for every letter in the key."
         '
-        'btnNextPage
+        'btnNextPageAbout
         '
-        Me.btnNextPage.BackColor = System.Drawing.Color.FromArgb(CType(CType(129, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(163, Byte), Integer))
-        Me.btnNextPage.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnNextPage.FlatAppearance.BorderSize = 0
-        Me.btnNextPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnNextPage.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNextPage.ForeColor = System.Drawing.Color.Gainsboro
-        Me.btnNextPage.Location = New System.Drawing.Point(787, -11)
-        Me.btnNextPage.Name = "btnNextPage"
-        Me.btnNextPage.Size = New System.Drawing.Size(95, 101)
-        Me.btnNextPage.TabIndex = 25
-        Me.btnNextPage.Text = ">"
-        Me.btnNextPage.UseVisualStyleBackColor = False
+        Me.btnNextPageAbout.BackColor = System.Drawing.Color.FromArgb(CType(CType(129, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(163, Byte), Integer))
+        Me.btnNextPageAbout.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnNextPageAbout.FlatAppearance.BorderSize = 0
+        Me.btnNextPageAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNextPageAbout.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNextPageAbout.ForeColor = System.Drawing.Color.Gainsboro
+        Me.btnNextPageAbout.Location = New System.Drawing.Point(787, -11)
+        Me.btnNextPageAbout.Name = "btnNextPageAbout"
+        Me.btnNextPageAbout.Size = New System.Drawing.Size(95, 101)
+        Me.btnNextPageAbout.TabIndex = 25
+        Me.btnNextPageAbout.Text = ">"
+        Me.btnNextPageAbout.UseVisualStyleBackColor = False
         '
-        'btnPreviousPage
+        'btnPreviousPageAbout
         '
-        Me.btnPreviousPage.BackColor = System.Drawing.Color.FromArgb(CType(CType(129, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(163, Byte), Integer))
-        Me.btnPreviousPage.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnPreviousPage.FlatAppearance.BorderSize = 0
-        Me.btnPreviousPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPreviousPage.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPreviousPage.ForeColor = System.Drawing.Color.Gainsboro
-        Me.btnPreviousPage.Location = New System.Drawing.Point(12, 4)
-        Me.btnPreviousPage.Name = "btnPreviousPage"
-        Me.btnPreviousPage.Size = New System.Drawing.Size(95, 101)
-        Me.btnPreviousPage.TabIndex = 26
-        Me.btnPreviousPage.Text = "<"
-        Me.btnPreviousPage.UseVisualStyleBackColor = False
+        Me.btnPreviousPageAbout.BackColor = System.Drawing.Color.FromArgb(CType(CType(129, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(163, Byte), Integer))
+        Me.btnPreviousPageAbout.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnPreviousPageAbout.FlatAppearance.BorderSize = 0
+        Me.btnPreviousPageAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPreviousPageAbout.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPreviousPageAbout.ForeColor = System.Drawing.Color.Gainsboro
+        Me.btnPreviousPageAbout.Location = New System.Drawing.Point(12, 4)
+        Me.btnPreviousPageAbout.Name = "btnPreviousPageAbout"
+        Me.btnPreviousPageAbout.Size = New System.Drawing.Size(95, 101)
+        Me.btnPreviousPageAbout.TabIndex = 26
+        Me.btnPreviousPageAbout.Text = "<"
+        Me.btnPreviousPageAbout.UseVisualStyleBackColor = False
+        '
+        'btnPreviousPageDecryption
+        '
+        Me.btnPreviousPageDecryption.BackColor = System.Drawing.Color.FromArgb(CType(CType(129, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(163, Byte), Integer))
+        Me.btnPreviousPageDecryption.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnPreviousPageDecryption.FlatAppearance.BorderSize = 0
+        Me.btnPreviousPageDecryption.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPreviousPageDecryption.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPreviousPageDecryption.ForeColor = System.Drawing.Color.Gainsboro
+        Me.btnPreviousPageDecryption.Location = New System.Drawing.Point(56, 4)
+        Me.btnPreviousPageDecryption.Name = "btnPreviousPageDecryption"
+        Me.btnPreviousPageDecryption.Size = New System.Drawing.Size(95, 101)
+        Me.btnPreviousPageDecryption.TabIndex = 27
+        Me.btnPreviousPageDecryption.Text = "<"
+        Me.btnPreviousPageDecryption.UseVisualStyleBackColor = False
+        '
+        'btnNextPageDecryption
+        '
+        Me.btnNextPageDecryption.BackColor = System.Drawing.Color.FromArgb(CType(CType(129, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(163, Byte), Integer))
+        Me.btnNextPageDecryption.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnNextPageDecryption.FlatAppearance.BorderSize = 0
+        Me.btnNextPageDecryption.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNextPageDecryption.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNextPageDecryption.ForeColor = System.Drawing.Color.Gainsboro
+        Me.btnNextPageDecryption.Location = New System.Drawing.Point(856, -13)
+        Me.btnNextPageDecryption.Name = "btnNextPageDecryption"
+        Me.btnNextPageDecryption.Size = New System.Drawing.Size(95, 101)
+        Me.btnNextPageDecryption.TabIndex = 28
+        Me.btnNextPageDecryption.Text = ">"
+        Me.btnNextPageDecryption.UseVisualStyleBackColor = False
+        '
+        'pnlDecryption2
+        '
+        Me.pnlDecryption2.Controls.Add(Me.AxWindowsMediaPlayer1)
+        Me.pnlDecryption2.Controls.Add(Me.lblVideo)
+        Me.pnlDecryption2.Location = New System.Drawing.Point(63, 22)
+        Me.pnlDecryption2.Name = "pnlDecryption2"
+        Me.pnlDecryption2.Size = New System.Drawing.Size(745, 436)
+        Me.pnlDecryption2.TabIndex = 29
+        '
+        'lblVideo
+        '
+        Me.lblVideo.AutoSize = True
+        Me.lblVideo.Font = New System.Drawing.Font("Century Gothic", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblVideo.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblVideo.Location = New System.Drawing.Point(151, 24)
+        Me.lblVideo.Name = "lblVideo"
+        Me.lblVideo.Size = New System.Drawing.Size(434, 44)
+        Me.lblVideo.TabIndex = 19
+        Me.lblVideo.Text = "VIDEO - Kasiski Method"
+        '
+        'AxWindowsMediaPlayer1
+        '
+        Me.AxWindowsMediaPlayer1.Enabled = True
+        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(140, 92)
+        Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
+        Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(417, 324)
+        Me.AxWindowsMediaPlayer1.TabIndex = 20
+        '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.Document = Me.PrintDocument1
+        Me.PrintDialog1.UseEXDialog = True
+        '
+        'PrintDocument1
+        '
         '
         'formVigenere
         '
@@ -655,27 +674,30 @@ Partial Class formVigenere
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1106, 656)
-        Me.Controls.Add(Me.btnNextPage)
-        Me.Controls.Add(Me.btnPreviousPage)
+        Me.Controls.Add(Me.pnlPrintout)
+        Me.Controls.Add(Me.btnNextPageDecryption)
+        Me.Controls.Add(Me.btnPreviousPageDecryption)
+        Me.Controls.Add(Me.pnlDecryption1)
+        Me.Controls.Add(Me.btnNextPageAbout)
+        Me.Controls.Add(Me.btnPreviousPageAbout)
         Me.Controls.Add(Me.btnPrintout)
         Me.Controls.Add(Me.btnCracking)
         Me.Controls.Add(Me.btnDemo)
         Me.Controls.Add(Me.btnAbout)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblVigenere)
-        Me.Controls.Add(Me.pnlDemo)
-        Me.Controls.Add(Me.pnlDecryption)
-        Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.pnlAbout2)
         Me.Controls.Add(Me.pnlAbout1)
+        Me.Controls.Add(Me.pnlDemo)
+        Me.Controls.Add(Me.pnlDecryption2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formVigenere"
         Me.Text = "formVigenere"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.pnlDemo.ResumeLayout(False)
         Me.pnlDemo.PerformLayout()
-        Me.pnlDecryption.ResumeLayout(False)
-        Me.pnlDecryption.PerformLayout()
+        Me.pnlDecryption1.ResumeLayout(False)
+        Me.pnlDecryption1.PerformLayout()
         Me.pnlAbout1.ResumeLayout(False)
         Me.pnlAbout1.PerformLayout()
         CType(Me.picVigenere, System.ComponentModel.ISupportInitialize).EndInit()
@@ -683,10 +705,13 @@ Partial Class formVigenere
         Me.pnlPrintout.ResumeLayout(False)
         Me.pnlPrintout.PerformLayout()
         CType(Me.picHidden, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picVigenerePrintout, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAbout2.ResumeLayout(False)
         Me.pnlAbout2.PerformLayout()
         CType(Me.picVigenereSquare, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pnlDecryption2.ResumeLayout(False)
+        Me.pnlDecryption2.PerformLayout()
+        CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -705,27 +730,23 @@ Partial Class formVigenere
     Friend WithEvents btnCracking As Button
     Friend WithEvents btnDemo As Button
     Friend WithEvents btnAbout As Button
-    Friend WithEvents pnlDecryption As Panel
-    Friend WithEvents btnDecryptionExample As Button
-    Friend WithEvents lblTryExplanation As Label
-    Friend WithEvents lblTryItOut As Label
-    Friend WithEvents lblCaesarCracking As Label
+    Friend WithEvents pnlDecryption1 As Panel
+    Friend WithEvents lblVigenereDecryption As Label
     Friend WithEvents pnlAbout1 As Panel
     Friend WithEvents picAlberti As PictureBox
     Friend WithEvents lblVigenereInfo1 As Label
     Friend WithEvents pnlPrintout As Panel
     Friend WithEvents lblPrintoutExplanation As Label
     Friend WithEvents picHidden As PictureBox
-    Friend WithEvents picCaesarPrintout As PictureBox
+    Friend WithEvents picVigenerePrintout As PictureBox
     Friend WithEvents btnPrint As Button
     Friend WithEvents picVigenere As PictureBox
     Friend WithEvents lblVigenereCaption As Label
     Friend WithEvents lblAlbertiCaption As Label
     Friend WithEvents pnlAbout2 As Panel
     Friend WithEvents lblVigenereInfo2 As Label
-    Friend WithEvents btnNextPage As Button
-    Friend WithEvents btnPreviousPage As Button
-    Friend WithEvents Label1 As Label
+    Friend WithEvents btnNextPageAbout As Button
+    Friend WithEvents btnPreviousPageAbout As Button
     Friend WithEvents picVigenereSquare As PictureBox
     Friend WithEvents lblVigenereInfo3 As Label
     Friend WithEvents lblVigenereSquareCaption As Label
@@ -738,4 +759,11 @@ Partial Class formVigenere
     Friend WithEvents lblPlaintextAdditionSubscript As Label
     Friend WithEvents lblKeyAddition As Label
     Friend WithEvents lblPlaintextAddition As Label
+    Friend WithEvents btnPreviousPageDecryption As Button
+    Friend WithEvents btnNextPageDecryption As Button
+    Friend WithEvents pnlDecryption2 As Panel
+    Friend WithEvents lblVideo As Label
+    Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
+    Friend WithEvents PrintDialog1 As PrintDialog
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
 End Class

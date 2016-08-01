@@ -25,6 +25,7 @@ Public Module modHelpers
         Return message
     End Function
 
+    'assumes key contains all valid characters
     Function encodeVigenere(message As String, key As String) As String
         message = message.ToUpper()
         key = key.ToUpper()
@@ -44,6 +45,58 @@ Public Module modHelpers
         Next
 
         Return message
+    End Function
+
+    Function encodeStraddling(message As String, n1 As Integer, n2 As Integer) As String
+        message = message.ToUpper()
+
+        If n2 > n1 Then
+            Dim swap As Integer
+            swap = n1
+            n1 = n2
+            n2 = swap
+        End If
+
+        Dim key As New List(Of Char)
+        For i = 0 To message.Length - 1
+            Dim letter As Char = message(i)
+            If Not key.Contains(letter) Then
+                key.Add(letter)
+            End If
+        Next
+
+        For i = 0 To LENGTH_OF_ALPHABET - 1
+            Dim letter As Char = ALPHABET(i)
+            If Not key.Contains(letter) Then
+                key.Add(letter)
+            End If
+        Next
+
+        Dim table As New Dictionary(Of Char, Integer)
+        For i = 0 To key.Count - 1
+            If i < n1 Then
+                table(key(i)) = i
+            ElseIf i < n2 - 1 Then
+                table(key(i)) = i + 1
+            ElseIf i < 8 Then
+                table(key(i)) = i + 2
+            ElseIf i < 18 Then
+                table(key(i)) = n1 * 10 + i - 8
+            Else
+                table(key(i)) = n2 * 10 + i - 18
+            End If
+        Next
+
+        Dim output As String = ""
+
+        For i = 0 To message.Length - 1
+            Dim letter As Char = message(i)
+            If table.ContainsKey(letter) Then
+                output &= table(letter)
+            End If
+        Next
+
+        Return output
     End Function
 
     ' HELPER FUNCTIONS:
@@ -77,6 +130,12 @@ Public Module modHelpers
         Debug.Assert(encodeVigenere("asdfghjkl", "xyz") = "XQCCEGGIK")
         Debug.Assert(encodeVigenere("HI THERE IS THIS KIND OF COOL???", "xyz") = "EG SECQB GR QFHP IHKB NC ANLJ???")
         Debug.Assert(encodeVigenere("!@#$%^&*(", "abc") = "!@#$%^&*(")
+        Debug.Print("All tests Passed!!!!!")
+    End Sub
+
+    Sub testStraddlingCheckerboard()
+        Debug.Print("Testing Straddling Checkerboard Encoding!")
+        Debug.Print(encodeStraddling("hi", 3, 5))
         Debug.Print("All tests Passed!!!!!")
     End Sub
 

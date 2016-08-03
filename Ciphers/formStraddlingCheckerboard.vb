@@ -13,6 +13,19 @@
         Const TEXTBOX_HEIGHT = 0.3
         Const ALPHABET_MARGIN = 10
 
+        ' Putting this here so it runs early on so blinking is mitigated.
+        pnlAbout1.Show()
+        pnlAbout2.Hide()
+        btnNextPageAbout.Show()
+        btnPreviousPageAbout.Hide()
+        pnlDemo.Hide()
+        'pnlDecryption1.Hide()
+        'pnlDecryption2.Hide()
+        pnlPrintout.Hide()
+        'btnPreviousPageDecryption.Hide()
+        'btnNextPageDecryption.Hide()
+        pnlDecryption.Hide()
+
         ' lblStraddlingCheckerboard
         lblStraddlingCheckerboard.horizontallyCentre()
         lblStraddlingCheckerboard.Top = 50
@@ -22,29 +35,74 @@
         btnBack.Top = Me.Height - btnBack.Height - 25
 
         ' btnAbout
-        btnAbout.Left = Me.Width / 2 - (btnAbout.Width + MENU_PADDING + btnDemo.Width + MENU_PADDING + btnCracking.Width + MENU_PADDING + btnPrintout.Width) / 2
+        btnAbout.Left = Me.Width / 2 - (btnAbout.Width + MENU_PADDING + btnDemo.Width + MENU_PADDING + MENU_PADDING + btnPrintout.Width) / 2
         btnAbout.placeBelow(lblStraddlingCheckerboard, 5)
 
         ' btnDemo
         btnDemo.placeRight(btnAbout, MENU_PADDING)
         btnDemo.Top = btnAbout.Top
 
-        ' btnCracking
-        btnCracking.placeRight(btnDemo, MENU_PADDING)
-        btnCracking.Top = btnAbout.Top
-
         ' btnPrintout
-        btnPrintout.placeRight(btnCracking, MENU_PADDING)
+        btnPrintout.placeRight(btnDemo, MENU_PADDING)
         btnPrintout.Top = btnAbout.Top
 
         ' ------------------------------------------------------------------------
-        ' pnlAbout
+        ' pnlAbout1
         ' ------------------------------------------------------------------------
-        pnlAbout.Width = Me.Width * 0.9
-        pnlAbout.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
-        pnlAbout.horizontallyCentre()
-        pnlAbout.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
+        pnlAbout1.Width = Me.Width * 0.9
+        pnlAbout1.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
+        pnlAbout1.horizontallyCentre()
+        pnlAbout1.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
 
+        ' lblStraddlingInfo1
+        lblStraddlingInfo1.Left = 0
+        lblStraddlingInfo1.Top = 0
+        lblStraddlingInfo1.MaximumSize = New Size(pnlAbout1.Width, 0)
+
+        ' btnNextPageAbout
+        btnNextPageAbout.Show()
+        btnNextPageAbout.Height = 0.15 * Me.Width
+        btnNextPageAbout.Width = 0.05 * Me.Width
+        btnNextPageAbout.Left = Me.Width - btnNextPageAbout.Width
+        btnNextPageAbout.verticallyCentre()
+
+        ' btnPreviousPageAbout
+        btnPreviousPageAbout.Hide()
+        btnPreviousPageAbout.Height = 0.15 * Me.Width
+        btnPreviousPageAbout.Width = 0.05 * Me.Width
+        btnPreviousPageAbout.Left = 0
+        btnPreviousPageAbout.verticallyCentre()
+
+        ' ------------------------------------------------------------------------
+        ' pnlAbout2
+        ' ------------------------------------------------------------------------
+        pnlAbout2.Width = Me.Width * 0.9
+        pnlAbout2.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
+        pnlAbout2.horizontallyCentre()
+        pnlAbout2.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
+
+        ' lblStraddlingInfo2
+        lblStraddlingInfo2.Left = 0
+        lblStraddlingInfo2.Top = 0
+        lblStraddlingInfo2.MaximumSize = New Size(pnlAbout2.Width, 0)
+
+        picStraddling1.Height = 100 '0.8 * (pnlAbout2.Height - lblStraddlingInfo2.Height - lblStraddlingInfo3.Height - lblStraddling1Caption.Height - 20 - 5 - 5 - 20)
+        picStraddling1.Left = pnlAbout2.Width / 4 - picStraddling1.Width / 2
+        picStraddling1.placeBelow(lblStraddlingInfo2, 20)
+
+        picStraddling2.Height = picStraddling1.Height
+        picStraddling2.Left = pnlAbout2.Width / 4 * 3 - picStraddling2.Width / 2
+        picStraddling2.Top = picStraddling1.Top
+
+        lblStraddling1Caption.Left = pnlAbout2.Width / 4 - lblStraddling1Caption.Width / 2
+        lblStraddling1Caption.placeBelow(picStraddling1, 0)
+
+        lblStraddling2Caption.Left = pnlAbout2.Width / 4 * 3 - lblStraddling2Caption.Width / 2
+        lblStraddling2Caption.placeBelow(picStraddling2, 5)
+
+        lblStraddlingInfo3.Left = 0
+        lblStraddlingInfo3.placeBelow(lblStraddling1Caption, 20)
+        lblStraddlingInfo3.MaximumSize = New Size(pnlAbout2.Width, 0)
         ' ------------------------------------------------------------------------
         ' pnlDemo
         ' ------------------------------------------------------------------------
@@ -104,20 +162,25 @@
         lblCiphertext.placeAbove(txtCiphertext, 10)
 
         ' ------------------------------------------------------------------------
-        ' pnlDecryption
-        ' ------------------------------------------------------------------------
-        pnlDecryption.Width = Me.Width * 0.9
-        pnlDecryption.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
-        pnlDecryption.horizontallyCentre()
-        pnlDecryption.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
-
-        ' ------------------------------------------------------------------------
         ' pnlPrintout
         ' ------------------------------------------------------------------------
         pnlPrintout.Width = Me.Width * 0.9
         pnlPrintout.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
         pnlPrintout.horizontallyCentre()
         pnlPrintout.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
+
+        ' picStraddlingPrintout
+        picStraddlingPrintout.Left = pnlPrintout.Width / 4 - picStraddlingPrintout.Width / 2
+        picStraddlingPrintout.Top = 100
+
+        ' btnPrint
+        btnPrint.Left = pnlPrintout.Width / 4 - btnPrint.Width / 2
+        btnPrint.placeBelow(picStraddlingPrintout, 50)
+
+        ' lblPrintoutExplanation
+        lblPrintoutExplanation.MaximumSize = New Size(pnlPrintout.Width / 2, 0)
+        lblPrintoutExplanation.Left = picStraddlingPrintout.Left + picStraddlingPrintout.Width + (pnlPrintout.Width - picStraddlingPrintout.Left - picStraddlingPrintout.Width - lblPrintoutExplanation.Width) / 2
+        lblPrintoutExplanation.Top = 100
 
         btnAbout.PerformClick()
     End Sub
@@ -140,7 +203,10 @@
         selectedMenuButton = btnAbout
         Me.Refresh()
 
-        pnlAbout.Show()
+        pnlAbout1.Show()
+        pnlAbout2.Hide()
+        btnNextPageAbout.Show()
+        btnPreviousPageAbout.Hide()
         pnlDemo.Hide()
         pnlDecryption.Hide()
         pnlPrintout.Hide()
@@ -151,18 +217,11 @@
         Me.Refresh()
 
         pnlDemo.Show()
-        pnlAbout.Hide()
+        pnlAbout1.Hide()
+        pnlAbout2.Hide()
+        btnNextPageAbout.Hide()
+        btnPreviousPageAbout.Hide()
         pnlDecryption.Hide()
-        pnlPrintout.Hide()
-    End Sub
-
-    Private Sub btnCracking_Click(sender As Object, e As EventArgs) Handles btnCracking.Click
-        selectedMenuButton = btnCracking
-        Me.Refresh()
-
-        pnlDecryption.Show()
-        pnlAbout.Hide()
-        pnlDemo.Hide()
         pnlPrintout.Hide()
     End Sub
 
@@ -171,8 +230,36 @@
         Me.Refresh()
 
         pnlPrintout.Show()
-        pnlAbout.Hide()
+        pnlAbout1.Hide()
+        pnlAbout2.Hide()
+        btnNextPageAbout.Hide()
+        btnPreviousPageAbout.Hide()
         pnlDemo.Hide()
         pnlDecryption.Hide()
+    End Sub
+
+    Private Sub btnPreviousPageAbout_Click(sender As Object, e As EventArgs) Handles btnPreviousPageAbout.Click
+        btnPreviousPageAbout.Hide()
+        pnlAbout1.Show()
+        pnlAbout2.Hide()
+        btnNextPageAbout.Show()
+    End Sub
+
+    Private Sub btnNextPageAbout_Click(sender As Object, e As EventArgs) Handles btnNextPageAbout.Click
+        btnNextPageAbout.Hide()
+        pnlAbout2.Show()
+        pnlAbout1.Hide()
+        btnPreviousPageAbout.Show()
+    End Sub
+
+    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+        If PrintDialog1.ShowDialog() = DialogResult.OK Then
+            PrintDocument1.Print()
+        End If
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        printPictureBox(picStraddlingPrintout, picHidden)
+        e.Graphics.DrawImage(picHidden.Image, 0, 0)
     End Sub
 End Class

@@ -26,7 +26,6 @@ Partial Class formStraddlingCheckerboard
         Me.btnBack = New System.Windows.Forms.Button()
         Me.lblStraddlingCheckerboard = New System.Windows.Forms.Label()
         Me.btnPrintout = New System.Windows.Forms.Button()
-        Me.btnCracking = New System.Windows.Forms.Button()
         Me.btnDemo = New System.Windows.Forms.Button()
         Me.btnAbout = New System.Windows.Forms.Button()
         Me.pnlDemo = New System.Windows.Forms.Panel()
@@ -42,23 +41,35 @@ Partial Class formStraddlingCheckerboard
         Me.pnlPrintout = New System.Windows.Forms.Panel()
         Me.lblPrintoutExplanation = New System.Windows.Forms.Label()
         Me.picHidden = New System.Windows.Forms.PictureBox()
-        Me.picCaesarPrintout = New System.Windows.Forms.PictureBox()
+        Me.picStraddlingPrintout = New System.Windows.Forms.PictureBox()
         Me.btnPrint = New System.Windows.Forms.Button()
-        Me.pnlAbout = New System.Windows.Forms.Panel()
-        Me.picCaesarDiagram = New System.Windows.Forms.PictureBox()
-        Me.lblCaesarInfo1 = New System.Windows.Forms.Label()
         Me.pnlDecryption = New System.Windows.Forms.Panel()
         Me.btnDecryptionExample = New System.Windows.Forms.Button()
         Me.lblTryExplanation = New System.Windows.Forms.Label()
         Me.lblTryItOut = New System.Windows.Forms.Label()
         Me.lblCaesarCracking = New System.Windows.Forms.Label()
+        Me.pnlAbout1 = New System.Windows.Forms.Panel()
+        Me.lblStraddlingInfo1 = New System.Windows.Forms.Label()
+        Me.pnlAbout2 = New System.Windows.Forms.Panel()
+        Me.lblStraddlingInfo2 = New System.Windows.Forms.Label()
+        Me.btnPreviousPageAbout = New System.Windows.Forms.Button()
+        Me.btnNextPageAbout = New System.Windows.Forms.Button()
+        Me.picStraddling1 = New System.Windows.Forms.PictureBox()
+        Me.picStraddling2 = New System.Windows.Forms.PictureBox()
+        Me.lblStraddling1Caption = New System.Windows.Forms.Label()
+        Me.lblStraddling2Caption = New System.Windows.Forms.Label()
+        Me.lblStraddlingInfo3 = New System.Windows.Forms.Label()
+        Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.pnlDemo.SuspendLayout()
         Me.pnlPrintout.SuspendLayout()
         CType(Me.picHidden, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlAbout.SuspendLayout()
-        CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picStraddlingPrintout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDecryption.SuspendLayout()
+        Me.pnlAbout1.SuspendLayout()
+        Me.pnlAbout2.SuspendLayout()
+        CType(Me.picStraddling1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picStraddling2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBack
@@ -103,22 +114,6 @@ Partial Class formStraddlingCheckerboard
         Me.btnPrintout.TabStop = False
         Me.btnPrintout.Text = "PRINT-OUT"
         Me.btnPrintout.UseVisualStyleBackColor = False
-        '
-        'btnCracking
-        '
-        Me.btnCracking.BackColor = System.Drawing.Color.SlateGray
-        Me.btnCracking.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.btnCracking.FlatAppearance.BorderSize = 0
-        Me.btnCracking.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCracking.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnCracking.ForeColor = System.Drawing.Color.Black
-        Me.btnCracking.Location = New System.Drawing.Point(433, 24)
-        Me.btnCracking.Name = "btnCracking"
-        Me.btnCracking.Size = New System.Drawing.Size(169, 68)
-        Me.btnCracking.TabIndex = 23
-        Me.btnCracking.TabStop = False
-        Me.btnCracking.Text = "DECRYPTION"
-        Me.btnCracking.UseVisualStyleBackColor = False
         '
         'btnDemo
         '
@@ -285,9 +280,9 @@ Partial Class formStraddlingCheckerboard
         '
         Me.pnlPrintout.Controls.Add(Me.lblPrintoutExplanation)
         Me.pnlPrintout.Controls.Add(Me.picHidden)
-        Me.pnlPrintout.Controls.Add(Me.picCaesarPrintout)
+        Me.pnlPrintout.Controls.Add(Me.picStraddlingPrintout)
         Me.pnlPrintout.Controls.Add(Me.btnPrint)
-        Me.pnlPrintout.Location = New System.Drawing.Point(587, 65)
+        Me.pnlPrintout.Location = New System.Drawing.Point(29, 51)
         Me.pnlPrintout.Name = "pnlPrintout"
         Me.pnlPrintout.Size = New System.Drawing.Size(745, 436)
         Me.pnlPrintout.TabIndex = 28
@@ -299,7 +294,7 @@ Partial Class formStraddlingCheckerboard
         Me.lblPrintoutExplanation.ForeColor = System.Drawing.Color.WhiteSmoke
         Me.lblPrintoutExplanation.Location = New System.Drawing.Point(33, 14)
         Me.lblPrintoutExplanation.Name = "lblPrintoutExplanation"
-        Me.lblPrintoutExplanation.Size = New System.Drawing.Size(3016, 160)
+        Me.lblPrintoutExplanation.Size = New System.Drawing.Size(3051, 96)
         Me.lblPrintoutExplanation.TabIndex = 27
         Me.lblPrintoutExplanation.Text = resources.GetString("lblPrintoutExplanation.Text")
         '
@@ -312,15 +307,15 @@ Partial Class formStraddlingCheckerboard
         Me.picHidden.TabStop = False
         Me.picHidden.Visible = False
         '
-        'picCaesarPrintout
+        'picStraddlingPrintout
         '
-        Me.picCaesarPrintout.Image = CType(resources.GetObject("picCaesarPrintout.Image"), System.Drawing.Image)
-        Me.picCaesarPrintout.Location = New System.Drawing.Point(338, 14)
-        Me.picCaesarPrintout.Name = "picCaesarPrintout"
-        Me.picCaesarPrintout.Size = New System.Drawing.Size(279, 351)
-        Me.picCaesarPrintout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picCaesarPrintout.TabIndex = 28
-        Me.picCaesarPrintout.TabStop = False
+        Me.picStraddlingPrintout.Image = CType(resources.GetObject("picStraddlingPrintout.Image"), System.Drawing.Image)
+        Me.picStraddlingPrintout.Location = New System.Drawing.Point(338, 95)
+        Me.picStraddlingPrintout.Name = "picStraddlingPrintout"
+        Me.picStraddlingPrintout.Size = New System.Drawing.Size(279, 351)
+        Me.picStraddlingPrintout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picStraddlingPrintout.TabIndex = 28
+        Me.picStraddlingPrintout.TabStop = False
         '
         'btnPrint
         '
@@ -336,36 +331,6 @@ Partial Class formStraddlingCheckerboard
         Me.btnPrint.TabStop = False
         Me.btnPrint.Text = "PRINT 🖶"
         Me.btnPrint.UseVisualStyleBackColor = False
-        '
-        'pnlAbout
-        '
-        Me.pnlAbout.Controls.Add(Me.picCaesarDiagram)
-        Me.pnlAbout.Controls.Add(Me.lblCaesarInfo1)
-        Me.pnlAbout.Location = New System.Drawing.Point(46, 127)
-        Me.pnlAbout.Name = "pnlAbout"
-        Me.pnlAbout.Size = New System.Drawing.Size(745, 436)
-        Me.pnlAbout.TabIndex = 27
-        '
-        'picCaesarDiagram
-        '
-        Me.picCaesarDiagram.Image = CType(resources.GetObject("picCaesarDiagram.Image"), System.Drawing.Image)
-        Me.picCaesarDiagram.Location = New System.Drawing.Point(-60, 194)
-        Me.picCaesarDiagram.Name = "picCaesarDiagram"
-        Me.picCaesarDiagram.Size = New System.Drawing.Size(800, 352)
-        Me.picCaesarDiagram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
-        Me.picCaesarDiagram.TabIndex = 1
-        Me.picCaesarDiagram.TabStop = False
-        '
-        'lblCaesarInfo1
-        '
-        Me.lblCaesarInfo1.AutoSize = True
-        Me.lblCaesarInfo1.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblCaesarInfo1.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblCaesarInfo1.Location = New System.Drawing.Point(15, 17)
-        Me.lblCaesarInfo1.Name = "lblCaesarInfo1"
-        Me.lblCaesarInfo1.Size = New System.Drawing.Size(3395, 160)
-        Me.lblCaesarInfo1.TabIndex = 0
-        Me.lblCaesarInfo1.Text = resources.GetString("lblCaesarInfo1.Text")
         '
         'pnlDecryption
         '
@@ -428,22 +393,158 @@ Partial Class formStraddlingCheckerboard
         Me.lblCaesarCracking.TabIndex = 1
         Me.lblCaesarCracking.Text = resources.GetString("lblCaesarCracking.Text")
         '
+        'pnlAbout1
+        '
+        Me.pnlAbout1.Controls.Add(Me.lblStraddlingInfo1)
+        Me.pnlAbout1.Location = New System.Drawing.Point(32, 106)
+        Me.pnlAbout1.Name = "pnlAbout1"
+        Me.pnlAbout1.Size = New System.Drawing.Size(745, 436)
+        Me.pnlAbout1.TabIndex = 29
+        '
+        'lblStraddlingInfo1
+        '
+        Me.lblStraddlingInfo1.AutoSize = True
+        Me.lblStraddlingInfo1.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStraddlingInfo1.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblStraddlingInfo1.Location = New System.Drawing.Point(15, 17)
+        Me.lblStraddlingInfo1.Name = "lblStraddlingInfo1"
+        Me.lblStraddlingInfo1.Size = New System.Drawing.Size(10880, 160)
+        Me.lblStraddlingInfo1.TabIndex = 0
+        Me.lblStraddlingInfo1.Text = resources.GetString("lblStraddlingInfo1.Text")
+        '
+        'pnlAbout2
+        '
+        Me.pnlAbout2.Controls.Add(Me.lblStraddlingInfo3)
+        Me.pnlAbout2.Controls.Add(Me.lblStraddling2Caption)
+        Me.pnlAbout2.Controls.Add(Me.lblStraddling1Caption)
+        Me.pnlAbout2.Controls.Add(Me.picStraddling2)
+        Me.pnlAbout2.Controls.Add(Me.picStraddling1)
+        Me.pnlAbout2.Controls.Add(Me.lblStraddlingInfo2)
+        Me.pnlAbout2.Location = New System.Drawing.Point(46, 79)
+        Me.pnlAbout2.Name = "pnlAbout2"
+        Me.pnlAbout2.Size = New System.Drawing.Size(745, 436)
+        Me.pnlAbout2.TabIndex = 30
+        '
+        'lblStraddlingInfo2
+        '
+        Me.lblStraddlingInfo2.AutoSize = True
+        Me.lblStraddlingInfo2.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStraddlingInfo2.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblStraddlingInfo2.Location = New System.Drawing.Point(15, 17)
+        Me.lblStraddlingInfo2.Name = "lblStraddlingInfo2"
+        Me.lblStraddlingInfo2.Size = New System.Drawing.Size(5734, 96)
+        Me.lblStraddlingInfo2.TabIndex = 0
+        Me.lblStraddlingInfo2.Text = resources.GetString("lblStraddlingInfo2.Text")
+        '
+        'btnPreviousPageAbout
+        '
+        Me.btnPreviousPageAbout.BackColor = System.Drawing.Color.FromArgb(CType(CType(129, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(163, Byte), Integer))
+        Me.btnPreviousPageAbout.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnPreviousPageAbout.FlatAppearance.BorderSize = 0
+        Me.btnPreviousPageAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPreviousPageAbout.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPreviousPageAbout.ForeColor = System.Drawing.Color.Gainsboro
+        Me.btnPreviousPageAbout.Location = New System.Drawing.Point(-4, -28)
+        Me.btnPreviousPageAbout.Name = "btnPreviousPageAbout"
+        Me.btnPreviousPageAbout.Size = New System.Drawing.Size(95, 101)
+        Me.btnPreviousPageAbout.TabIndex = 27
+        Me.btnPreviousPageAbout.Text = "<"
+        Me.btnPreviousPageAbout.UseVisualStyleBackColor = False
+        '
+        'btnNextPageAbout
+        '
+        Me.btnNextPageAbout.BackColor = System.Drawing.Color.FromArgb(CType(CType(129, Byte), Integer), CType(CType(146, Byte), Integer), CType(CType(163, Byte), Integer))
+        Me.btnNextPageAbout.FlatAppearance.BorderColor = System.Drawing.Color.White
+        Me.btnNextPageAbout.FlatAppearance.BorderSize = 0
+        Me.btnNextPageAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNextPageAbout.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNextPageAbout.ForeColor = System.Drawing.Color.Gainsboro
+        Me.btnNextPageAbout.Location = New System.Drawing.Point(653, -28)
+        Me.btnNextPageAbout.Name = "btnNextPageAbout"
+        Me.btnNextPageAbout.Size = New System.Drawing.Size(95, 101)
+        Me.btnNextPageAbout.TabIndex = 31
+        Me.btnNextPageAbout.Text = ">"
+        Me.btnNextPageAbout.UseVisualStyleBackColor = False
+        '
+        'picStraddling1
+        '
+        Me.picStraddling1.Image = CType(resources.GetObject("picStraddling1.Image"), System.Drawing.Image)
+        Me.picStraddling1.Location = New System.Drawing.Point(58, 52)
+        Me.picStraddling1.Name = "picStraddling1"
+        Me.picStraddling1.Size = New System.Drawing.Size(236, 108)
+        Me.picStraddling1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picStraddling1.TabIndex = 6
+        Me.picStraddling1.TabStop = False
+        '
+        'picStraddling2
+        '
+        Me.picStraddling2.Image = CType(resources.GetObject("picStraddling2.Image"), System.Drawing.Image)
+        Me.picStraddling2.Location = New System.Drawing.Point(362, 52)
+        Me.picStraddling2.Name = "picStraddling2"
+        Me.picStraddling2.Size = New System.Drawing.Size(261, 108)
+        Me.picStraddling2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picStraddling2.TabIndex = 7
+        Me.picStraddling2.TabStop = False
+        '
+        'lblStraddling1Caption
+        '
+        Me.lblStraddling1Caption.AutoSize = True
+        Me.lblStraddling1Caption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStraddling1Caption.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblStraddling1Caption.Location = New System.Drawing.Point(3, 376)
+        Me.lblStraddling1Caption.Name = "lblStraddling1Caption"
+        Me.lblStraddling1Caption.Size = New System.Drawing.Size(338, 22)
+        Me.lblStraddling1Caption.TabIndex = 8
+        Me.lblStraddling1Caption.Text = "Standard Straddling Checkerboard"
+        '
+        'lblStraddling2Caption
+        '
+        Me.lblStraddling2Caption.AutoSize = True
+        Me.lblStraddling2Caption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStraddling2Caption.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblStraddling2Caption.Location = New System.Drawing.Point(383, 376)
+        Me.lblStraddling2Caption.Name = "lblStraddling2Caption"
+        Me.lblStraddling2Caption.Size = New System.Drawing.Size(450, 22)
+        Me.lblStraddling2Caption.TabIndex = 9
+        Me.lblStraddling2Caption.Text = "Straddling Checkerboard With Key ""ETAOINSR"" "
+        '
+        'lblStraddlingInfo3
+        '
+        Me.lblStraddlingInfo3.AutoSize = True
+        Me.lblStraddlingInfo3.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStraddlingInfo3.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblStraddlingInfo3.Location = New System.Drawing.Point(15, 197)
+        Me.lblStraddlingInfo3.Name = "lblStraddlingInfo3"
+        Me.lblStraddlingInfo3.Size = New System.Drawing.Size(5142, 32)
+        Me.lblStraddlingInfo3.TabIndex = 10
+        Me.lblStraddlingInfo3.Text = resources.GetString("lblStraddlingInfo3.Text")
+        '
+        'PrintDialog1
+        '
+        Me.PrintDialog1.Document = Me.PrintDocument1
+        Me.PrintDialog1.UseEXDialog = True
+        '
+        'PrintDocument1
+        '
+        '
         'formStraddlingCheckerboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1090, 617)
-        Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.pnlPrintout)
-        Me.Controls.Add(Me.pnlAbout)
+        Me.Controls.Add(Me.btnNextPageAbout)
+        Me.Controls.Add(Me.btnPreviousPageAbout)
+        Me.Controls.Add(Me.pnlAbout1)
+        Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.pnlDecryption)
         Me.Controls.Add(Me.btnPrintout)
-        Me.Controls.Add(Me.btnCracking)
         Me.Controls.Add(Me.btnDemo)
         Me.Controls.Add(Me.btnAbout)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblStraddlingCheckerboard)
+        Me.Controls.Add(Me.pnlAbout2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formStraddlingCheckerboard"
         Me.Text = "formStraddlingCheckerboard"
@@ -453,12 +554,15 @@ Partial Class formStraddlingCheckerboard
         Me.pnlPrintout.ResumeLayout(False)
         Me.pnlPrintout.PerformLayout()
         CType(Me.picHidden, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picCaesarPrintout, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlAbout.ResumeLayout(False)
-        Me.pnlAbout.PerformLayout()
-        CType(Me.picCaesarDiagram, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picStraddlingPrintout, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlDecryption.ResumeLayout(False)
         Me.pnlDecryption.PerformLayout()
+        Me.pnlAbout1.ResumeLayout(False)
+        Me.pnlAbout1.PerformLayout()
+        Me.pnlAbout2.ResumeLayout(False)
+        Me.pnlAbout2.PerformLayout()
+        CType(Me.picStraddling1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picStraddling2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -467,7 +571,6 @@ Partial Class formStraddlingCheckerboard
     Friend WithEvents btnBack As Button
     Friend WithEvents lblStraddlingCheckerboard As Label
     Friend WithEvents btnPrintout As Button
-    Friend WithEvents btnCracking As Button
     Friend WithEvents btnDemo As Button
     Friend WithEvents btnAbout As Button
     Friend WithEvents pnlDemo As Panel
@@ -483,14 +586,24 @@ Partial Class formStraddlingCheckerboard
     Friend WithEvents pnlPrintout As Panel
     Friend WithEvents lblPrintoutExplanation As Label
     Friend WithEvents picHidden As PictureBox
-    Friend WithEvents picCaesarPrintout As PictureBox
+    Friend WithEvents picStraddlingPrintout As PictureBox
     Friend WithEvents btnPrint As Button
-    Friend WithEvents pnlAbout As Panel
-    Friend WithEvents picCaesarDiagram As PictureBox
-    Friend WithEvents lblCaesarInfo1 As Label
     Friend WithEvents pnlDecryption As Panel
     Friend WithEvents btnDecryptionExample As Button
     Friend WithEvents lblTryExplanation As Label
     Friend WithEvents lblTryItOut As Label
     Friend WithEvents lblCaesarCracking As Label
+    Friend WithEvents pnlAbout1 As Panel
+    Friend WithEvents lblStraddlingInfo1 As Label
+    Friend WithEvents pnlAbout2 As Panel
+    Friend WithEvents lblStraddlingInfo2 As Label
+    Friend WithEvents btnPreviousPageAbout As Button
+    Friend WithEvents btnNextPageAbout As Button
+    Friend WithEvents picStraddling2 As PictureBox
+    Friend WithEvents picStraddling1 As PictureBox
+    Friend WithEvents lblStraddling2Caption As Label
+    Friend WithEvents lblStraddling1Caption As Label
+    Friend WithEvents lblStraddlingInfo3 As Label
+    Friend WithEvents PrintDialog1 As PrintDialog
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
 End Class

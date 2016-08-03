@@ -72,6 +72,7 @@ Partial Class formVigenere
         Me.lblVideo = New System.Windows.Forms.Label()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pnlDemo.SuspendLayout()
         Me.pnlDecryption1.SuspendLayout()
         Me.pnlAbout1.SuspendLayout()
@@ -84,6 +85,7 @@ Partial Class formVigenere
         CType(Me.picVigenereSquare, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDecryption2.SuspendLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBack
@@ -461,6 +463,7 @@ Partial Class formVigenere
         '
         'pnlPrintout
         '
+        Me.pnlPrintout.Controls.Add(Me.PictureBox1)
         Me.pnlPrintout.Controls.Add(Me.lblPrintoutExplanation)
         Me.pnlPrintout.Controls.Add(Me.picHidden)
         Me.pnlPrintout.Controls.Add(Me.picVigenerePrintout)
@@ -668,6 +671,14 @@ Partial Class formVigenere
         'PrintDocument1
         '
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(655, 190)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
+        Me.PictureBox1.TabIndex = 30
+        Me.PictureBox1.TabStop = False
+        '
         'formVigenere
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -684,12 +695,12 @@ Partial Class formVigenere
         Me.Controls.Add(Me.btnAbout)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblVigenere)
-        Me.Controls.Add(Me.pnlDemo)
-        Me.Controls.Add(Me.pnlDecryption2)
         Me.Controls.Add(Me.pnlAbout2)
         Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.pnlDecryption1)
         Me.Controls.Add(Me.pnlAbout1)
+        Me.Controls.Add(Me.pnlDemo)
+        Me.Controls.Add(Me.pnlDecryption2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formVigenere"
         Me.Text = "formVigenere"
@@ -712,6 +723,7 @@ Partial Class formVigenere
         Me.pnlDecryption2.ResumeLayout(False)
         Me.pnlDecryption2.PerformLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -766,4 +778,5 @@ Partial Class formVigenere
     Friend WithEvents AxWindowsMediaPlayer1 As AxWMPLib.AxWindowsMediaPlayer
     Friend WithEvents PrintDialog1 As PrintDialog
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

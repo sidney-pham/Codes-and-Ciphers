@@ -1,4 +1,6 @@
-﻿Public Class formStraddlingCheckerboard
+﻿Imports System.Runtime.CompilerServices, System.Text.RegularExpressions
+
+Public Class formStraddlingCheckerboard
     ' SHOULD REALLY BE A CONSTANT, BUT VB SAYS THIS ISN'T A "CONSTANT VALUE"
     Private TEXTBOX_FOCUS_BORDER_COLOR As Color = Color.CornflowerBlue
     Private TEXTBOX_UNFOCUS_BORDER_COLOR As Color = Color.WhiteSmoke
@@ -8,7 +10,7 @@
     Const MAX_N = 9
 
     Private selectedMenuButton As Control
-    Private key As String
+    Private key As String = ""
     Private n1 As Integer = 0
     Private n2 As Integer = 0
     Private deletingn1 As Boolean = False
@@ -17,8 +19,12 @@
     Private n1IsValid As Boolean = True
     Private n2IsValid As Boolean = True
 
+    Private errorTextboxExists As Boolean = False
+    Private errorTextbox As TextBox
+
     Private Sub formStraddlingCheckerboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' WHY DO I NEED THIS WHEN ITS LITERALLY INITIALISED RIGHT ABOVE THERE WTF
+        key = ""
         n1 = 0
         n2 = 0
         positionElements()
@@ -151,7 +157,7 @@
         ' txtn1
         txtn1.Text = n1
         txtn1.placeRight(btnn1Fewer, DEMO_BUTTON_MARGIN)
-        txtn1.Top = btnn1Fewer.Top 
+        txtn1.Top = btnn1Fewer.Top
 
         ' btnn1More
         btnn1More.Height = btnn1Fewer.Height
@@ -355,7 +361,9 @@
     End Sub
 
     Private Sub txtKey_TextChanged(sender As Object, e As EventArgs) Handles txtKey.TextChanged
+        key = Regex.Replace(txtKey.Text, "[^a-zA-Z]", "")
 
+        txtCiphertext.Text = encodeStraddling(txtPlaintext.Text, key, n1, n2)
     End Sub
 
     Private Sub txtn1_TextChanged(sender As Object, e As EventArgs) Handles txtn1.TextChanged
@@ -402,6 +410,9 @@
         'update the buttons
         btnn1Fewer.Enabled = n1 <> MIN_N
         btnn1More.Enabled = n1 <> MAX_N
+        If txtPlaintext.Text <> "" Then
+            txtCiphertext.Text = encodeStraddling(txtPlaintext.Text, key, n1, n2)
+        End If
     End Sub
 
     Private Sub updaten2Buttons()
@@ -438,6 +449,9 @@
         'update the buttons
         btnn2fewer.Enabled = n2 <> MIN_N
         btnn2More.Enabled = n2 <> MAX_N
+        If txtPlaintext.Text <> "" Then
+            txtCiphertext.Text = encodeStraddling(txtPlaintext.Text, key, n1, n2)
+        End If
     End Sub
 
     Private Sub txtn1_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtn1.KeyPress
@@ -465,6 +479,19 @@
         Else
             txtn2.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
             'txtn1.drawBorderInPanel(e.Graphics, TEXTBOX_FOCUS_BORDER_COLOR)
+        End If
+    End Sub
+
+    Private Sub txtPlaintext_TextChanged(sender As Object, e As EventArgs) Handles txtPlaintext.TextChanged
+        If txtPlaintext.Text <> "" Then
+            txtCiphertext.Text = encodeStraddling(txtPlaintext.Text, key, n1, n2)
+        End If
+    End Sub
+
+    Private Sub txtPlaintext_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPlaintext.KeyDown
+        If e.Control And e.KeyCode = Keys.A Then
+            txtPlaintext.SelectAll()
+            e.SuppressKeyPress = True
         End If
     End Sub
 End Class

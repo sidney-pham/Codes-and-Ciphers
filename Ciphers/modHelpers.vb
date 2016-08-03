@@ -1,5 +1,6 @@
 ﻿Imports System.Runtime.CompilerServices, System.Text.RegularExpressions
 
+
 Public Module modHelpers
     Public Const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     Public Const LENGTH_OF_ALPHABET = 26
@@ -29,7 +30,6 @@ Public Module modHelpers
     Function encodeVigenere(message As String, key As String) As String
         message = message.ToUpper()
         key = Regex.Replace(key.ToUpper(), "[^a-zA-Z]", "")
-
         Dim currentKeyIndex = 0
 
         For i = 0 To message.Length - 1
@@ -47,10 +47,70 @@ Public Module modHelpers
         Return message
     End Function
 
-    Function encodeStraddling(message As String, n1 As Integer, n2 As Integer) As String
-        message = message.ToUpper()
+    Public Function ramsEncodeStraddling(inp As String, keyStr As String, n1 As Integer, n2 As Integer) As String
+        Debug.Assert(0 <= n1 < 10 And 0 <= n2 < 10)
 
-        If n2 > n1 Then
+        keyStr = keyStr.ToUpper
+        inp = inp.ToUpper
+
+        Dim nMin = Math.Min(n1, n2)
+        Dim nMax = Math.Max(n1, n2)
+        If nMin = nMax Then
+            If nMin = 9 Then
+                nMin = 0
+            Else
+                nMax = nMax + 1
+            End If
+        End If
+
+        n1 = nMin
+        n2 = nMax
+
+        Dim key As New List(Of Char)
+        For i = 0 To keyStr.Length - 1
+            If ALPHABET.Contains(keyStr(i)) And Not key.Contains(keyStr(i)) Then
+                key.Add(keyStr(i))
+            End If
+        Next i
+
+        For i = 0 To ALPHABET.Length - 1
+            If Not key.Contains(ALPHABET(i)) Then
+                key.Add(ALPHABET(i))
+            End If
+        Next i
+
+        Dim table As New Hashtable
+        For i = 0 To key.Count - 1
+            If i < n1 Then
+                table(key(i)) = i
+            ElseIf i < n2 - 1 Then
+                table(key(i)) = i + 1
+            ElseIf i < 8 Then
+                table(key(i)) = i + 2
+            ElseIf i < 18 Then
+                table(key(i)) = n1 * 10 + i - 8
+            ElseIf i < 28 Then
+                table(key(i)) = n2 * 10 + i - 18
+            Else
+                Throw New Exception("Unreachable!")
+            End If
+        Next
+
+        Dim out As New List(Of Integer)
+        For i = 0 To inp.Length - 1
+            If table.ContainsKey(inp(i)) Then
+                out.Add(table(inp(i)))
+            End If
+        Next
+
+        Return String.Join("", out.ToArray)
+    End Function
+
+    Function encodeStraddling(message As String, keyInput As String, n1 As Integer, n2 As Integer) As String
+        message = message.ToUpper()
+        keyInput = Regex.Replace(keyInput.ToUpper(), "[^a-zA-Z]", "")
+
+        If n2 < n1 Then
             Dim swap As Integer
             swap = n1
             n1 = n2
@@ -58,8 +118,8 @@ Public Module modHelpers
         End If
 
         Dim key As New List(Of Char)
-        For i = 0 To message.Length - 1
-            Dim letter As Char = message(i)
+        For i = 0 To keyInput.Length - 1
+            Dim letter As Char = keyInput(i)
             If Not key.Contains(letter) Then
                 key.Add(letter)
             End If
@@ -72,7 +132,9 @@ Public Module modHelpers
             End If
         Next
 
-        Dim table As New Dictionary(Of Char, Integer)
+        'Debug.Print(String.Join(",", key))
+
+        Dim table As New Hashtable
         For i = 0 To key.Count - 1
             If i < n1 Then
                 table(key(i)) = i
@@ -82,8 +144,10 @@ Public Module modHelpers
                 table(key(i)) = i + 2
             ElseIf i < 18 Then
                 table(key(i)) = n1 * 10 + i - 8
-            Else
+            ElseIf i < 28 Then
                 table(key(i)) = n2 * 10 + i - 18
+            Else
+                Throw New Exception("Unreachable!")
             End If
         Next
 
@@ -135,7 +199,13 @@ Public Module modHelpers
 
     Sub testStraddlingCheckerboard()
         Debug.Print("Testing Straddling Checkerboard Encoding!")
-        Debug.Print(encodeStraddling("hi", 3, 5))
+        ' Because ram's solution is definitely correct
+        Debug.Print(encodeStraddling("hi", "key", 3, 5) = ramsEncodeStraddling("hi", "key", 3, 5))
+        Debug.Print(encodeStraddling("hi", "key", 3, 4) = ramsEncodeStraddling("hi", "key", 3, 4))
+        Debug.Print(encodeStraddling("hi", "key", 3, 3) = ramsEncodeStraddling("hi", "key", 3, 3))
+        Debug.Print(encodeStraddling("hi", "key", 3, 2) = ramsEncodeStraddling("hi", "key", 3, 2))
+        Debug.Print(encodeStraddling("hi", "key", 3, 1) = ramsEncodeStraddling("hi", "key", 3, 1))
+        Debug.Print(encodeStraddling("qwertyuiop", "testing", 3, 5) = ramsEncodeStraddling("qwertyuiop", "testing", 3, 5))
         Debug.Print("All tests Passed!!!!!")
     End Sub
 

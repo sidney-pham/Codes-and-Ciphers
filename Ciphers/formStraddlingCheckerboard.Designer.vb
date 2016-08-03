@@ -182,6 +182,7 @@ Partial Class formStraddlingCheckerboard
         Me.btnn2More.Name = "btnn2More"
         Me.btnn2More.Size = New System.Drawing.Size(50, 50)
         Me.btnn2More.TabIndex = 34
+        Me.btnn2More.TabStop = False
         Me.btnn2More.Text = ">"
         Me.btnn2More.UseVisualStyleBackColor = False
         '
@@ -196,6 +197,7 @@ Partial Class formStraddlingCheckerboard
         Me.btnn1More.Name = "btnn1More"
         Me.btnn1More.Size = New System.Drawing.Size(50, 50)
         Me.btnn1More.TabIndex = 33
+        Me.btnn1More.TabStop = False
         Me.btnn1More.Text = ">"
         Me.btnn1More.UseVisualStyleBackColor = False
         '
@@ -210,6 +212,7 @@ Partial Class formStraddlingCheckerboard
         Me.btnn2fewer.Name = "btnn2fewer"
         Me.btnn2fewer.Size = New System.Drawing.Size(50, 50)
         Me.btnn2fewer.TabIndex = 32
+        Me.btnn2fewer.TabStop = False
         Me.btnn2fewer.Text = "<"
         Me.btnn2fewer.UseVisualStyleBackColor = False
         '
@@ -224,6 +227,7 @@ Partial Class formStraddlingCheckerboard
         Me.btnn1Fewer.Name = "btnn1Fewer"
         Me.btnn1Fewer.Size = New System.Drawing.Size(50, 50)
         Me.btnn1Fewer.TabIndex = 31
+        Me.btnn1Fewer.TabStop = False
         Me.btnn1Fewer.Text = "<"
         Me.btnn1Fewer.UseVisualStyleBackColor = False
         '

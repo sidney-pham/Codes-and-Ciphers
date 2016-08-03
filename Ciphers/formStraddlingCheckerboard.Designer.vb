@@ -29,11 +29,15 @@ Partial Class formStraddlingCheckerboard
         Me.btnDemo = New System.Windows.Forms.Button()
         Me.btnAbout = New System.Windows.Forms.Button()
         Me.pnlDemo = New System.Windows.Forms.Panel()
-        Me.lblShift = New System.Windows.Forms.Label()
-        Me.btnRight = New System.Windows.Forms.Button()
-        Me.btnLeft = New System.Windows.Forms.Button()
-        Me.lblAlphabetShift = New System.Windows.Forms.Label()
-        Me.lblAlphabet = New System.Windows.Forms.Label()
+        Me.btnn2More = New System.Windows.Forms.Button()
+        Me.btnn1More = New System.Windows.Forms.Button()
+        Me.btnn2fewer = New System.Windows.Forms.Button()
+        Me.btnn1Fewer = New System.Windows.Forms.Button()
+        Me.txtn2 = New System.Windows.Forms.TextBox()
+        Me.txtn1 = New System.Windows.Forms.TextBox()
+        Me.lblExcludedDigits = New System.Windows.Forms.Label()
+        Me.lblKey = New System.Windows.Forms.Label()
+        Me.txtKey = New System.Windows.Forms.TextBox()
         Me.lblCiphertext = New System.Windows.Forms.Label()
         Me.lblPlaintext = New System.Windows.Forms.Label()
         Me.txtCiphertext = New System.Windows.Forms.TextBox()
@@ -51,14 +55,14 @@ Partial Class formStraddlingCheckerboard
         Me.pnlAbout1 = New System.Windows.Forms.Panel()
         Me.lblStraddlingInfo1 = New System.Windows.Forms.Label()
         Me.pnlAbout2 = New System.Windows.Forms.Panel()
+        Me.lblStraddlingInfo3 = New System.Windows.Forms.Label()
+        Me.lblStraddling2Caption = New System.Windows.Forms.Label()
+        Me.lblStraddling1Caption = New System.Windows.Forms.Label()
+        Me.picStraddling2 = New System.Windows.Forms.PictureBox()
+        Me.picStraddling1 = New System.Windows.Forms.PictureBox()
         Me.lblStraddlingInfo2 = New System.Windows.Forms.Label()
         Me.btnPreviousPageAbout = New System.Windows.Forms.Button()
         Me.btnNextPageAbout = New System.Windows.Forms.Button()
-        Me.picStraddling1 = New System.Windows.Forms.PictureBox()
-        Me.picStraddling2 = New System.Windows.Forms.PictureBox()
-        Me.lblStraddling1Caption = New System.Windows.Forms.Label()
-        Me.lblStraddling2Caption = New System.Windows.Forms.Label()
-        Me.lblStraddlingInfo3 = New System.Windows.Forms.Label()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.pnlDemo.SuspendLayout()
@@ -68,8 +72,8 @@ Partial Class formStraddlingCheckerboard
         Me.pnlDecryption.SuspendLayout()
         Me.pnlAbout1.SuspendLayout()
         Me.pnlAbout2.SuspendLayout()
-        CType(Me.picStraddling1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picStraddling2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picStraddling1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBack
@@ -149,89 +153,146 @@ Partial Class formStraddlingCheckerboard
         '
         'pnlDemo
         '
-        Me.pnlDemo.Controls.Add(Me.lblShift)
-        Me.pnlDemo.Controls.Add(Me.btnRight)
-        Me.pnlDemo.Controls.Add(Me.btnLeft)
-        Me.pnlDemo.Controls.Add(Me.lblAlphabetShift)
-        Me.pnlDemo.Controls.Add(Me.lblAlphabet)
+        Me.pnlDemo.Controls.Add(Me.btnn2More)
+        Me.pnlDemo.Controls.Add(Me.btnn1More)
+        Me.pnlDemo.Controls.Add(Me.btnn2fewer)
+        Me.pnlDemo.Controls.Add(Me.btnn1Fewer)
+        Me.pnlDemo.Controls.Add(Me.txtn2)
+        Me.pnlDemo.Controls.Add(Me.txtn1)
+        Me.pnlDemo.Controls.Add(Me.lblExcludedDigits)
+        Me.pnlDemo.Controls.Add(Me.lblKey)
+        Me.pnlDemo.Controls.Add(Me.txtKey)
         Me.pnlDemo.Controls.Add(Me.lblCiphertext)
         Me.pnlDemo.Controls.Add(Me.lblPlaintext)
         Me.pnlDemo.Controls.Add(Me.txtCiphertext)
         Me.pnlDemo.Controls.Add(Me.txtPlaintext)
-        Me.pnlDemo.Location = New System.Drawing.Point(227, 124)
+        Me.pnlDemo.Location = New System.Drawing.Point(6, 31)
         Me.pnlDemo.Name = "pnlDemo"
         Me.pnlDemo.Size = New System.Drawing.Size(798, 481)
         Me.pnlDemo.TabIndex = 25
         '
-        'lblShift
+        'btnn2More
         '
-        Me.lblShift.AutoSize = True
-        Me.lblShift.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblShift.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblShift.Location = New System.Drawing.Point(285, 53)
-        Me.lblShift.Name = "lblShift"
-        Me.lblShift.Size = New System.Drawing.Size(116, 36)
-        Me.lblShift.TabIndex = 24
-        Me.lblShift.Text = "SHIFT: 0"
+        Me.btnn2More.BackColor = System.Drawing.Color.Gainsboro
+        Me.btnn2More.FlatAppearance.BorderSize = 0
+        Me.btnn2More.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnn2More.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnn2More.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnn2More.Location = New System.Drawing.Point(738, 315)
+        Me.btnn2More.Name = "btnn2More"
+        Me.btnn2More.Size = New System.Drawing.Size(50, 50)
+        Me.btnn2More.TabIndex = 34
+        Me.btnn2More.Text = ">"
+        Me.btnn2More.UseVisualStyleBackColor = False
         '
-        'btnRight
+        'btnn1More
         '
-        Me.btnRight.BackColor = System.Drawing.Color.Gainsboro
-        Me.btnRight.FlatAppearance.BorderSize = 0
-        Me.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRight.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnRight.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.btnRight.Location = New System.Drawing.Point(570, 3)
-        Me.btnRight.Name = "btnRight"
-        Me.btnRight.Size = New System.Drawing.Size(50, 50)
-        Me.btnRight.TabIndex = 23
-        Me.btnRight.TabStop = False
-        Me.btnRight.Text = ">"
-        Me.btnRight.UseVisualStyleBackColor = False
+        Me.btnn1More.BackColor = System.Drawing.Color.Gainsboro
+        Me.btnn1More.FlatAppearance.BorderSize = 0
+        Me.btnn1More.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnn1More.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnn1More.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.btnn1More.Location = New System.Drawing.Point(531, 305)
+        Me.btnn1More.Name = "btnn1More"
+        Me.btnn1More.Size = New System.Drawing.Size(50, 50)
+        Me.btnn1More.TabIndex = 33
+        Me.btnn1More.Text = ">"
+        Me.btnn1More.UseVisualStyleBackColor = False
         '
-        'btnLeft
+        'btnn2fewer
         '
-        Me.btnLeft.BackColor = System.Drawing.Color.Gainsboro
-        Me.btnLeft.FlatAppearance.BorderSize = 0
-        Me.btnLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLeft.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLeft.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(6, Byte), Integer))
-        Me.btnLeft.Location = New System.Drawing.Point(78, 3)
-        Me.btnLeft.Name = "btnLeft"
-        Me.btnLeft.Size = New System.Drawing.Size(50, 50)
-        Me.btnLeft.TabIndex = 22
-        Me.btnLeft.TabStop = False
-        Me.btnLeft.Text = "<"
-        Me.btnLeft.UseVisualStyleBackColor = False
+        Me.btnn2fewer.BackColor = System.Drawing.Color.Gainsboro
+        Me.btnn2fewer.FlatAppearance.BorderSize = 0
+        Me.btnn2fewer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnn2fewer.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnn2fewer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(6, Byte), Integer))
+        Me.btnn2fewer.Location = New System.Drawing.Point(613, 315)
+        Me.btnn2fewer.Name = "btnn2fewer"
+        Me.btnn2fewer.Size = New System.Drawing.Size(50, 50)
+        Me.btnn2fewer.TabIndex = 32
+        Me.btnn2fewer.Text = "<"
+        Me.btnn2fewer.UseVisualStyleBackColor = False
         '
-        'lblAlphabetShift
+        'btnn1Fewer
         '
-        Me.lblAlphabetShift.AutoSize = True
-        Me.lblAlphabetShift.Font = New System.Drawing.Font("Lucida Sans Typewriter", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAlphabetShift.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblAlphabetShift.Location = New System.Drawing.Point(134, 22)
-        Me.lblAlphabetShift.Name = "lblAlphabetShift"
-        Me.lblAlphabetShift.Size = New System.Drawing.Size(430, 31)
-        Me.lblAlphabetShift.TabIndex = 21
-        Me.lblAlphabetShift.Text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        Me.btnn1Fewer.BackColor = System.Drawing.Color.Gainsboro
+        Me.btnn1Fewer.FlatAppearance.BorderSize = 0
+        Me.btnn1Fewer.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnn1Fewer.Font = New System.Drawing.Font("Century Gothic", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnn1Fewer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(6, Byte), Integer))
+        Me.btnn1Fewer.Location = New System.Drawing.Point(400, 305)
+        Me.btnn1Fewer.Name = "btnn1Fewer"
+        Me.btnn1Fewer.Size = New System.Drawing.Size(50, 50)
+        Me.btnn1Fewer.TabIndex = 31
+        Me.btnn1Fewer.Text = "<"
+        Me.btnn1Fewer.UseVisualStyleBackColor = False
         '
-        'lblAlphabet
+        'txtn2
         '
-        Me.lblAlphabet.AutoSize = True
-        Me.lblAlphabet.Font = New System.Drawing.Font("Lucida Sans Typewriter", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAlphabet.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblAlphabet.Location = New System.Drawing.Point(134, 0)
-        Me.lblAlphabet.Name = "lblAlphabet"
-        Me.lblAlphabet.Size = New System.Drawing.Size(430, 31)
-        Me.lblAlphabet.TabIndex = 20
-        Me.lblAlphabet.Text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        Me.txtn2.BackColor = System.Drawing.Color.White
+        Me.txtn2.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtn2.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtn2.Location = New System.Drawing.Point(672, 319)
+        Me.txtn2.Name = "txtn2"
+        Me.txtn2.Size = New System.Drawing.Size(60, 36)
+        Me.txtn2.TabIndex = 30
+        Me.txtn2.Text = "1"
+        Me.txtn2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtn1
+        '
+        Me.txtn1.BackColor = System.Drawing.Color.White
+        Me.txtn1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtn1.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtn1.Location = New System.Drawing.Point(465, 315)
+        Me.txtn1.Name = "txtn1"
+        Me.txtn1.Size = New System.Drawing.Size(60, 36)
+        Me.txtn1.TabIndex = 29
+        Me.txtn1.Text = "1"
+        Me.txtn1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblExcludedDigits
+        '
+        Me.lblExcludedDigits.AutoSize = True
+        Me.lblExcludedDigits.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblExcludedDigits.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblExcludedDigits.Location = New System.Drawing.Point(118, 305)
+        Me.lblExcludedDigits.Name = "lblExcludedDigits"
+        Me.lblExcludedDigits.Size = New System.Drawing.Size(263, 36)
+        Me.lblExcludedDigits.TabIndex = 28
+        Me.lblExcludedDigits.Text = "EXCLUDED DIGITS:"
+        '
+        'lblKey
+        '
+        Me.lblKey.AutoSize = True
+        Me.lblKey.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblKey.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblKey.Location = New System.Drawing.Point(144, 245)
+        Me.lblKey.Name = "lblKey"
+        Me.lblKey.Size = New System.Drawing.Size(74, 36)
+        Me.lblKey.TabIndex = 27
+        Me.lblKey.Text = "KEY:"
+        '
+        'txtKey
+        '
+        Me.txtKey.BackColor = System.Drawing.Color.LightGray
+        Me.txtKey.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtKey.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtKey.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtKey.ForeColor = System.Drawing.Color.Black
+        Me.txtKey.Location = New System.Drawing.Point(233, 241)
+        Me.txtKey.MaxLength = 18
+        Me.txtKey.Name = "txtKey"
+        Me.txtKey.Size = New System.Drawing.Size(430, 44)
+        Me.txtKey.TabIndex = 26
+        Me.txtKey.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblCiphertext
         '
         Me.lblCiphertext.AutoSize = True
         Me.lblCiphertext.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblCiphertext.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblCiphertext.Location = New System.Drawing.Point(482, 67)
+        Me.lblCiphertext.Location = New System.Drawing.Point(476, 373)
         Me.lblCiphertext.Name = "lblCiphertext"
         Me.lblCiphertext.Size = New System.Drawing.Size(126, 25)
         Me.lblCiphertext.TabIndex = 19
@@ -242,7 +303,7 @@ Partial Class formStraddlingCheckerboard
         Me.lblPlaintext.AutoSize = True
         Me.lblPlaintext.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblPlaintext.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblPlaintext.Location = New System.Drawing.Point(61, 67)
+        Me.lblPlaintext.Location = New System.Drawing.Point(66, 380)
         Me.lblPlaintext.Name = "lblPlaintext"
         Me.lblPlaintext.Size = New System.Drawing.Size(114, 25)
         Me.lblPlaintext.TabIndex = 18
@@ -255,11 +316,11 @@ Partial Class formStraddlingCheckerboard
         Me.txtCiphertext.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtCiphertext.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCiphertext.ForeColor = System.Drawing.Color.Gainsboro
-        Me.txtCiphertext.Location = New System.Drawing.Point(477, 108)
+        Me.txtCiphertext.Location = New System.Drawing.Point(481, 408)
         Me.txtCiphertext.MaxLength = 150
         Me.txtCiphertext.Multiline = True
         Me.txtCiphertext.Name = "txtCiphertext"
-        Me.txtCiphertext.Size = New System.Drawing.Size(389, 275)
+        Me.txtCiphertext.Size = New System.Drawing.Size(389, 103)
         Me.txtCiphertext.TabIndex = 1
         '
         'txtPlaintext
@@ -269,11 +330,11 @@ Partial Class formStraddlingCheckerboard
         Me.txtPlaintext.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtPlaintext.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPlaintext.ForeColor = System.Drawing.Color.Black
-        Me.txtPlaintext.Location = New System.Drawing.Point(65, 108)
+        Me.txtPlaintext.Location = New System.Drawing.Point(61, 408)
         Me.txtPlaintext.MaxLength = 150
         Me.txtPlaintext.Multiline = True
         Me.txtPlaintext.Name = "txtPlaintext"
-        Me.txtPlaintext.Size = New System.Drawing.Size(389, 275)
+        Me.txtPlaintext.Size = New System.Drawing.Size(389, 73)
         Me.txtPlaintext.TabIndex = 0
         '
         'pnlPrintout
@@ -425,6 +486,59 @@ Partial Class formStraddlingCheckerboard
         Me.pnlAbout2.Size = New System.Drawing.Size(745, 436)
         Me.pnlAbout2.TabIndex = 30
         '
+        'lblStraddlingInfo3
+        '
+        Me.lblStraddlingInfo3.AutoSize = True
+        Me.lblStraddlingInfo3.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStraddlingInfo3.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblStraddlingInfo3.Location = New System.Drawing.Point(15, 197)
+        Me.lblStraddlingInfo3.Name = "lblStraddlingInfo3"
+        Me.lblStraddlingInfo3.Size = New System.Drawing.Size(5142, 32)
+        Me.lblStraddlingInfo3.TabIndex = 10
+        Me.lblStraddlingInfo3.Text = resources.GetString("lblStraddlingInfo3.Text")
+        '
+        'lblStraddling2Caption
+        '
+        Me.lblStraddling2Caption.AutoSize = True
+        Me.lblStraddling2Caption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStraddling2Caption.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblStraddling2Caption.Location = New System.Drawing.Point(383, 376)
+        Me.lblStraddling2Caption.Name = "lblStraddling2Caption"
+        Me.lblStraddling2Caption.Size = New System.Drawing.Size(450, 22)
+        Me.lblStraddling2Caption.TabIndex = 9
+        Me.lblStraddling2Caption.Text = "Straddling Checkerboard With Key ""ETAOINSR"" "
+        '
+        'lblStraddling1Caption
+        '
+        Me.lblStraddling1Caption.AutoSize = True
+        Me.lblStraddling1Caption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStraddling1Caption.ForeColor = System.Drawing.Color.WhiteSmoke
+        Me.lblStraddling1Caption.Location = New System.Drawing.Point(3, 376)
+        Me.lblStraddling1Caption.Name = "lblStraddling1Caption"
+        Me.lblStraddling1Caption.Size = New System.Drawing.Size(338, 22)
+        Me.lblStraddling1Caption.TabIndex = 8
+        Me.lblStraddling1Caption.Text = "Standard Straddling Checkerboard"
+        '
+        'picStraddling2
+        '
+        Me.picStraddling2.Image = CType(resources.GetObject("picStraddling2.Image"), System.Drawing.Image)
+        Me.picStraddling2.Location = New System.Drawing.Point(362, 52)
+        Me.picStraddling2.Name = "picStraddling2"
+        Me.picStraddling2.Size = New System.Drawing.Size(261, 108)
+        Me.picStraddling2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picStraddling2.TabIndex = 7
+        Me.picStraddling2.TabStop = False
+        '
+        'picStraddling1
+        '
+        Me.picStraddling1.Image = CType(resources.GetObject("picStraddling1.Image"), System.Drawing.Image)
+        Me.picStraddling1.Location = New System.Drawing.Point(58, 52)
+        Me.picStraddling1.Name = "picStraddling1"
+        Me.picStraddling1.Size = New System.Drawing.Size(236, 108)
+        Me.picStraddling1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picStraddling1.TabIndex = 6
+        Me.picStraddling1.TabStop = False
+        '
         'lblStraddlingInfo2
         '
         Me.lblStraddlingInfo2.AutoSize = True
@@ -466,59 +580,6 @@ Partial Class formStraddlingCheckerboard
         Me.btnNextPageAbout.Text = ">"
         Me.btnNextPageAbout.UseVisualStyleBackColor = False
         '
-        'picStraddling1
-        '
-        Me.picStraddling1.Image = CType(resources.GetObject("picStraddling1.Image"), System.Drawing.Image)
-        Me.picStraddling1.Location = New System.Drawing.Point(58, 52)
-        Me.picStraddling1.Name = "picStraddling1"
-        Me.picStraddling1.Size = New System.Drawing.Size(236, 108)
-        Me.picStraddling1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picStraddling1.TabIndex = 6
-        Me.picStraddling1.TabStop = False
-        '
-        'picStraddling2
-        '
-        Me.picStraddling2.Image = CType(resources.GetObject("picStraddling2.Image"), System.Drawing.Image)
-        Me.picStraddling2.Location = New System.Drawing.Point(362, 52)
-        Me.picStraddling2.Name = "picStraddling2"
-        Me.picStraddling2.Size = New System.Drawing.Size(261, 108)
-        Me.picStraddling2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picStraddling2.TabIndex = 7
-        Me.picStraddling2.TabStop = False
-        '
-        'lblStraddling1Caption
-        '
-        Me.lblStraddling1Caption.AutoSize = True
-        Me.lblStraddling1Caption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStraddling1Caption.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblStraddling1Caption.Location = New System.Drawing.Point(3, 376)
-        Me.lblStraddling1Caption.Name = "lblStraddling1Caption"
-        Me.lblStraddling1Caption.Size = New System.Drawing.Size(338, 22)
-        Me.lblStraddling1Caption.TabIndex = 8
-        Me.lblStraddling1Caption.Text = "Standard Straddling Checkerboard"
-        '
-        'lblStraddling2Caption
-        '
-        Me.lblStraddling2Caption.AutoSize = True
-        Me.lblStraddling2Caption.Font = New System.Drawing.Font("Lucida Sans", 14.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStraddling2Caption.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblStraddling2Caption.Location = New System.Drawing.Point(383, 376)
-        Me.lblStraddling2Caption.Name = "lblStraddling2Caption"
-        Me.lblStraddling2Caption.Size = New System.Drawing.Size(450, 22)
-        Me.lblStraddling2Caption.TabIndex = 9
-        Me.lblStraddling2Caption.Text = "Straddling Checkerboard With Key ""ETAOINSR"" "
-        '
-        'lblStraddlingInfo3
-        '
-        Me.lblStraddlingInfo3.AutoSize = True
-        Me.lblStraddlingInfo3.Font = New System.Drawing.Font("Lucida Sans", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblStraddlingInfo3.ForeColor = System.Drawing.Color.WhiteSmoke
-        Me.lblStraddlingInfo3.Location = New System.Drawing.Point(15, 197)
-        Me.lblStraddlingInfo3.Name = "lblStraddlingInfo3"
-        Me.lblStraddlingInfo3.Size = New System.Drawing.Size(5142, 32)
-        Me.lblStraddlingInfo3.TabIndex = 10
-        Me.lblStraddlingInfo3.Text = resources.GetString("lblStraddlingInfo3.Text")
-        '
         'PrintDialog1
         '
         Me.PrintDialog1.Document = Me.PrintDocument1
@@ -533,10 +594,8 @@ Partial Class formStraddlingCheckerboard
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1090, 617)
-        Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.btnNextPageAbout)
         Me.Controls.Add(Me.btnPreviousPageAbout)
-        Me.Controls.Add(Me.pnlAbout1)
         Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.pnlDecryption)
         Me.Controls.Add(Me.btnPrintout)
@@ -544,7 +603,9 @@ Partial Class formStraddlingCheckerboard
         Me.Controls.Add(Me.btnAbout)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblStraddlingCheckerboard)
+        Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.pnlAbout2)
+        Me.Controls.Add(Me.pnlAbout1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formStraddlingCheckerboard"
         Me.Text = "formStraddlingCheckerboard"
@@ -561,8 +622,8 @@ Partial Class formStraddlingCheckerboard
         Me.pnlAbout1.PerformLayout()
         Me.pnlAbout2.ResumeLayout(False)
         Me.pnlAbout2.PerformLayout()
-        CType(Me.picStraddling1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picStraddling2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picStraddling1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -574,11 +635,6 @@ Partial Class formStraddlingCheckerboard
     Friend WithEvents btnDemo As Button
     Friend WithEvents btnAbout As Button
     Friend WithEvents pnlDemo As Panel
-    Friend WithEvents lblShift As Label
-    Friend WithEvents btnRight As Button
-    Friend WithEvents btnLeft As Button
-    Friend WithEvents lblAlphabetShift As Label
-    Friend WithEvents lblAlphabet As Label
     Friend WithEvents lblCiphertext As Label
     Friend WithEvents lblPlaintext As Label
     Friend WithEvents txtCiphertext As TextBox
@@ -606,4 +662,13 @@ Partial Class formStraddlingCheckerboard
     Friend WithEvents lblStraddlingInfo3 As Label
     Friend WithEvents PrintDialog1 As PrintDialog
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents txtKey As TextBox
+    Friend WithEvents lblExcludedDigits As Label
+    Friend WithEvents lblKey As Label
+    Friend WithEvents btnn2More As Button
+    Friend WithEvents btnn1More As Button
+    Friend WithEvents btnn2fewer As Button
+    Friend WithEvents btnn1Fewer As Button
+    Friend WithEvents txtn2 As TextBox
+    Friend WithEvents txtn1 As TextBox
 End Class

@@ -54,6 +54,7 @@ Partial Class formVigenere
         Me.picAlberti = New System.Windows.Forms.PictureBox()
         Me.lblVigenereInfo1 = New System.Windows.Forms.Label()
         Me.pnlPrintout = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblPrintoutExplanation = New System.Windows.Forms.Label()
         Me.picHidden = New System.Windows.Forms.PictureBox()
         Me.picVigenerePrintout = New System.Windows.Forms.PictureBox()
@@ -72,20 +73,19 @@ Partial Class formVigenere
         Me.lblVideo = New System.Windows.Forms.Label()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pnlDemo.SuspendLayout()
         Me.pnlDecryption1.SuspendLayout()
         Me.pnlAbout1.SuspendLayout()
         CType(Me.picVigenere, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picAlberti, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlPrintout.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picHidden, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picVigenerePrintout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlAbout2.SuspendLayout()
         CType(Me.picVigenereSquare, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlDecryption2.SuspendLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnBack
@@ -473,6 +473,14 @@ Partial Class formVigenere
         Me.pnlPrintout.Size = New System.Drawing.Size(745, 436)
         Me.pnlPrintout.TabIndex = 23
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(655, 190)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
+        Me.PictureBox1.TabIndex = 30
+        Me.PictureBox1.TabStop = False
+        '
         'lblPrintoutExplanation
         '
         Me.lblPrintoutExplanation.AutoSize = True
@@ -671,20 +679,13 @@ Partial Class formVigenere
         'PrintDocument1
         '
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Location = New System.Drawing.Point(655, 190)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(100, 50)
-        Me.PictureBox1.TabIndex = 30
-        Me.PictureBox1.TabStop = False
-        '
         'formVigenere
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1106, 656)
+        Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.btnNextPageDecryption)
         Me.Controls.Add(Me.btnPreviousPageDecryption)
         Me.Controls.Add(Me.btnNextPageAbout)
@@ -695,12 +696,11 @@ Partial Class formVigenere
         Me.Controls.Add(Me.btnAbout)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblVigenere)
-        Me.Controls.Add(Me.pnlAbout2)
         Me.Controls.Add(Me.pnlPrintout)
+        Me.Controls.Add(Me.pnlDecryption2)
+        Me.Controls.Add(Me.pnlAbout2)
         Me.Controls.Add(Me.pnlDecryption1)
         Me.Controls.Add(Me.pnlAbout1)
-        Me.Controls.Add(Me.pnlDemo)
-        Me.Controls.Add(Me.pnlDecryption2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formVigenere"
         Me.Text = "formVigenere"
@@ -715,6 +715,7 @@ Partial Class formVigenere
         CType(Me.picAlberti, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlPrintout.ResumeLayout(False)
         Me.pnlPrintout.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picHidden, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picVigenerePrintout, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlAbout2.ResumeLayout(False)
@@ -723,7 +724,6 @@ Partial Class formVigenere
         Me.pnlDecryption2.ResumeLayout(False)
         Me.pnlDecryption2.PerformLayout()
         CType(Me.AxWindowsMediaPlayer1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

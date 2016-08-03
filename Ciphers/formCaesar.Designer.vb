@@ -386,7 +386,7 @@ Partial Class formCaesar
         '
         Me.lblTryItOut.AutoSize = True
         Me.lblTryItOut.Font = New System.Drawing.Font("Century Gothic", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTryItOut.ForeColor = System.Drawing.Color.Gainsboro
+        Me.lblTryItOut.ForeColor = System.Drawing.Color.Black
         Me.lblTryItOut.Location = New System.Drawing.Point(283, 212)
         Me.lblTryItOut.Name = "lblTryItOut"
         Me.lblTryItOut.Size = New System.Drawing.Size(197, 44)

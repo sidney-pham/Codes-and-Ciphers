@@ -1,4 +1,4 @@
-﻿Imports System.Runtime.CompilerServices
+﻿Imports System.Runtime.CompilerServices, System.Text.RegularExpressions
 
 Public Module modHelpers
     Public Const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -28,7 +28,7 @@ Public Module modHelpers
     'assumes key contains all valid characters
     Function encodeVigenere(message As String, key As String) As String
         message = message.ToUpper()
-        key = key.ToUpper()
+        key = Regex.Replace(key.ToUpper(), "[^a-zA-Z]", "")
 
         Dim currentKeyIndex = 0
 

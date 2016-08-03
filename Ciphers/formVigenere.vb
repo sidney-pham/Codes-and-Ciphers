@@ -177,6 +177,7 @@ Public Class formVigenere
         lblResultAdditionSubscript.placeRight(lblResultAddition, -2)
         lblResultAdditionSubscript.placeBelow(lblResultAddition, -2)
 
+        updateAddition("a", "a")
 
         ' txtPlaintext
         txtPlaintext.Width = pnlDemo.Width * TEXTBOX_WIDTH
@@ -414,6 +415,7 @@ Public Class formVigenere
                 errorTextboxExists = True
                 errorTextbox = txtKey
                 pnlDemo.Refresh()
+                txtCiphertext.Text = ""
                 My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Asterisk)
             End If
         Else
@@ -447,9 +449,9 @@ Public Class formVigenere
     End Sub
 
     Private Sub updateAddition(plaintext As String, key As String)
-        Dim lastLetter = plaintext.Last()
+        Dim lastLetter = UCase(plaintext.Last())
         Dim currentKeyIndex = (Regex.Replace(plaintext, "[^a-zA-Z]", "").Length - 1) Mod key.Length
-        Dim currentKeyLetter = key(currentKeyIndex)
+        Dim currentKeyLetter = UCase(key(currentKeyIndex))
 
         If Char.IsLetter(lastLetter) Then
             lblPlaintextAddition.Text = lastLetter

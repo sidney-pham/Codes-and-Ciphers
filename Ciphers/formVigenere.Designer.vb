@@ -68,8 +68,8 @@ Partial Class formVigenere
         Me.btnPreviousPageDecryption = New System.Windows.Forms.Button()
         Me.btnNextPageDecryption = New System.Windows.Forms.Button()
         Me.pnlDecryption2 = New System.Windows.Forms.Panel()
-        Me.lblVideo = New System.Windows.Forms.Label()
         Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
+        Me.lblVideo = New System.Windows.Forms.Label()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.pnlDemo.SuspendLayout()
@@ -231,7 +231,7 @@ Partial Class formVigenere
         Me.txtKey.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtKey.ForeColor = System.Drawing.Color.Black
         Me.txtKey.Location = New System.Drawing.Point(169, 15)
-        Me.txtKey.MaxLength = 20
+        Me.txtKey.MaxLength = 18
         Me.txtKey.Name = "txtKey"
         Me.txtKey.Size = New System.Drawing.Size(430, 44)
         Me.txtKey.TabIndex = 25
@@ -640,6 +640,15 @@ Partial Class formVigenere
         Me.pnlDecryption2.Size = New System.Drawing.Size(745, 436)
         Me.pnlDecryption2.TabIndex = 29
         '
+        'AxWindowsMediaPlayer1
+        '
+        Me.AxWindowsMediaPlayer1.Enabled = True
+        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(140, 92)
+        Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
+        Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(417, 324)
+        Me.AxWindowsMediaPlayer1.TabIndex = 20
+        '
         'lblVideo
         '
         Me.lblVideo.AutoSize = True
@@ -650,15 +659,6 @@ Partial Class formVigenere
         Me.lblVideo.Size = New System.Drawing.Size(434, 44)
         Me.lblVideo.TabIndex = 19
         Me.lblVideo.Text = "VIDEO - Kasiski Method"
-        '
-        'AxWindowsMediaPlayer1
-        '
-        Me.AxWindowsMediaPlayer1.Enabled = True
-        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(140, 92)
-        Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
-        Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(417, 324)
-        Me.AxWindowsMediaPlayer1.TabIndex = 20
         '
         'PrintDialog1
         '
@@ -674,10 +674,8 @@ Partial Class formVigenere
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1106, 656)
-        Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.btnNextPageDecryption)
         Me.Controls.Add(Me.btnPreviousPageDecryption)
-        Me.Controls.Add(Me.pnlDecryption1)
         Me.Controls.Add(Me.btnNextPageAbout)
         Me.Controls.Add(Me.btnPreviousPageAbout)
         Me.Controls.Add(Me.btnPrintout)
@@ -686,10 +684,12 @@ Partial Class formVigenere
         Me.Controls.Add(Me.btnAbout)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblVigenere)
-        Me.Controls.Add(Me.pnlAbout2)
-        Me.Controls.Add(Me.pnlAbout1)
         Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.pnlDecryption2)
+        Me.Controls.Add(Me.pnlAbout2)
+        Me.Controls.Add(Me.pnlPrintout)
+        Me.Controls.Add(Me.pnlDecryption1)
+        Me.Controls.Add(Me.pnlAbout1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formVigenere"
         Me.Text = "formVigenere"

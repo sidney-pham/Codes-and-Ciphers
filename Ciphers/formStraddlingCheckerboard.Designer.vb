@@ -321,11 +321,12 @@ Partial Class formStraddlingCheckerboard
         Me.txtCiphertext.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtCiphertext.ForeColor = System.Drawing.Color.Gainsboro
         Me.txtCiphertext.Location = New System.Drawing.Point(481, 408)
-        Me.txtCiphertext.MaxLength = 150
+        Me.txtCiphertext.MaxLength = 100
         Me.txtCiphertext.Multiline = True
         Me.txtCiphertext.Name = "txtCiphertext"
         Me.txtCiphertext.Size = New System.Drawing.Size(389, 103)
         Me.txtCiphertext.TabIndex = 1
+        Me.txtCiphertext.TabStop = False
         '
         'txtPlaintext
         '
@@ -335,7 +336,7 @@ Partial Class formStraddlingCheckerboard
         Me.txtPlaintext.Font = New System.Drawing.Font("Lucida Sans Typewriter", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPlaintext.ForeColor = System.Drawing.Color.Black
         Me.txtPlaintext.Location = New System.Drawing.Point(61, 408)
-        Me.txtPlaintext.MaxLength = 150
+        Me.txtPlaintext.MaxLength = 100
         Me.txtPlaintext.Multiline = True
         Me.txtPlaintext.Name = "txtPlaintext"
         Me.txtPlaintext.Size = New System.Drawing.Size(389, 73)

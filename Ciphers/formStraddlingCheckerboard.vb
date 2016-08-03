@@ -19,6 +19,7 @@ Public Class formStraddlingCheckerboard
     Private n1IsValid As Boolean = True
     Private n2IsValid As Boolean = True
 
+    Private currentTextbox As TextBox
     Private errorTextboxExists As Boolean = False
     Private errorTextbox As TextBox
 
@@ -27,6 +28,7 @@ Public Class formStraddlingCheckerboard
         key = ""
         n1 = 0
         n2 = 0
+        currentTextbox = txtKey
         positionElements()
     End Sub
 
@@ -37,6 +39,7 @@ Public Class formStraddlingCheckerboard
         Const DEMO_BUTTON_MARGIN = 5
         Const TEXTBOX_WIDTH = 0.8
         Const TEXTBOX_HEIGHT = 0.2
+        Const KEY_TOP = 40
 
         ' Putting this here so it runs early on so blinking is mitigated.
         pnlAbout1.Show()
@@ -138,11 +141,11 @@ Public Class formStraddlingCheckerboard
 
         ' lblKey
         lblKey.Left = pnlDemo.Width / 2 - (lblKey.Width + txtKey.Width + 15) / 2
-        lblKey.Top = 100 - lblKey.Height / 2
+        lblKey.Top = KEY_TOP - lblKey.Height / 2
 
         ' txtKey
         txtKey.placeRight(lblKey, 15)
-        txtKey.Top = 100 - txtKey.Height / 2
+        txtKey.Top = KEY_TOP - txtKey.Height / 2
 
         ' lblExcludedDigits
         lblExcludedDigits.Left = lblKey.Left
@@ -182,15 +185,13 @@ Public Class formStraddlingCheckerboard
         btnn2More.placeRight(txtn2, DEMO_BUTTON_MARGIN)
         btnn2More.Top = btnn2fewer.Top
 
-
-
         ' txtPlaintext
         txtPlaintext.Width = pnlDemo.Width * TEXTBOX_WIDTH
         txtPlaintext.Height = pnlDemo.Height * TEXTBOX_HEIGHT
         'txtPlaintext.Left = pnlDemo.Width / 2 - DEMO_TEXTBOX_MARGIN / 2 - txtPlaintext.Width
         'txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height / 2
         txtPlaintext.Left = pnlDemo.Width / 2 - txtPlaintext.Width / 2
-        'txtPlaintext.placeBelow(lblShift, 50) 'pnlDemo.Height / 2 - txtPlaintext.Height - DEMO_TEXTBOX_MARGIN / 2 + 60
+        txtPlaintext.placeBelow(txtn2, 50) 'pnlDemo.Height / 2 - txtPlaintext.Height - DEMO_TEXTBOX_MARGIN / 2 + 60
 
         ' txtCiphertext
         txtCiphertext.Width = pnlDemo.Width * TEXTBOX_WIDTH
@@ -241,7 +242,7 @@ Public Class formStraddlingCheckerboard
 
         formMain.Show()
         Threading.Thread.Sleep(150)
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
@@ -268,6 +269,8 @@ Public Class formStraddlingCheckerboard
         btnPreviousPageAbout.Hide()
         pnlDecryption.Hide()
         pnlPrintout.Hide()
+
+        currentTextbox.Focus()
     End Sub
 
     Private Sub btnPrintout_Click(sender As Object, e As EventArgs) Handles btnPrintout.Click
@@ -466,19 +469,19 @@ Public Class formStraddlingCheckerboard
         txtPlaintext.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
         txtCiphertext.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
         txtKey.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
-        'currentTextbox.drawBorderInPanel(e.Graphics, TEXTBOX_FOCUS_BORDER_COLOR)
+        currentTextbox.drawBorderInPanel(e.Graphics, TEXTBOX_FOCUS_BORDER_COLOR)
         If Not n1IsValid Then
             txtn1.drawBorderInPanel(e.Graphics, TEXTBOX_ERROR_BORDER_COLOR)
         Else
             txtn1.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
-            'txtn1.drawBorderInPanel(e.Graphics, TEXTBOX_FOCUS_BORDER_COLOR)
+            currentTextbox.drawBorderInPanel(e.Graphics, TEXTBOX_FOCUS_BORDER_COLOR)
         End If
 
         If Not n2IsValid Then
             txtn2.drawBorderInPanel(e.Graphics, TEXTBOX_ERROR_BORDER_COLOR)
         Else
             txtn2.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
-            'txtn1.drawBorderInPanel(e.Graphics, TEXTBOX_FOCUS_BORDER_COLOR)
+            currentTextbox.drawBorderInPanel(e.Graphics, TEXTBOX_FOCUS_BORDER_COLOR)
         End If
     End Sub
 
@@ -493,5 +496,25 @@ Public Class formStraddlingCheckerboard
             txtPlaintext.SelectAll()
             e.SuppressKeyPress = True
         End If
+    End Sub
+
+    Private Sub txtKey_GotFocus(sender As Object, e As EventArgs) Handles txtKey.GotFocus
+        currentTextbox = txtKey
+        pnlDemo.Refresh()
+    End Sub
+
+    Private Sub txtPlaintext_GotFocus(sender As Object, e As EventArgs) Handles txtPlaintext.GotFocus
+        currentTextbox = txtPlaintext
+        pnlDemo.Refresh()
+    End Sub
+
+    Private Sub txtn1_GotFocus(sender As Object, e As EventArgs) Handles txtn1.GotFocus
+        currentTextbox = txtn1
+        pnlDemo.Refresh()
+    End Sub
+
+    Private Sub txtn2_GotFocus(sender As Object, e As EventArgs) Handles txtn2.GotFocus
+        currentTextbox = txtn2
+        pnlDemo.Refresh()
     End Sub
 End Class

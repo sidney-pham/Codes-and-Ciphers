@@ -210,9 +210,9 @@ Partial Class formCaesar
         Me.pnlDemo.Controls.Add(Me.lblPlaintext)
         Me.pnlDemo.Controls.Add(Me.txtCiphertext)
         Me.pnlDemo.Controls.Add(Me.txtPlaintext)
-        Me.pnlDemo.Location = New System.Drawing.Point(107, 135)
+        Me.pnlDemo.Location = New System.Drawing.Point(33, 73)
         Me.pnlDemo.Name = "pnlDemo"
-        Me.pnlDemo.Size = New System.Drawing.Size(798, 481)
+        Me.pnlDemo.Size = New System.Drawing.Size(872, 543)
         Me.pnlDemo.TabIndex = 15
         '
         'btnSwap
@@ -276,7 +276,7 @@ Partial Class formCaesar
         Me.lblAlphabetShift.AutoSize = True
         Me.lblAlphabetShift.Font = New System.Drawing.Font("Lucida Sans Typewriter", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAlphabetShift.ForeColor = System.Drawing.Color.Gainsboro
-        Me.lblAlphabetShift.Location = New System.Drawing.Point(134, 22)
+        Me.lblAlphabetShift.Location = New System.Drawing.Point(151, 25)
         Me.lblAlphabetShift.Name = "lblAlphabetShift"
         Me.lblAlphabetShift.Size = New System.Drawing.Size(430, 31)
         Me.lblAlphabetShift.TabIndex = 21
@@ -474,16 +474,16 @@ Partial Class formCaesar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1284, 875)
-        Me.Controls.Add(Me.pnlDecryption)
+        Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.pnlAbout)
         Me.Controls.Add(Me.pnlPrintout)
-        Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.btnPrintout)
         Me.Controls.Add(Me.btnCracking)
         Me.Controls.Add(Me.btnDemo)
         Me.Controls.Add(Me.btnAbout)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblCaesarCipher)
+        Me.Controls.Add(Me.pnlDecryption)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formCaesar"
         Me.Text = "formCaesar"

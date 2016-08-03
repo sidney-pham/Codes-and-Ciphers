@@ -252,7 +252,7 @@ Partial Class formVigenere
         '
         Me.lblKeyLarge.AutoSize = True
         Me.lblKeyLarge.Font = New System.Drawing.Font("Lucida Sans Typewriter", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblKeyLarge.ForeColor = System.Drawing.Color.Goldenrod
+        Me.lblKeyLarge.ForeColor = System.Drawing.Color.MidnightBlue
         Me.lblKeyLarge.Location = New System.Drawing.Point(243, 84)
         Me.lblKeyLarge.Name = "lblKeyLarge"
         Me.lblKeyLarge.Size = New System.Drawing.Size(285, 55)

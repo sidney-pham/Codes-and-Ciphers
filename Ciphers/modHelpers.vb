@@ -26,7 +26,7 @@ Public Module modHelpers
         Return message
     End Function
 
-    'assumes key contains all valid characters
+    ' Assumes key is valid.
     Function encodeVigenere(message As String, key As String) As String
         message = message.ToUpper()
         key = Regex.Replace(key.ToUpper(), "[^a-zA-Z]", "")

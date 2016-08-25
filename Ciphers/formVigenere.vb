@@ -401,7 +401,7 @@ Public Class formVigenere
     End Function
 
     Private Sub txtKey_TextChanged(sender As Object, e As EventArgs) Handles txtKey.TextChanged
-        key = txtKey.Text
+        key = Regex.Replace(txtKey.Text, "[^a-zA-Z]", "")
         lblKeyLarge.Text = generateKeyLabel(key)
         lblKeyLarge.Left = pnlDemo.Width / 2 - lblKeyLarge.Width / 2
 

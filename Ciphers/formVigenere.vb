@@ -291,6 +291,7 @@ Public Class formVigenere
         btnNextPageAbout.Show()
         pnlDemo.Hide()
         pnlDecryption1.Hide()
+        pnlDecryption2.Hide()
         pnlPrintout.Hide()
         btnNextPageDecryption.Hide()
         btnPreviousPageDecryption.Hide()
@@ -306,6 +307,7 @@ Public Class formVigenere
         btnNextPageAbout.Hide()
         btnPreviousPageAbout.Hide()
         pnlDecryption1.Hide()
+        pnlDecryption2.Hide()
         pnlPrintout.Hide()
         btnNextPageDecryption.Hide()
         btnPreviousPageDecryption.Hide()
@@ -318,6 +320,7 @@ Public Class formVigenere
         Me.Refresh()
 
         pnlDecryption1.Show()
+        pnlDecryption2.Hide()
         btnPreviousPageDecryption.Hide()
         btnNextPageDecryption.Show()
         pnlAbout1.Hide()
@@ -339,6 +342,7 @@ Public Class formVigenere
         btnPreviousPageAbout.Hide()
         pnlDemo.Hide()
         pnlDecryption1.Hide()
+        pnlDecryption2.Hide()
         btnNextPageDecryption.Hide()
         btnPreviousPageDecryption.Hide()
     End Sub

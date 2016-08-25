@@ -489,10 +489,17 @@ Public Class formVigenere
     End Sub
 
     Private Sub pnlDecryption2_VisibleChanged(sender As Object, e As EventArgs) Handles pnlDecryption2.VisibleChanged
+        ' Prevents program from crashing when form loads for the first time.
+        If Not AxWindowsMediaPlayer1.Created Then
+            Exit Sub
+        End If
+
+        ' This was supposed to reset the WMP control whenever the user left the panel, but VB.net decides
+        ' that it's a good idea to break WMP functionality when you use .Ctlcontrols, so, blame VB.net.
         If pnlDecryption2.Visible = False Then
-            AxWindowsMediaPlayer1.Ctlcontrols.stop()
-
-
+            'AxWindowsMediaPlayer1.Ctlcontrols.stop()
+        Else
+            'AxWindowsMediaPlayer1.Ctlcontrols.play()
         End If
     End Sub
 End Class

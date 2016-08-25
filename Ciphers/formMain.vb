@@ -23,6 +23,14 @@ Public Class formMain
         Const BUTTON_MARGIN = 30
         Const LABEL_MARGIN = 0
 
+        ' Putting this here so it runs early on so blinking is mitigated. Efficacy not guaranteed.
+        lblCodesAndCiphers.Show()
+        lblHowTheyWork.Show()
+        btnVigenere.Show()
+        btnCaesar.Show()
+        btnStraddlingCheckerboard.Show()
+
+
         ' lblCodesAndCiphers
         lblCodesAndCiphers.Left = (Me.Width - lblCodesAndCiphers.Width - btnCaesar.Width) / 3
         lblCodesAndCiphers.verticallyCentre()

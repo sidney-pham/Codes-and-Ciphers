@@ -24,6 +24,12 @@
         Const TEXTBOX_HEIGHT = 0.3
         Const ALPHABET_MARGIN = 10
 
+        ' Putting this here so it runs early on so blinking is mitigated.
+        pnlAbout.Show()
+        pnlDemo.Hide()
+        pnlDecryption.Hide()
+        pnlPrintout.Hide()
+
         ' lblCaesarCipher
         lblCaesarCipher.horizontallyCentre()
         lblCaesarCipher.Top = 20

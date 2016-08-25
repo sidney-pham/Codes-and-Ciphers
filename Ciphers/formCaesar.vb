@@ -1,5 +1,5 @@
 ﻿Public Class formCaesar
-    ' SHOULD REALLY BE A CONSTANT, BUT VB SAYS THIS ISN'T A "CONSTANT VALUE"
+    ' SHOULD REALLY BE A CONSTANT, BUT VB SAYS THIS ISN'T A "CONSTANT VALUE", SO IT'S A VARIABLE. 
     Private TEXTBOX_FOCUS_BORDER_COLOR As Color = Color.CornflowerBlue
     Private TEXTBOX_UNFOCUS_BORDER_COLOR As Color = Color.WhiteSmoke
 
@@ -98,9 +98,8 @@
         ' btnLeft
         btnLeft.Height = lblAlphabet.Height + ALPHABET_MARGIN + lblAlphabetShift.Height
         btnLeft.Width = 0.5 * btnLeft.Height
-        'btnLeft.placeLeft(lblAlphabet, 10)
         btnLeft.Left = lblAlphabet.Left - btnLeft.Width - 10
-        btnLeft.Top = lblAlphabet.Top 'lblAlphabet.Top + (lblAlphabet.Height + ALPHABET_MARGIN + lblAlphabetShift.Height) / 2 - btnLeft.Height / 2
+        btnLeft.Top = lblAlphabet.Top
 
         ' btnRight
         btnRight.Height = btnLeft.Height
@@ -115,10 +114,8 @@
         ' txtPlaintext
         txtPlaintext.Width = pnlDemo.Width * TEXTBOX_WIDTH
         txtPlaintext.Height = pnlDemo.Height * TEXTBOX_HEIGHT
-        'txtPlaintext.Left = pnlDemo.Width / 2 - DEMO_TEXTBOX_MARGIN / 2 - txtPlaintext.Width
-        'txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height / 2
         txtPlaintext.Left = pnlDemo.Width / 2 - txtPlaintext.Width / 2
-        txtPlaintext.placeBelow(lblShift, 50) 'pnlDemo.Height / 2 - txtPlaintext.Height - DEMO_TEXTBOX_MARGIN / 2 + 60
+        txtPlaintext.placeBelow(lblShift, 50)
 
         ' txtCiphertext
         txtCiphertext.Width = pnlDemo.Width * TEXTBOX_WIDTH
@@ -163,6 +160,7 @@
         ' btnDecyptionExample
         btnDecryptionExample.Left = pnlDecryption.Width / 2 - btnDecryptionExample.Width / 2
         btnDecryptionExample.placeBelow(lblTryExplanation, 30)
+
         ' ------------------------------------------------------------------------
         ' pnlPrintout
         ' ------------------------------------------------------------------------
@@ -243,6 +241,8 @@
     End Sub
 
     Private Sub txtPlaintext_TextChanged(sender As Object, e As EventArgs) Handles txtPlaintext.TextChanged
+        ' Ensure that changing txtPlaintext doesn't trigger txtCiphertext's TextChanged event, and cause an
+        ' infinite loop, and vice
         If Not textboxModifying Then
             If Not swap Then
                 textboxModifying = True
@@ -253,6 +253,8 @@
     End Sub
 
     Private Sub txtCiphertext_TextChanged(sender As Object, e As EventArgs) Handles txtCiphertext.TextChanged
+        ' Ensure that changing txtPlaintext doesn't trigger txtCiphertext's TextChanged event, and cause an
+        ' infinite loop, and vice versa.
         If Not textboxModifying Then
             If Not swap Then
                 textboxModifying = True
@@ -269,6 +271,8 @@
         swap = False
     End Sub
 
+    ' Multiline textboxes in VB don't allow Ctrl-A to work (no one knows why, really...), so you have to 
+    ' implement your own Ctrl-A behaviour. This is killing clarity, so just ignore that it exists.
     Private Sub txtPlaintext_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPlaintext.KeyDown
         If e.Control And e.KeyCode = Keys.A Then
             txtPlaintext.SelectAll()
@@ -283,6 +287,7 @@
         End If
     End Sub
 
+    ' Draw borders around textboxes.
     Private Sub pnlDemo_Paint(sender As Object, e As PaintEventArgs) Handles pnlDemo.Paint
         txtPlaintext.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
         txtCiphertext.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
@@ -300,9 +305,17 @@
     End Sub
 
     Private Function generateAlphabet(spaces As Integer) As String
-        Dim spacesString As String = "".PadRight(spaces, " ") ' GENUINELY WHAT THE FUCK IS THIS. WHY DOES STRING MULTIPLICATION NOT EXIST IN VB. THIS IS AIDS. From: https://www.rosettacode.org/wiki/Repeat_a_string#Visual_Basic_.NET
+        ' This is string multiplication in VB.net. Go figure.
+        ' Pretend it says:
+        ' spacesString = " " * spaces
+        ' From: https://www.rosettacode.org/wiki/Repeat_a_string#Visual_Basic_.NET
+        Dim spacesString As String = "".PadRight(spaces, " ")
 
-        Return String.Join(spacesString, ALPHABET.Select(Function(c) c.ToString()).ToArray()) ' THIS IS LITERALLY THE MOST FUCKING RETARDED FUNCTION IN VB. WHY THE FUCK CAN IT NOT TAKE A CHAR ARRAY BUT ONLY STRING ARRAYS. WHAT THE FUCK IS THE FUCKING DIFFERENCE. FUCK VB.
+        ' Pretend it says:
+        ' Return String.Join(spacesString, ALPHABET.ToArray())
+        Return String.Join(spacesString, ALPHABET.Select(Function(c) c.ToString()).ToArray())
+        ' Clarity has been ruined because for some reason .ToArray() only works on String arrays and not
+        ' char arrays, even though there should literally be no difference.
     End Function
 
     Private Sub btnLeft_MouseDown(sender As Object, e As MouseEventArgs) Handles btnLeft.MouseDown
@@ -329,8 +342,7 @@
         lblShift.Text = "SHIFT: " & (rot Mod LENGTH_OF_ALPHABET + LENGTH_OF_ALPHABET) Mod LENGTH_OF_ALPHABET
     End Sub
 
-    ' BECAUSE VB.NET IS FUCKING RETARDED AND DECIDED TO SELECT ALL TEXT INSIDE THIS PARTICULAR TEXTBOX
-    ' WHEN .Focus() IS CALLED ON IT FOR ABSOLUTELY NO REASON AT ALL.
+    ' Stop all text from being selected when .Focus() is called. NO ONE KNOWS WHY VB.net DOES THIS.
     Private Sub txtCiphertext_Enter(sender As Object, e As EventArgs) Handles txtCiphertext.Enter
         Dim position As Integer = txtCiphertext.Text.Length
         txtCiphertext.Select(position, position)
@@ -341,6 +353,7 @@
         txtPlaintext.Select(position, position)
     End Sub
 
+    ' Set up a demo example.
     Private Sub btnDecryptionExample_Click(sender As Object, e As EventArgs) Handles btnDecryptionExample.Click
         btnDemo.PerformClick()
         rot = 13
@@ -351,13 +364,20 @@
         lblShift.Text = "SHIFT: " & (rot Mod LENGTH_OF_ALPHABET + LENGTH_OF_ALPHABET) Mod LENGTH_OF_ALPHABET
     End Sub
 
+    ' When you press the print button, show the PrintDialog. If the user prints something, trigger the 
+    ' PrintPage event.
+    ' I have no idea why you can't just do:
+    ' PrinterClass.printDocument() instead of the following two subroutines.
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
         If PrintDialog1.ShowDialog() = DialogResult.OK Then
             PrintDocument1.Print()
         End If
     End Sub
 
+    ' Generates the graphic to be printed.
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
+        ' This is really hacky, and relies on a hidden PictureBox that basically is the A4 sheet that
+        ' is to be printed.
         printPictureBox(picCaesarPrintout, picHidden)
         e.Graphics.DrawImage(picHidden.Image, 0, 0)
     End Sub

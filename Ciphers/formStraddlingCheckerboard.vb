@@ -1,7 +1,7 @@
-﻿Imports System.Runtime.CompilerServices, System.Text.RegularExpressions
+﻿Imports System.Runtime.CompilerServices, System.Text.RegularExpressions ' Used to filter out non-alpha characters in strings.
 
 Public Class formStraddlingCheckerboard
-    ' SHOULD REALLY BE A CONSTANT, BUT VB SAYS THIS ISN'T A "CONSTANT VALUE"
+    ' SHOULD REALLY BE A CONSTANT, BUT VB SAYS THIS ISN'T A "CONSTANT VALUE", SO IT'S A VARIABLE. 
     Private TEXTBOX_FOCUS_BORDER_COLOR As Color = Color.CornflowerBlue
     Private TEXTBOX_UNFOCUS_BORDER_COLOR As Color = Color.WhiteSmoke
     Private TEXTBOX_ERROR_BORDER_COLOR As Color = Color.Red
@@ -24,7 +24,7 @@ Public Class formStraddlingCheckerboard
     Private errorTextbox As TextBox
 
     Private Sub formStraddlingCheckerboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' WHY DO I NEED THIS WHEN ITS LITERALLY INITIALISED RIGHT ABOVE THERE WTF
+        ' Don't get rid of this. It will likely crash. I don't know why.
         key = ""
         n1 = 0
         n2 = 0
@@ -47,11 +47,7 @@ Public Class formStraddlingCheckerboard
         btnNextPageAbout.Show()
         btnPreviousPageAbout.Hide()
         pnlDemo.Hide()
-        'pnlDecryption1.Hide()
-        'pnlDecryption2.Hide()
         pnlPrintout.Hide()
-        'btnPreviousPageDecryption.Hide()
-        'btnNextPageDecryption.Hide()
         pnlDecryption.Hide()
 
         ' lblStraddlingCheckerboard
@@ -114,7 +110,7 @@ Public Class formStraddlingCheckerboard
         lblStraddlingInfo2.Top = 0
         lblStraddlingInfo2.MaximumSize = New Size(pnlAbout2.Width, 0)
 
-        picStraddling1.Height = 100 '0.8 * (pnlAbout2.Height - lblStraddlingInfo2.Height - lblStraddlingInfo3.Height - lblStraddling1Caption.Height - 20 - 5 - 5 - 20)
+        picStraddling1.Height = 100
         picStraddling1.Left = pnlAbout2.Width / 4 - picStraddling1.Width / 2
         picStraddling1.placeBelow(lblStraddlingInfo2, 20)
 
@@ -131,6 +127,7 @@ Public Class formStraddlingCheckerboard
         lblStraddlingInfo3.Left = 0
         lblStraddlingInfo3.placeBelow(lblStraddling1Caption, 20)
         lblStraddlingInfo3.MaximumSize = New Size(pnlAbout2.Width, 0)
+
         ' ------------------------------------------------------------------------
         ' pnlDemo
         ' ------------------------------------------------------------------------
@@ -188,10 +185,8 @@ Public Class formStraddlingCheckerboard
         ' txtPlaintext
         txtPlaintext.Width = pnlDemo.Width * TEXTBOX_WIDTH
         txtPlaintext.Height = pnlDemo.Height * TEXTBOX_HEIGHT
-        'txtPlaintext.Left = pnlDemo.Width / 2 - DEMO_TEXTBOX_MARGIN / 2 - txtPlaintext.Width
-        'txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height / 2
         txtPlaintext.Left = pnlDemo.Width / 2 - txtPlaintext.Width / 2
-        txtPlaintext.placeBelow(txtn2, 50) 'pnlDemo.Height / 2 - txtPlaintext.Height - DEMO_TEXTBOX_MARGIN / 2 + 60
+        txtPlaintext.placeBelow(txtn2, 50)
 
         ' txtCiphertext
         txtCiphertext.Width = pnlDemo.Width * TEXTBOX_WIDTH
@@ -300,6 +295,7 @@ Public Class formStraddlingCheckerboard
         btnPreviousPageAbout.Show()
     End Sub
 
+    ' Printing the print-outs.
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
         If PrintDialog1.ShowDialog() = DialogResult.OK Then
             PrintDocument1.Print()
@@ -311,6 +307,8 @@ Public Class formStraddlingCheckerboard
         e.Graphics.DrawImage(picHidden.Image, 0, 0)
     End Sub
 
+    ' Handles the behaviour of the numeric-updown-type buttons. This is because Winform's 
+    ' actual NumericUpDowns are so ugly and you can't customise them, so you're better off making your own.
     Private Sub btnn1Fewer_Click(sender As Object, e As EventArgs) Handles btnn1Fewer.Click
         n1 -= 1
 
@@ -379,12 +377,14 @@ Public Class formStraddlingCheckerboard
         pnlDemo.Refresh()
     End Sub
 
+    ' Update the value of the n1 textbox. Re-purposed code from my Series and Sequences application:
+    ' https://www.github.com/sidney-pham/series-and-sequences
     Private Sub updaten1Buttons()
         Dim firstTermAsInt As Integer
         Dim inputIsInteger As Boolean
         Dim inputIsWithinRange As Boolean = False
 
-        'hacky way to check if textbox's value is an int
+        ' Hacky way to check if a textbox's value is an int
         inputIsInteger = Integer.TryParse(txtn1.Text, firstTermAsInt)
 
         If inputIsInteger Then
@@ -396,21 +396,18 @@ Public Class formStraddlingCheckerboard
         n1IsValid = inputIsInteger And inputIsWithinRange
 
         If n1IsValid Then
-            'txtn1.drawBorder(Color.Black)
             n1 = firstTermAsInt
-
 
             txtn1.Text = n1
             txtn1.SelectionStart = txtn1.Text.Length + 1
         Else
-            'txtn1.drawBorder(Color.Red)
-            'play asterisk sound unless user is backspacing
+            ' Play asterisk sound unless user is backspacing
             If Not deletingn1 Then
                 My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Asterisk)
             End If
         End If
 
-        'update the buttons
+        ' Update the buttons
         btnn1Fewer.Enabled = n1 <> MIN_N
         btnn1More.Enabled = n1 <> MAX_N
         If txtPlaintext.Text <> "" Then
@@ -423,7 +420,7 @@ Public Class formStraddlingCheckerboard
         Dim inputIsInteger As Boolean
         Dim inputIsWithinRange As Boolean = False
 
-        'hacky way to check if textbox's value is an int
+        ' Hacky way to check if textbox's value is an int
         inputIsInteger = Integer.TryParse(txtn2.Text, firstTermAsInt)
 
         If inputIsInteger Then
@@ -435,21 +432,18 @@ Public Class formStraddlingCheckerboard
         n2IsValid = inputIsInteger And inputIsWithinRange
 
         If n2IsValid Then
-            'txtn2.drawBorder(Color.Black)
             n2 = firstTermAsInt
-
 
             txtn2.Text = n2
             txtn2.SelectionStart = txtn2.Text.Length + 1
         Else
-            'txtn2.drawBorder(Color.Red)
-            'play asterisk sound unless user is backspacing
+            ' Play asterisk sound unless user is backspacing
             If Not deletingn2 Then
                 My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Asterisk)
             End If
         End If
 
-        'update the buttons
+        ' Update the buttons
         btnn2fewer.Enabled = n2 <> MIN_N
         btnn2More.Enabled = n2 <> MAX_N
         If txtPlaintext.Text <> "" Then
@@ -465,6 +459,7 @@ Public Class formStraddlingCheckerboard
         deletingn2 = e.KeyChar = ChrW(Keys.Back)
     End Sub
 
+    ' Draw borders around Textboxes, including error borders.
     Private Sub pnlDemo_Paint(sender As Object, e As PaintEventArgs) Handles pnlDemo.Paint
         txtPlaintext.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
         txtCiphertext.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
@@ -491,6 +486,8 @@ Public Class formStraddlingCheckerboard
         End If
     End Sub
 
+    ' Multiline textboxes in VB don't allow Ctrl-A to work (no one knows why, really...), so you have to 
+    ' implement your own Ctrl-A behaviour. This is killing clarity, so just ignore that it exists.
     Private Sub txtPlaintext_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPlaintext.KeyDown
         If e.Control And e.KeyCode = Keys.A Then
             txtPlaintext.SelectAll()

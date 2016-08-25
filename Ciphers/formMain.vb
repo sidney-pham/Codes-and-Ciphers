@@ -30,7 +30,6 @@ Public Class formMain
         btnCaesar.Show()
         btnStraddlingCheckerboard.Show()
 
-
         ' lblCodesAndCiphers
         lblCodesAndCiphers.Left = (Me.Width - lblCodesAndCiphers.Width - btnCaesar.Width) / 3
         lblCodesAndCiphers.verticallyCentre()

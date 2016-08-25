@@ -5,7 +5,7 @@ Public Module modHelpers
     Public Const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     Public Const LENGTH_OF_ALPHABET = 26
 
-    'hacky method to replace a char in a string
+    ' Hacky method to replace a char in a string
     <Extension()>
     Function replacedAtIndex(someString As String, index As Integer, newLetter As Char) As String
         Return someString.Remove(index, 1).Insert(index, newLetter)
@@ -26,7 +26,6 @@ Public Module modHelpers
         Return message
     End Function
 
-    ' Assumes key is valid.
     Function encodeVigenere(message As String, key As String) As String
         message = message.ToUpper()
         key = Regex.Replace(key.ToUpper(), "[^a-zA-Z]", "")
@@ -47,6 +46,7 @@ Public Module modHelpers
         Return message
     End Function
 
+    ' Used for unit testing, because this is guaranteed to be correct.
     Public Function ramsEncodeStraddling(inp As String, keyStr As String, n1 As Integer, n2 As Integer) As String
         Debug.Assert(0 <= n1 < 10 And 0 <= n2 < 10)
 
@@ -132,8 +132,6 @@ Public Module modHelpers
             End If
         Next
 
-        'Debug.Print(String.Join(",", key))
-
         Dim table As New Hashtable
         For i = 0 To key.Count - 1
             If i < n1 Then
@@ -165,9 +163,8 @@ Public Module modHelpers
 
     ' HELPER FUNCTIONS:
     Function shiftLetter(letter As Char, rot As Integer) As Char
-        'rot = rot Mod LENGTH_OF_ALPHABET
-        ' WHY DO ALL LANGUAGES HAVE THE WEIRDEST BEHAVIOUR FOR NEGATIVE NUMBERS WITH MOD
-        ' this formula is taken from http://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain because i'm too dumb to think.
+        ' New modulo operator functionality, to properly handle negative numbers.
+        ' This formula is taken from http://stackoverflow.com/questions/1082917/mod-of-negative-number-is-melting-my-brain because i'm too dumb to think.
         rot = (rot Mod LENGTH_OF_ALPHABET + LENGTH_OF_ALPHABET) Mod LENGTH_OF_ALPHABET
 
         Dim newLetter As Char = ALPHABET((ALPHABET.IndexOf(letter) + rot) Mod LENGTH_OF_ALPHABET)
@@ -241,22 +238,18 @@ Public Module modHelpers
     End Sub
 
     ' BORDER DRAWING
-
     <Extension()>
     Sub drawBorder(control As Control, color As Color)
         Dim g As Graphics = control.FindForm().CreateGraphics()
         Dim pen As New Pen(color, 4)
 
-        'make sure control argument is a textbox
-        'If TypeOf (control) Is TextBox Then
         g.DrawRectangle(pen, New Rectangle(control.Location, control.Size))
-        'End If
 
         pen.Dispose()
         g.Dispose()
     End Sub
 
-    ' This is used inside the onPaint event. Not really reusable idk why.
+    ' This is used inside the onPaint event. Doesn't work elsewhere for some reason.
     <Extension()>
     Sub drawBottomBorder(control As Control, g As Graphics, color As Color)
         Dim pen As New Pen(color, 4)
@@ -265,7 +258,7 @@ Public Module modHelpers
         pen.Dispose()
     End Sub
 
-    ' Better border drawing
+    ' Better border drawing that works in Panels.
     <Extension()>
     Sub drawBorderInPanel(control As Control, g As Graphics, color As Color)
         Dim pen As New Pen(color, 4)
@@ -278,16 +271,15 @@ Public Module modHelpers
     ' CHANGING A CHARACTER IN A STRNIG
     Function changeCharacter(s As String, replaceWith As Char, index As Integer) As String
         Dim sb As New System.Text.StringBuilder(s)
-
-        'replace character
         sb(index) = replaceWith
         Return sb.ToString()
     End Function
 
 
-    ' DISCLAIMER: IF YOU DO NOT WANT ACTUAL STDs, DON'T READ THIS. I barely understand what it does.
-    ' Printing a pictureBox (uses 2, one hidden, one not)
-    ' screw intrinsic documentation, pic1 is the visible, pic2 is the one to be printed.
+    ' DISCLAIMER: FOR YOUR OWN SAKE, DON'T READ THIS. I barely understand what it does.
+    ' Converts a PictureBox into a printing-friendly PictureBox that is then used to print.
+    ' Hacky solution, but we can't just print a PDF file because Microsoft developers are special.
+    ' Screw intrinsic documentation, pic1 is the visible, pic2 is the one to be printed.
     ' MOSTLY FROM: http://www.codeproject.com/Tips/763183/Printing-Images-Quickly-and-Efficiently-to-an-A-Pa
     Sub printPictureBox(pic1 As PictureBox, pic2 As PictureBox)
         Try

@@ -1,7 +1,7 @@
-﻿Imports System.Text.RegularExpressions
+﻿Imports System.Text.RegularExpressions ' Used to filter out non-alpha characters in strings.
 
 Public Class formVigenere
-    ' SHOULD REALLY BE A CONSTANT, BUT VB SAYS THIS ISN'T A "CONSTANT VALUE"
+    ' SHOULD REALLY BE A CONSTANT, BUT VB SAYS THIS ISN'T A "CONSTANT VALUE", SO IT'S A VARIABLE. 
     Private TEXTBOX_FOCUS_BORDER_COLOR As Color = Color.CornflowerBlue
     Private TEXTBOX_UNFOCUS_BORDER_COLOR As Color = Color.WhiteSmoke
     Private TEXTBOX_ERROR_BORDER_COLOR As Color = Color.Red
@@ -137,6 +137,8 @@ Public Class formVigenere
 
         ' ------------------------------------------------------------------------
         ' pnlDemo
+        ' PLEASE APPRECIATE HOW LONG IT TOOK TO CALCULATE HOW EVERY SINGLE ELEMENT
+        ' SHOULD BE POSITIONED.
         ' ------------------------------------------------------------------------
         pnlDemo.Width = Me.Width * 0.9
         pnlDemo.Height = btnBack.Top - btnDemo.Top - btnDemo.Height - MENU_CONTENT_MARGIN
@@ -155,27 +157,35 @@ Public Class formVigenere
         lblKeyLarge.placeBelow(txtKey, 20)
         lblKeyLarge.Text = generateKeyLabel(txtKey.Text)
 
+        ' lblPlaintextAddition
         lblPlaintextAddition.Left = pnlDemo.Width / 2 - (lblPlaintextAddition.Width + lblPlaintextAdditionSubscript.Width - 2 + 10 + lblPlusAddition.Width + 10 + lblKeyAddition.Width + lblKeyAdditionSubscript.Width - 2 + 10 + lblEqualsAddition.Width + 10 + lblResultAddition.Width + lblResultAdditionSubscript.Width - 2) / 2
         lblPlaintextAddition.placeBelow(lblKeyLarge, 15)
 
+        ' lblPlaintextAdditionSubscript
         lblPlaintextAdditionSubscript.placeRight(lblPlaintextAddition, -2)
         lblPlaintextAdditionSubscript.placeBelow(lblPlaintextAddition, -2)
 
+        ' lblPlusAddition
         lblPlusAddition.placeRight(lblPlaintextAddition, 10)
         lblPlusAddition.Top = lblPlaintextAddition.Top + lblPlaintextAddition.Height / 2 - lblPlusAddition.Height / 2
 
+        ' lblKeyAddition
         lblKeyAddition.placeRight(lblPlusAddition, 10)
         lblKeyAddition.Top = lblPlaintextAddition.Top
 
+        ' lblKeyAdditionSubscript
         lblKeyAdditionSubscript.placeRight(lblKeyAddition, -2)
         lblKeyAdditionSubscript.placeBelow(lblKeyAddition, -2)
 
+        ' lblEqualsAddition
         lblEqualsAddition.placeRight(lblKeyAddition, 10)
         lblEqualsAddition.Top = lblPlaintextAddition.Top + lblPlaintextAddition.Height / 2 - lblEqualsAddition.Height / 2
 
+        ' lblResultAddition
         lblResultAddition.placeRight(lblEqualsAddition, 10)
         lblResultAddition.Top = lblPlaintextAddition.Top
 
+        ' lblResultAdditionSubscript
         lblResultAdditionSubscript.placeRight(lblResultAddition, -2)
         lblResultAdditionSubscript.placeBelow(lblResultAddition, -2)
 
@@ -184,10 +194,9 @@ Public Class formVigenere
         ' txtPlaintext
         txtPlaintext.Width = pnlDemo.Width * TEXTBOX_WIDTH
         txtPlaintext.Height = pnlDemo.Height * TEXTBOX_HEIGHT
-        'txtPlaintext.Left = pnlDemo.Width / 2 - DEMO_TEXTBOX_MARGIN / 2 - txtPlaintext.Width
-        'txtPlaintext.Top = pnlDemo.Height / 2 - txtPlaintext.Height / 2
+
         txtPlaintext.Left = pnlDemo.Width / 2 - txtPlaintext.Width / 2
-        txtPlaintext.placeBelow(lblPlaintextAdditionSubscript, 50) 'pnlDemo.Height / 2 - txtPlaintext.Height - DEMO_TEXTBOX_MARGIN / 2 + 60
+        txtPlaintext.placeBelow(lblPlaintextAdditionSubscript, 50)
 
         ' txtCiphertext
         txtCiphertext.Width = pnlDemo.Width * TEXTBOX_WIDTH
@@ -238,14 +247,15 @@ Public Class formVigenere
         pnlDecryption2.horizontallyCentre()
         pnlDecryption2.placeBelow(btnAbout, MENU_CONTENT_MARGIN)
 
+        ' lblVideo
         lblVideo.Left = pnlDecryption2.Width / 2 - lblVideo.Width / 2
         lblVideo.Top = 20
 
+        ' AxWindowsMediaPlayer1
         AxWindowsMediaPlayer1.Height = 0.8 * pnlDecryption2.Height
         AxWindowsMediaPlayer1.Width = 1.6 * AxWindowsMediaPlayer1.Height
         AxWindowsMediaPlayer1.Left = pnlDecryption2.Width / 2 - AxWindowsMediaPlayer1.Width / 2
         AxWindowsMediaPlayer1.placeBelow(lblVideo, 20)
-
 
         ' ------------------------------------------------------------------------
         ' pnlPrintout
@@ -281,7 +291,6 @@ Public Class formVigenere
         btnAbout.PerformClick()
 
         formMain.Show()
-        'Threading.Thread.Sleep(150)
         Me.Close()
     End Sub
 
@@ -377,6 +386,7 @@ Public Class formVigenere
         btnPreviousPageDecryption.Show()
     End Sub
 
+    ' Draw borders (including error borders)
     Private Sub pnlDemo_Paint(sender As Object, e As PaintEventArgs) Handles pnlDemo.Paint
         txtPlaintext.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
         txtCiphertext.drawBorderInPanel(e.Graphics, TEXTBOX_UNFOCUS_BORDER_COLOR)
@@ -402,7 +412,11 @@ Public Class formVigenere
         pnlDemo.Refresh()
     End Sub
 
+    ' Create a string that just pads out some text with spaces.
+    ' In Python:
+    ' " ".join(key)
     Private Function generateKeyLabel(key As String) As String
+        ' Once again, clarity has been ruined.
         Return String.Join(" ", key.Select(Function(c) c.ToString()).ToArray())
     End Function
 
@@ -414,7 +428,7 @@ Public Class formVigenere
         If txtPlaintext.Text <> "" Then
             If Regex.Replace(txtKey.Text, "[^a-zA-Z]", "") <> "" Then
                 errorTextboxExists = False
-                pnlDemo.Refresh() ' NOT GOOD AT ALL. PANEL IS REDRAWN EVERY TIME USER ENTERS STUFF INTO txtKey.
+                pnlDemo.Refresh() ' PANEL IS REDRAWN EVERY TIME USER ENTERS STUFF INTO txtKey.
                 txtCiphertext.Text = encodeVigenere(txtPlaintext.Text, key)
                 updateAddition(txtPlaintext.Text, key)
             Else
@@ -427,7 +441,7 @@ Public Class formVigenere
             End If
         Else
             errorTextboxExists = False
-            pnlDemo.Refresh() ' NOT GOOD AT ALL. PANEL IS REDRAWN EVERY TIME USER ENTERS STUFF INTO txtKey.
+            pnlDemo.Refresh() ' PANEL IS REDRAWN EVERY TIME USER ENTERS STUFF INTO txtKey.
             updateAddition("A", "A")
         End If
     End Sub
@@ -444,7 +458,6 @@ Public Class formVigenere
     Private Sub txtPlaintext_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPlaintext.KeyDown
         If Regex.Replace(txtKey.Text, "[^a-zA-Z]", "") = "" Then
             e.SuppressKeyPress = True
-            'drawBorderInPanel()
             txtKey.Focus()
             My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Asterisk)
         End If
@@ -455,6 +468,7 @@ Public Class formVigenere
         End If
     End Sub
 
+    ' Update the text inside the fancy character addition thing.
     Private Sub updateAddition(plaintext As String, key As String)
         Dim lastLetter = UCase(plaintext.Last())
         Dim currentKeyIndex = (Regex.Replace(plaintext, "[^a-zA-Z]", "").Length - 1) Mod key.Length
@@ -477,6 +491,7 @@ Public Class formVigenere
         lblKeyLarge.Left = pnlDemo.Width / 2 - lblKeyLarge.Width / 2
     End Sub
 
+    ' Printing the print-outs.
     Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
         If PrintDialog1.ShowDialog() = DialogResult.OK Then
             PrintDocument1.Print()

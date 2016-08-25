@@ -13,6 +13,7 @@ Public Class formVigenere
     Private key As String
 
     Private Sub formVigenere_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        AxWindowsMediaPlayer1.CreateControl()
         currentTextbox = txtKey
         positionElements()
     End Sub
@@ -25,6 +26,7 @@ Public Class formVigenere
         Const TEXTBOX_HEIGHT = 0.2
 
         ' Putting this here so it runs early on so blinking is mitigated.
+        pnlAbout1.Show()
         pnlAbout2.Hide()
         pnlDemo.Hide()
         pnlDecryption1.Hide()
@@ -279,7 +281,7 @@ Public Class formVigenere
         btnAbout.PerformClick()
 
         formMain.Show()
-        Threading.Thread.Sleep(150)
+        'Threading.Thread.Sleep(150)
         Me.Close()
     End Sub
 
@@ -484,5 +486,13 @@ Public Class formVigenere
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
         printPictureBox(picVigenerePrintout, picHidden)
         e.Graphics.DrawImage(picHidden.Image, 0, 0)
+    End Sub
+
+    Private Sub pnlDecryption2_VisibleChanged(sender As Object, e As EventArgs) Handles pnlDecryption2.VisibleChanged
+        If pnlDecryption2.Visible = False Then
+            AxWindowsMediaPlayer1.Ctlcontrols.stop()
+
+
+        End If
     End Sub
 End Class

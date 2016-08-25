@@ -524,7 +524,7 @@ Partial Class formVigenere
         Me.btnPrint.Size = New System.Drawing.Size(171, 58)
         Me.btnPrint.TabIndex = 27
         Me.btnPrint.TabStop = False
-        Me.btnPrint.Text = "PRINT 🖶"
+        Me.btnPrint.Text = "PRINT"
         Me.btnPrint.UseVisualStyleBackColor = False
         '
         'pnlAbout2
@@ -685,7 +685,6 @@ Partial Class formVigenere
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1106, 656)
-        Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.btnNextPageDecryption)
         Me.Controls.Add(Me.btnPreviousPageDecryption)
         Me.Controls.Add(Me.btnNextPageAbout)
@@ -701,6 +700,7 @@ Partial Class formVigenere
         Me.Controls.Add(Me.pnlAbout2)
         Me.Controls.Add(Me.pnlDecryption1)
         Me.Controls.Add(Me.pnlAbout1)
+        Me.Controls.Add(Me.pnlDemo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formVigenere"
         Me.Text = "formVigenere"

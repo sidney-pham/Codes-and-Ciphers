@@ -395,7 +395,7 @@ Partial Class formStraddlingCheckerboard
         Me.btnPrint.Size = New System.Drawing.Size(171, 58)
         Me.btnPrint.TabIndex = 27
         Me.btnPrint.TabStop = False
-        Me.btnPrint.Text = "PRINT 🖶"
+        Me.btnPrint.Text = "PRINT"
         Me.btnPrint.UseVisualStyleBackColor = False
         '
         'pnlDecryption
@@ -601,7 +601,6 @@ Partial Class formStraddlingCheckerboard
         Me.ClientSize = New System.Drawing.Size(1090, 617)
         Me.Controls.Add(Me.btnNextPageAbout)
         Me.Controls.Add(Me.btnPreviousPageAbout)
-        Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.pnlDecryption)
         Me.Controls.Add(Me.btnPrintout)
         Me.Controls.Add(Me.btnDemo)
@@ -611,6 +610,7 @@ Partial Class formStraddlingCheckerboard
         Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.pnlAbout2)
         Me.Controls.Add(Me.pnlAbout1)
+        Me.Controls.Add(Me.pnlDemo)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formStraddlingCheckerboard"
         Me.Text = "formStraddlingCheckerboard"

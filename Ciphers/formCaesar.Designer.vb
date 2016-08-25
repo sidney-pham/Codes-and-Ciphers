@@ -406,11 +406,11 @@ Partial Class formCaesar
         '
         'pnlPrintout
         '
-        Me.pnlPrintout.Controls.Add(Me.lblPrintoutExplanation)
         Me.pnlPrintout.Controls.Add(Me.picHidden)
         Me.pnlPrintout.Controls.Add(Me.picCaesarPrintout)
         Me.pnlPrintout.Controls.Add(Me.btnPrint)
-        Me.pnlPrintout.Location = New System.Drawing.Point(573, 605)
+        Me.pnlPrintout.Controls.Add(Me.lblPrintoutExplanation)
+        Me.pnlPrintout.Location = New System.Drawing.Point(616, 645)
         Me.pnlPrintout.Name = "pnlPrintout"
         Me.pnlPrintout.Size = New System.Drawing.Size(745, 436)
         Me.pnlPrintout.TabIndex = 17
@@ -457,7 +457,7 @@ Partial Class formCaesar
         Me.btnPrint.Size = New System.Drawing.Size(171, 58)
         Me.btnPrint.TabIndex = 27
         Me.btnPrint.TabStop = False
-        Me.btnPrint.Text = "PRINT 🖶"
+        Me.btnPrint.Text = "PRINT"
         Me.btnPrint.UseVisualStyleBackColor = False
         '
         'PrintDocument1
@@ -474,8 +474,6 @@ Partial Class formCaesar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.SlateGray
         Me.ClientSize = New System.Drawing.Size(1284, 875)
-        Me.Controls.Add(Me.pnlDemo)
-        Me.Controls.Add(Me.pnlAbout)
         Me.Controls.Add(Me.pnlPrintout)
         Me.Controls.Add(Me.btnPrintout)
         Me.Controls.Add(Me.btnCracking)
@@ -483,6 +481,8 @@ Partial Class formCaesar
         Me.Controls.Add(Me.btnAbout)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblCaesarCipher)
+        Me.Controls.Add(Me.pnlAbout)
+        Me.Controls.Add(Me.pnlDemo)
         Me.Controls.Add(Me.pnlDecryption)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "formCaesar"

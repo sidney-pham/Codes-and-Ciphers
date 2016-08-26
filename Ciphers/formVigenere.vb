@@ -516,7 +516,7 @@ Public Class formVigenere
         ' This was supposed to reset the WMP control whenever the user left the panel, but VB.net decides
         ' that it's a good idea to break WMP functionality when you use .Ctlcontrols, so, blame VB.net.
         If pnlDecryption2.Visible = False Then
-            'AxWindowsMediaPlayer1.Ctlcontrols.stop()
+            AxWindowsMediaPlayer1.Ctlcontrols.stop()
         Else
             AxWindowsMediaPlayer1.URL = VIDEO_PATH
             'AxWindowsMediaPlayer1.Ctlcontrols.play()

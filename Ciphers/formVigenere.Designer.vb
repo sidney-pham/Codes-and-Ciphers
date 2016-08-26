@@ -69,10 +69,10 @@ Partial Class formVigenere
         Me.btnPreviousPageDecryption = New System.Windows.Forms.Button()
         Me.btnNextPageDecryption = New System.Windows.Forms.Button()
         Me.pnlDecryption2 = New System.Windows.Forms.Panel()
+        Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
         Me.lblVideo = New System.Windows.Forms.Label()
         Me.PrintDialog1 = New System.Windows.Forms.PrintDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
-        Me.AxWindowsMediaPlayer1 = New AxWMPLib.AxWindowsMediaPlayer()
         Me.pnlDemo.SuspendLayout()
         Me.pnlDecryption1.SuspendLayout()
         Me.pnlAbout1.SuspendLayout()
@@ -650,6 +650,16 @@ Partial Class formVigenere
         Me.pnlDecryption2.Name = "pnlDecryption2"
         Me.pnlDecryption2.Size = New System.Drawing.Size(745, 436)
         Me.pnlDecryption2.TabIndex = 29
+        Me.pnlDecryption2.Visible = False
+        '
+        'AxWindowsMediaPlayer1
+        '
+        Me.AxWindowsMediaPlayer1.Enabled = True
+        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(52, 92)
+        Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
+        Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(417, 324)
+        Me.AxWindowsMediaPlayer1.TabIndex = 21
         '
         'lblVideo
         '
@@ -669,15 +679,6 @@ Partial Class formVigenere
         '
         'PrintDocument1
         '
-        '
-        'AxWindowsMediaPlayer1
-        '
-        Me.AxWindowsMediaPlayer1.Enabled = True
-        Me.AxWindowsMediaPlayer1.Location = New System.Drawing.Point(52, 92)
-        Me.AxWindowsMediaPlayer1.Name = "AxWindowsMediaPlayer1"
-        Me.AxWindowsMediaPlayer1.OcxState = CType(resources.GetObject("AxWindowsMediaPlayer1.OcxState"), System.Windows.Forms.AxHost.State)
-        Me.AxWindowsMediaPlayer1.Size = New System.Drawing.Size(417, 324)
-        Me.AxWindowsMediaPlayer1.TabIndex = 21
         '
         'formVigenere
         '

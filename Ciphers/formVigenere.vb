@@ -1,6 +1,10 @@
 ﻿Imports System.Text.RegularExpressions ' Used to filter out non-alpha characters in strings.
 
 Public Class formVigenere
+    ' Hardcoding the path to the Kasiski Method video.
+    ' If the video doesn't load, fix this.
+    Private VIDEO_PATH As String = IO.Path.GetFullPath("..\\..\\Resources\Kasiski Method.mp4")
+
     ' SHOULD REALLY BE A CONSTANT, BUT VB SAYS THIS ISN'T A "CONSTANT VALUE", SO IT'S A VARIABLE. 
     Private TEXTBOX_FOCUS_BORDER_COLOR As Color = Color.CornflowerBlue
     Private TEXTBOX_UNFOCUS_BORDER_COLOR As Color = Color.WhiteSmoke
@@ -514,6 +518,7 @@ Public Class formVigenere
         If pnlDecryption2.Visible = False Then
             'AxWindowsMediaPlayer1.Ctlcontrols.stop()
         Else
+            AxWindowsMediaPlayer1.URL = VIDEO_PATH
             'AxWindowsMediaPlayer1.Ctlcontrols.play()
         End If
     End Sub
